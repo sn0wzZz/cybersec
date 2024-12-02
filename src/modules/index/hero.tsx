@@ -7,7 +7,7 @@ import Container from '@/components/container'
 
 export default function Hero() {
   return (
-    <Container outer='bg-hero-gradient py-[175px] ' className='relative flex flex-col lg:flex-row py-[150px]  gap-10 lg:gap-16'>
+    <Container outer='bg-section-gradient py-[175px] ' className='relative flex flex-col lg:flex-row md:py-[150px]  gap-16'>
         <div className='absolute inset-0 flex flex-col items-end'>
           <Image src={wave} alt='wave' className='bottom-0 ' />
           <Image src={circle} alt='circle' className='right-0' />
@@ -25,8 +25,8 @@ export default function Hero() {
           </Button>
         </div>
         <div className=' flex flex-col gap-8 items-start z-10  max-w-[647px] shadow-[18px_20px_0px_0px_60px_hsla(235,28%,80%,0.2)] rounded-[32px]'>
-          <div className='w-[519px] p-6 bg-background flex flex-col gap-4 rounded-[32px] relative'>
-            <div className='absolute bg-background shadow-[0px_44px_64px_24px_hsla(235,28%,80%,0.2)] flex p-6 rounded-3xl gap-1.5 -top-14 -right-6'>
+          <div className='max-w-[519px] w-full p-6 bg-background flex flex-col gap-4 rounded-[32px] relative'>
+            <div className='absolute bg-background shadow-[0px_44px_64px_24px_hsla(235,28%,80%,0.2)] flex p-6 rounded-3xl gap-1.5 md:-top-14 md:-right-6   top-[230px]'>
               {Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}
@@ -38,8 +38,8 @@ export default function Hero() {
             </div>
 
             <span className='display-xxs text-accent'>Performance</span>
-            <div className='flex gap-[75px]'>
-              <div className='w-[216px] bg-muted p-5 rounded-3xl flex flex-col gap-3'>
+            <div className='flex gap-[105px] lg:gap-[75px] flex-col lg:flex-row'>
+              <div className='max-w-[216px] w-full bg-muted p-5 rounded-3xl flex flex-col gap-3'>
                 <p className='title-medium text-muted-foreground'>
                   Total Stop attacks
                 </p>

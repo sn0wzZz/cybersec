@@ -16,8 +16,8 @@ body {
     --popover-foreground: 0 0% 3.9%;
     --primary: 256 81% 16%; /*hsla(256, 81%, 16%, 1) */
     --primary-gradient: 258 64% 39%; /* hsla(258, 64%, 39%, 1)*/
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
+    --primary-foreground: 0 0% 98%; 
+    --secondary: 72 94% 65%;  /* hsla(72, 94%, 65%, 1)*/
     --secondary-foreground: 0 0% 9%;
     --muted: 236 100% 97%; /* hsla(236, 100%, 97%, 1)*/
     --muted-foreground: 240 17% 45%; /* hsla(240, 17%, 45%, 1)*/
@@ -25,7 +25,7 @@ body {
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
+    --border: 240 40% 86%;
     --input: 240 40% 86%; /* hsla(240, 40%, 86%, 1)*/
     --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;
@@ -98,4 +98,25 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  /* width */
+::-webkit-scrollbar {
+  height: 4px;
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: hsla(240, 40%, 86%, 1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsla(257, 69%, 60%, 1);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(137, 92, 252);
+}
 }

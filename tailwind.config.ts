@@ -20,7 +20,7 @@ export default {
         'pos-100': '100% 100%',
       },
       backgroundImage: {
-        'hero-gradient':
+        'section-gradient':
           'linear-gradient(to bottom, hsla(235, 100%, 98%, 1), hsla(0, 0%, 100%, 1))',
         'perk-gradient':
           'linear-gradient(to bottom, hsla(256, 81%, 16%, 1), hsla(258, 64%, 39%, 1)',
@@ -100,10 +100,21 @@ export default {
             height: '0',
           },
         },
+        'appear' : {
+          from :{
+            opacity: '0.5',
+            scale: '.75'
+          },
+          to: {
+            opacit:'1',
+            scale: '1'
+          }
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'appear': 'appear 0.2s ease-in'
       },
     },
     container: {
@@ -148,8 +159,9 @@ export default {
         },
         '.display-medium': {
           fontSize: '40px',
-          fontWeight: '900',
-          lineHeight: '52px',
+          fontWeight: '500',
+          lineHeight: '40px',
+          letterSpacing: '-2%',
         },
         '.display-small': {
           fontSize: '32px',
@@ -189,8 +201,8 @@ export default {
         },
         '.title-medium': {
           fontSize: '16px',
-          fontWeight: '500',
-          lineHeight: '16px',
+          fontWeight: '400',
+          lineHeight: '19px',
         },
         '.title-small': {
           fontSize: '14px',
@@ -219,7 +231,7 @@ export default {
           fontSize: '18px',
           fontWeight: '400',
           lineHeight: '21px',
-          letterSpacing: '0.42&',
+          letterSpacing: '0.42%',
         },
         '.body-medium': {
           fontSize: '16px',
@@ -228,10 +240,9 @@ export default {
           letterSpacing: '0.25px',
         },
         '.body-small': {
-          fontSize: '12px',
+          fontSize: '14px',
           fontWeight: '400',
-          lineHeight: '16px',
-          letterSpacing: '0.2px',
+          lineHeight: '22.4px',
         },
       }) // Това може би не ти трябва на този етап, но да го имаш.
       matchUtilities(
