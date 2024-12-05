@@ -112,7 +112,9 @@ export default function Services() {
   const [isExpanded, setIsExpaned] = useState(false)
   return (
     <Container className='my-32'>
-      <h3 className='display-xl text-primary'>Cyber Security Services</h3>
+      <h3 className='display-large md:display-xl text-primary'>
+        Cyber Security Services
+      </h3>
       <div>
         {services
           .slice(0, isExpanded ? services.length : 3)
@@ -120,13 +122,13 @@ export default function Services() {
             <div
               key={i}
               className={cn(
-                `flex flex-col animate-appear gap-8 mt-16 px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] py-16 rounded-[50px] ${
+                `flex flex-col animate-appear gap-8 mt-16 px-4 md:px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] md:py-16 rounded-[50px] ${
                   i % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'
                 }`
               )}
             >
               <div className='flex flex-col gap-4 justify-center max-w-[563px]'>
-                <h4 className='display-large text-primary mb-8'>
+                <h4 className='md:display-large display-medium text-primary mb-8'>
                   {service.title}
                 </h4>
                 {service.content}

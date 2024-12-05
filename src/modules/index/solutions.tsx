@@ -10,8 +10,8 @@ import ShuffleIcon from '@/components/icons/shuffle'
 export default function Solutions() {
   return (
     <Container className='mt-16'>
-      <div className='bg-section-gradient py-[175px] relative rounded-[60px] overflow-hidden'>
-        <h3 className='display-xl text-primary text-center '>
+      <div className='bg-section-gradient py-[100px] md:py-[175px] relative rounded-[60px] overflow-hidden'>
+        <h3 className='display-large md:display-xl text-primary text-center '>
           Security and <br /> protection solutions
         </h3>
         <h4 className='title-medium text-[hsl(240_17%_45%)] text-center mt-[100px] '>
@@ -92,14 +92,18 @@ export default function Solutions() {
             <Image
               src={integration}
               alt='integration pins'
-              className='absolute top-[5%] left-[28%] '
+              className='absolute top-[10%] left-[26%] max-h-[500px] '
             />
           </div>
         </div>
       </div>
 
-      <div className='bg-gradient-to-b from-primary to-primary-gradient p-16 rounded-[60px] flex flex-col items-center justify-center gap-10 relative '>
-        <Image src={wave} alt='wave' className='absolute  top-10 right-0 max-w-[807px] rotate-[6] ' />
+      <div className='bg-gradient-to-b from-primary to-primary-gradient p-8 md:p-16 rounded-[60px] flex flex-col items-center justify-center gap-10 relative '>
+        <Image
+          src={wave}
+          alt='wave'
+          className='absolute  top-10 right-0 max-w-[807px] rotate-[6] '
+        />
 
         <div className='w-full border-b border-white/20 '>
           <h3 className='display-medium text-white mb-[56px]'>

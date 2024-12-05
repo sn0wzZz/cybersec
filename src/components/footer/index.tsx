@@ -113,11 +113,11 @@ export default function Footer() {
         </div>
       </div>
       <hr />
-      <div className='flex flex-col gap-4 justify-between mt-[48px]'>
+      <div className='flex flex-col md:flex-row gap-4 justify-between mt-[48px] text-muted-foreground px-4'>
         <div>
           <span>&copy; 2024 - Cybersec</span>
         </div>
-        <ul className='flex gap-8 text-muted-foreground px-4'>
+        <ul className='flex gap-8 '>
           <li className='list-disc hover:underline'>
             <Link href={'/'}>Legal Notice</Link>
           </li>

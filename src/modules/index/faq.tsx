@@ -28,10 +28,10 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   return (
-    <Container className='bg-section-gradient py-[64px] px-[75px]  radius-[42px] mt-16'>
+    <Container className='bg-section-gradient py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16'>
       <div className=''>
         <div className='flex flex-col lg:flex-row gap-10'>
-          <h3 className='display-xl text-primary'>Frequently Asked Question</h3>
+          <h3 className=' display-large mg:display-xl text-primary'>Frequently Asked Question</h3>
           <div className='flex flex-col justify-between gap-4'>
             <p>
               Our team can assist you with the monitoring and maintenance of
@@ -54,7 +54,7 @@ export default function FAQ() {
               }
             >
               <div className='flex w-full justify-between items-center'>
-                <h4 className='display-xs font-medium text-primary'>
+                <h4 className='display-xxs md:display-xs font-medium text-primary'>
                   {item.q}
                 </h4>
                 <button className=' flex justify-between items-center p-4 hover:bg-gradient-to-b from-primary to-primary-gradient border transition-all duration-100 bg-size-200 bg-pos-0 hover:bg-pos-100 ease-in hover:text-white rounded-full'>

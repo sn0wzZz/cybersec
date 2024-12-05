@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 
+
 const generalSans = localFont({
   src: './fonts/GeneralSans-Regular.woff',
   variable: '--font-general-sans',
@@ -31,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${generalSans.variable} ${inter.variable}  antialiased overflow-x-hidden`}
+        className={`${generalSans.variable} ${inter.variable}  antialiased overflow-x-hidden relative`}
       >
         <Navigation />
         <main>{children}</main>

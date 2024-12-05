@@ -13,7 +13,7 @@ export default function Hero() {
           <Image src={circle} alt='circle' className='right-0' />
         </div>
         <div className=' flex flex-col gap-8 items-start z-10  max-w-[647px]'>
-          <h1 className='display-xl text-accent'>
+          <h1 className='display-medium md:display-xl text-accent'>
             Our business is to protect yours
           </h1>
           <p className='mb-[42px] text-2xl body-medium text-muted-foreground'>

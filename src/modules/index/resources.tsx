@@ -33,18 +33,21 @@ const resources = [
 export default function Resources() {
   return (
     <Container>
-      <h4 className='display-xl text-primary'>Resources</h4>
+      <h4 className='display-large mg:display-xl text-primary'>Resources</h4>
       <div className='overflow-x-scroll'>
         <div className='flex gap-6 w-max mb-16 '>
           {resources.map((resource, i) => (
-            <div key={i} className='flex p-[18px] gap-[48px]'>
+            <div
+              key={i}
+              className='flex flex-col p-[18px] gap-[48px]  md:flex-row'
+            >
               <div>
                 <div className='w-[80px] h-[80px] flex-center rounded-full border mb-6'>
                   <span className='font-medium text-[20px] text-primary'>
                     0{i + 1}
                   </span>
                 </div>
-                <div className='max-w-[350px] h-[200px] flex justify-between flex-col'>
+                <div className=' max-w-[200px] md:max-w-[350px] md:h-[200px] gap-8 flex justify-between flex-col'>
                   <h4 className='display-small text-primary'>
                     {resource.title}
                   </h4>
@@ -66,7 +69,7 @@ export default function Resources() {
                     </div>
                   </div>
                 </div>
-                <div className='w-full flex justify-end gap-4 '>
+                <div className='w-full flex justify-end gap-4 mt-8 '>
                   <div className='flex items-center gap-2 text-primary'>
                     <div className='flex-center h-8 w-8 rounded-full bg-muted '>
                       <CalendarIcon className='h-4 w-4' />
@@ -83,7 +86,7 @@ export default function Resources() {
                   </div>
                 </div>
               </div>
-              <div className='relative h-[413px] rounded-[40px] aspect-square overflow-hidden'>
+              <div className='relative  h-auto  md:h-[413px] rounded-[40px] aspect-square overflow-hidden'>
                 <Image
                   src={resource.image}
                   alt={resource.title}

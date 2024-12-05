@@ -23,7 +23,7 @@ export default {
         'section-gradient':
           'linear-gradient(to bottom, hsla(235, 100%, 98%, 1), hsla(0, 0%, 100%, 1))',
         'perk-gradient':
-          'linear-gradient(to bottom, hsla(256, 81%, 16%, 1), hsla(258, 64%, 39%, 1)',
+          'linear-gradient(to bottom, hsla(256, 81%, 16%, 1), hsla(258, 64%, 39%, 1))',
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -123,7 +123,7 @@ export default {
         sm: '2rem',
         md: '3rem',
         lg: '4rem',
-        xl: '1rem',
+        xl: '3rem',
         '2xl': '4.8rem',
       },
       screens: {
@@ -150,6 +150,7 @@ export default {
           fontWeight: '500',
           lineHeight: '72px',
           letterSpacing: '-3%',
+          fontFamily: 'var(--font-general-sans)',
         },
         '.display-large': {
           fontSize: '50px',

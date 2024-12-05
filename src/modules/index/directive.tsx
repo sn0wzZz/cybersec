@@ -28,7 +28,7 @@ export default function Directive() {
     <Container as='section' className='flex flex-col gap-4'>
       <div className='flex flex-col lg:flex-row gap-6 justify-between'>
         <div className='flex flex-col gap-6 items-start'>
-          <h2 className='display-xl text-accent max-w-[707px]'>
+          <h2 className='display-large md:display-xl text-accent max-w-[707px]'>
             Everything about the NIS2 Directive
           </h2>
           <p className='body-large text-muted-foreground max-w-[550px]'>
