@@ -5,6 +5,7 @@ import operation3 from '../../../public/about/operation-3.png'
 import operation4 from '../../../public/about/operation-4.png'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
+import Bullet from '@/components/bullet'
 
 const operations = [operation1, operation2, operation3, operation4]
 
@@ -34,7 +35,7 @@ export default function OperationCenter() {
         </div>
       </div>
 
-      <div className=' self-center flex flex-col md:flex-row mt-[150px] gap-24  justify-center'>
+      <div className=' self-center flex flex-col xl:flex-row mt-[150px] gap-24  justify-center'>
         <div className='w-[310px] h-[303px] bg-muted rounded-[50px] p-6 flex flex-col justify-between items-start relative'>
           <div className='h-[84px] aspect-square bg-background flex-center rounded-full'>
             <Star className='text-primary fill-primary' />
@@ -44,11 +45,11 @@ export default function OperationCenter() {
             <h4 className=' display-large text-primary'>2023</h4>
           </div>
 
-          <div className='-right-3 top-[125px] rotate-45 absolute border-t border-[50px] border-r border-muted hidden md:block -z-10'></div>
-          <div className='-right-[108px] top-[150px] absolute h-[3px] w-[108px] bg-muted hidden md:block -z-10'></div>
+          <div className='-right-3 top-[125px] rotate-45 absolute border-t border-[50px] border-r border-muted hidden xl:block -z-10'></div>
+          <div className='-right-[108px] top-[150px] absolute h-[3px] w-[108px] bg-muted hidden xl:block -z-10'></div>
 
-          <div className='right-[125px] -bottom-3 rotate-45 absolute border-t border-[50px] border-r border-muted md:hidden block -z-10'></div>
-          <div className='right-[150px] -bottom-[108px] absolute w-[3px] h-[108px] bg-muted md:hidden block -z-10'></div>
+          <div className='right-[125px] -bottom-3 rotate-45 absolute border-t border-[50px] border-r border-muted xl:hidden block -z-10'></div>
+          <div className='right-[150px] -bottom-[108px] absolute w-[3px] h-[108px] bg-muted xl:hidden block -z-10'></div>
         </div>
         <div className='w-[310px] h-[303px] -rotate-[13deg] bg-secondary rounded-[50px] p-6 flex flex-col justify-between items-start relative'>
           <div className='h-[84px] aspect-square bg-background flex-center rounded-full'>
@@ -59,11 +60,11 @@ export default function OperationCenter() {
             <h4 className=' display-large text-primary'>1000+</h4>
           </div>
 
-          <div className='-right-3 top-[125px] rotate-45 absolute border-t border-[50px] border-r border-secondary hidden md:block -z-10'></div>
-          <div className='-right-[108px] top-[150px] absolute h-[3px] w-[108px] bg-secondary hidden md:block -z-10'></div>
+          <div className='-right-3 top-[125px] rotate-45 absolute border-t border-[50px] border-r border-secondary hidden xl:block -z-10'></div>
+          <div className='-right-[108px] top-[150px] absolute h-[3px] w-[108px] bg-secondary hidden xl:block -z-10'></div>
 
-          <div className='right-[125px] -bottom-3 rotate-45 absolute border-t border-[50px] border-r border-secondary -z-10 md:hidden block'></div>
-          <div className='right-[150px] -bottom-[108px] absolute w-[3px] h-[108px] bg-secondary -z-10 md:hidden block'></div>
+          <div className='right-[125px] -bottom-3 rotate-45 absolute border-t border-[50px] border-r border-secondary -z-10 xl:hidden block'></div>
+          <div className='right-[150px] -bottom-[108px] absolute w-[3px] h-[108px] bg-secondary -z-10 xl:hidden block'></div>
         </div>
         <div className='w-[310px] h-[303px] rotate-[4deg] bg-muted rounded-[50px] p-6 flex flex-col justify-between items-start relative'>
           <div className='h-[84px] aspect-square bg-background flex-center rounded-full'>
@@ -74,19 +75,17 @@ export default function OperationCenter() {
             <h4 className=' display-large text-primary'>99%</h4>
           </div>
 
-          {/* <div className='-right-3 top-[125px] rotate-45 absolute border-t border-[50px] border-r border-muted hidden md:block'></div>
-          <div className='-right-[108px] top-[150px] absolute h-[3px] w-[108px] bg-muted hidden md:block -z-10'></div>
+          {/* <div className='-right-3 top-[125px] rotate-45 absolute border-t border-[50px] border-r border-muted hidden xl:block'></div>
+          <div className='-right-[108px] top-[150px] absolute h-[3px] w-[108px] bg-muted hidden xl:block -z-10'></div>
 
-          <div className='right-[125px] -bottom-3 rotate-45 absolute border-t border-[50px] border-r border-muted md:hidden block'></div>
-          <div className='right-[150px] -bottom-[108px] absolute w-[3px] h-[108px] bg-muted md:hidden block -z-10'></div> */}
+          <div className='right-[125px] -bottom-3 rotate-45 absolute border-t border-[50px] border-r border-muted xl:hidden block'></div>
+          <div className='right-[150px] -bottom-[108px] absolute w-[3px] h-[108px] bg-muted xl:hidden block -z-10'></div> */}
         </div>
       </div>
 
       <div className='bg-section-gradient p-8 md:p-16 rounded-[50px] mt-16 flex flex-col gap-2'>
         <div className='flex items-center gap-2'>
-          <div className='h-[21px] w-[21px] rounded-full flex-center bg-[hsla(236,100%,97%,1)]'>
-            <span className='h-2 w-2 rounded-full bg-[hsla(257,69%,60%,1)]'></span>
-          </div>
+          <Bullet />
           <h4 className='display-small text-primary'>Our mission </h4>
         </div>
           <p className='body-large text-muted-foreground ml-8'>

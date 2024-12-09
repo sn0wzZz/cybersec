@@ -22,6 +22,10 @@ export default {
       backgroundImage: {
         'section-gradient':
           'linear-gradient(to bottom, hsla(235, 100%, 98%, 1), hsla(0, 0%, 100%, 1))',
+        'section-gradient-2':
+          'linear-gradient(to bottom right, hsla(235, 100%, 98%, 1), hsla(0, 0%, 100%, 1))',
+        'quote-gradient':
+          'linear-gradient(to bottom right, hsla(0, 0%, 100%, 1), hsla(72, 94%, 65%, 0.5))',
         'perk-gradient':
           'linear-gradient(to bottom, hsla(256, 81%, 16%, 1), hsla(258, 64%, 39%, 1))',
       },
@@ -48,6 +52,7 @@ export default {
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
+          'foreground-gray': 'hsl(var(--muted-foreground-gray))',
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
@@ -100,21 +105,21 @@ export default {
             height: '0',
           },
         },
-        'appear' : {
-          from :{
+        appear: {
+          from: {
             opacity: '0.5',
-            scale: '.75'
+            scale: '.75',
           },
           to: {
-            opacit:'1',
-            scale: '1'
-          }
-        }
+            opacit: '1',
+            scale: '1',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'appear': 'appear 0.2s ease-in'
+        appear: 'appear 0.2s ease-in',
       },
     },
     container: {
@@ -202,8 +207,8 @@ export default {
         },
         '.title-medium': {
           fontSize: '16px',
-          fontWeight: '400',
-          lineHeight: '19px',
+          fontWeight: '500',
+          lineHeight: '16px',
         },
         '.title-small': {
           fontSize: '14px',

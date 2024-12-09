@@ -122,7 +122,7 @@ export default function Footer() {
             <Link href={'/'}>Legal Notice</Link>
           </li>
           <li className='list-disc hover:underline'>
-            <Link href={'/'}>Terms Corporate</Link>
+            <Link href={'/terms'}>Terms Corporate</Link>
           </li>
           <li className='list-disc hover:underline'>
             <Link href={'/'}>Privacy</Link>

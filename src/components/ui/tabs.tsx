@@ -14,7 +14,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-[120px] items-center justify-center rounded-[50px] bg-background p-1 text-muted-foreground",
+      "inline-flex  md:h-[120px] items-center justify-center rounded-[50px] bg-background p-1 text-muted-foreground",
       className
     )}
     {...props}
@@ -29,7 +29,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[38px] px-[38px] display-xxs font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background',
+      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background',
       className
     )}
     {...props}
