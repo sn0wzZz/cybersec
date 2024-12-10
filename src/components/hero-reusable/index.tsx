@@ -19,7 +19,7 @@ export default function HeroReusable({
   return (
     <Container
       outer='bg-[hsl(236,100%,97%)]'
-      className='  pt-[190px] pb-16 flex flex-col-reverse lg:flex-row justify-between gap-8 relative'
+      className=' pt-[150px] pb-10  md:pt-[190px] md:pb-16 flex flex-col-reverse lg:flex-row justify-between gap-8 relative'
     >
       <div className='absolute inset-0 flex flex-col items-end top-[160px]'>
         <Image src={wave} alt='wave' className='bottom-0 ' />

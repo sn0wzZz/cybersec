@@ -62,8 +62,8 @@ export default function Certifications() {
           </div>
         </div>
         <div className='bg-section-gradient rounded-[50px] p-4 md:p-[50px] w-full'>
-          <Tabs defaultValue='ccna' className=''>
-            <TabsList className=' overflow-x-scroll no-scrollbar w-full'>
+          <Tabs defaultValue='ccna' className='overflow-hidden'>
+            <TabsList className=' overflow-x-scroll no-scrollbar  w-full'>
               <div className=' flex flex-row w-full justify-between'>
 
               {certifications.map((cert) => (

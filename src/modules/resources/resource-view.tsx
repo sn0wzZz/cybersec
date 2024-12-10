@@ -13,7 +13,7 @@ const aditionalResources = [
     tag: ['Article'],
     title: 'Weekly Cybersecurity Report 40',
     href: '/',
-    image: '/resources/resource-5.png',
+    image: '/resources/resource-9.png',
   },
   {
     tag: ['Article'],
@@ -25,7 +25,7 @@ const aditionalResources = [
     tag: ['Article'],
     title: 'Weekly Cybersecurity Report 41',
     href: '/',
-    image: '/resources/resource-5.png',
+    image: '/resources/resource-4.png',
   },
 ]
 
@@ -77,13 +77,13 @@ export default function ResourceView() {
 
   return (
     <Container className='py-16 ' outer='bg-section-gradient-2'>
-      <div className='rounded-[40px] bg-background p-8 md:p-16'>
+      <div className='rounded-[40px] bg-background py-8 px-4 md:p-16'>
         <div className='flex flex-col lg:flex-row justify-between gap-8'>
           <div className='flex flex-col gap-3'>
             <span className='body-large text-muted-foreground-gray'>
               Posted by:
             </span>
-            <div className='flex items-center gap-4'>
+            <div className='flex  items-center gap-4'>
               <div className='relative h-[53px] w-[53px] rounded-full  overflow-hidden'>
                 <Image
                   src={'/resources/avatar-2.png'}
@@ -95,7 +95,7 @@ export default function ResourceView() {
               <span className='display-xxs text-primary '>Slavi Slavchev</span>
             </div>
           </div>
-          <div className='flex gap-2 md:gap-[80px] justify-between'>
+          <div className='flex flex-col sm:flex-row gap-2 md:gap-[80px] justify-between'>
             <div className='flex flex-col gap-3'>
               <span className='body-large text-muted-foreground-gray'>
                 Published:
@@ -119,7 +119,7 @@ export default function ResourceView() {
             </div>
           </div>
         </div>
-        <div className='flex flex-col lg:flex-row gap-8 justify-between my-16'>
+        <div className='flex flex-col lg:flex-row gap-8 justify-between my-8 md:my-16'>
           <p className='display-xxs text-primary max-w-[740px]'>
             As your dedicated cybersecurity services provider, CyberSec equips
             you with timely and in-depth information about current cyber
@@ -146,7 +146,7 @@ export default function ResourceView() {
           </div>
         </div>
         <hr />
-        <div className='mt-16 flex flex-col xl:flex-row  gap-12'>
+        <div className=' mt-10 md:mt-16 flex flex-col xl:flex-row  gap-12'>
           {/* Progress */}
           <div className='max-w-[310px] w-full hidden xl:block'>
             <div className='sticky top-32'>
@@ -188,9 +188,9 @@ export default function ResourceView() {
                 </div>
               </div>
 
-              <div className='w-full mt-12 h-2 bg-muted rounded-full'>
+              <div className='w-full mt-[56px] h-[2px] bg-muted rounded-full'>
                 <div
-                  className='h-2 bg-primary rounded-full transition-all duration-200 relative ease-out '
+                  className='h-[2px] bg-primary rounded-full transition-all duration-200 relative ease-out '
                   style={{ width: `${readingProgress}%` }}
                 />
               </div>
@@ -201,7 +201,7 @@ export default function ResourceView() {
             </div>
           </div>
           {/* Article */}
-          <div className='flex flex-col gap-28 '>
+          <div className='flex flex-col gap-10 md:gap-28 '>
             <div className='flex flex-col gap-6'>
               <h5
                 className='display-xxs md:display-small text-primary'
@@ -248,7 +248,7 @@ export default function ResourceView() {
                 and tax bills, as the online and credit card systems are down 
               </p>
             </div>
-            <div className='max-w-[996px] h-[476px] relative rounded-[32px] overflow-hidden my-8'>
+            <div className='max-w-[996px] h-[230px] md:h-[476px] relative rounded-[32px] overflow-hidden my-8'>
               {' '}
               <Image
                 src={'/resources/resource-4.png'}

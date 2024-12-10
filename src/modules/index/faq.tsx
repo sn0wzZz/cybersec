@@ -44,9 +44,9 @@ export default function FAQ() {
           </div>
         </div>
 
-        <div className='mt-16 flex flex-col gap-4'>
+        <ul className='mt-16 flex flex-col gap-4'>
           {faq.map((item, index) => (
-            <div
+            <li
               key={index}
               className='bg-white rounded-2xl p-6 hover:cursor-pointer '
               onClick={() =>
@@ -83,9 +83,9 @@ export default function FAQ() {
                   {item.a}
                 </p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </Container>
   )

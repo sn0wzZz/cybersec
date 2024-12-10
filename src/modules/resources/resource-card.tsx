@@ -21,7 +21,7 @@ export default function ResourceCard({
   compact?: boolean
 }) {
   return (
-    <div className={` p-[20px] bg-background rounded-[40px] h-full`}>
+    <li className={` p-[20px] bg-background rounded-[40px] h-full`}>
       <div
         className={`relative mb-[32px] ${
           compact ? 'h-[286px]' : 'h-[286px] lg:h-[493px]'
@@ -35,13 +35,13 @@ export default function ResourceCard({
         />
       </div>
       <div className='ml-3'>
-        <div className='flex gap-6 mb-[30px]'>
+        <ul className='flex gap-6 mb-[30px]'>
           {resource.tags.map((tag) => (
-            <div key={Math.random()} className='flex items-center gap-3'>
+            <li key={Math.random()} className='flex items-center gap-3'>
               <Bullet /> {tag}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
         <div className='flex flex-col gap-6'>
           <h5 className=' display-xxs md:display-small'>{resource.title}</h5>
           <p className='body-large text-muted-foreground-grey'>
@@ -57,6 +57,6 @@ export default function ResourceCard({
         </Button>
           </Link>
       </div>
-    </div>
+    </li>
   )
 }

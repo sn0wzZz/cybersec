@@ -17,9 +17,9 @@ export default function OperationCenter() {
           Sequrity Operation Center
         </h3>
         <div className='overflow-x-scroll w-full white-scrollbar'>
-          <div className='flex gap-4 md:gap-[60px] w-max mb-16'>
+          <ul className='flex gap-4 md:gap-[60px] w-max mb-16'>
             {operations.map((operation, i) => (
-              <div
+              <li
                 key={`operation-${i}`}
                 className='relative rounded-[40px] overflow-hidden w-[275px] aspect-square'
               >
@@ -29,9 +29,9 @@ export default function OperationCenter() {
                   fill
                   className='object-cover'
                 />
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 

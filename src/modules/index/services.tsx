@@ -115,11 +115,11 @@ export default function Services() {
       <h3 className='display-large md:display-xl text-primary'>
         Cyber Security Services
       </h3>
-      <div>
+      <ul>
         {services
           .slice(0, isExpanded ? services.length : 3)
           .map((service, i) => (
-            <div
+            <li
               key={i}
               className={cn(
                 `flex flex-col animate-appear gap-8 mt-16 px-4 md:px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] md:py-16 rounded-[50px] ${
@@ -141,9 +141,9 @@ export default function Services() {
                   className='object-cover'
                 />
               </div>
-            </div>
+            </li>
           ))}
-      </div>
+      </ul>
       <div className='flex justify-center w-full mt-16'>
         <Button size={'lg'} onClick={() => setIsExpaned((cur) => !cur)}>
           {isExpanded ? 'Show Less' : 'Show More'}

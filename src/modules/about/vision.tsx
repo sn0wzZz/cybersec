@@ -25,7 +25,7 @@ const visions = [
 
 export default function Vision() {
   return (
-    <Container className=' py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16 relative before:h-[716px] before:w-[716px] before:bg-[hsla(236,100%,97%,1)] before:absolute  before:right-[-133px] before:rounded-full before:-z-10 before:top-32 before:blur-[284px]'>
+    <Container className=' py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16 relative before:h-[716px] before:w-[716px] before:bg-[hsla(236,100%,97%,1)] before:absolute  before:right-[-133px] before:rounded-full before:-z-10 before:top-32 before:blur-[284px] overflow-hidden'>
       <div className=' flex flex-col gap-16'>
         <div className='flex flex-col lg:flex-row gap-10 justify-between lg:items-center'>
           <h3 className=' display-large mg:display-xl text-primary max-w-[589px]'>
@@ -41,9 +41,9 @@ export default function Vision() {
           </div>
         </div>
         <div className='overflow-x-scroll'>
-          <div className='flex  gap-10 w-max mb-8 md:mb-16'>
+          <ul className='flex  gap-10 w-max mb-8 md:mb-16'>
             {visions.map((vision, i) => (
-              <div
+              <li
                 key={`vision-${i}`}
                 className=' rounded-[50px] w-[350px] lg:w-[1290px] flex flex-col gap-10 lg:flex-row  md:items-center justify-between bg-background p-[30px]'
               >
@@ -63,9 +63,9 @@ export default function Vision() {
                     className=' object-cover'
                   />
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </Container>

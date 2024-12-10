@@ -74,10 +74,10 @@ const resources = [
 
 export default function ResourceContainer() {
   return (
-    <Container className='py-16' outer='bg-section-gradient-2'>
+    <Container className='py-10 md:py-16' outer='bg-section-gradient-2'>
       <div className='flex flex-col lg:flex-row justify-between items-start  gap-8'>
         <h4 className='display-medium md:display-xl text-primary max-w-[521px]'>
-          Here is our latest Resoeces{' '}
+          Here is our latest Resources{' '}
         </h4>
         <div className='flex bg-background items-center p-[14px] rounded-2xl w-full lg:max-w-[312px]'>
           <Input
@@ -88,12 +88,12 @@ export default function ResourceContainer() {
         </div>
       </div>
       <div className='flex flex-col md:flex-row mt-16 gap-[19px]'>
-        <div className='max-w-[797px] flex flex-col gap-8 h-full'>
+        <ul className='max-w-[797px] flex flex-col gap-8 h-full'>
           {resources.slice(0,3).map((resource, i) => (
             <ResourceCard key={`resource-${i + 1}`} resource={resource} />
           ))}
-        </div>
-        <aside className='lg:max-w-[481px] flex flex-col gap-8 h-full'>
+        </ul>
+        <ul className='lg:max-w-[481px] flex flex-col gap-8 h-full'>
           {resources.slice(3,resources.length).map((resource, i) => (
             <ResourceCard
               key={`resource-${i + 1}`}
@@ -101,7 +101,7 @@ export default function ResourceContainer() {
               compact
             />
           ))}
-        </aside>
+        </ul>
         
       </div>
     </Container>

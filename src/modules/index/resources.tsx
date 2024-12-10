@@ -35,9 +35,9 @@ export default function Resources() {
     <Container>
       <h4 className='display-large mg:display-xl text-primary'>Resources</h4>
       <div className='overflow-x-scroll'>
-        <div className='flex gap-6 w-max mb-16 '>
+        <ul className='flex gap-6 w-max mb-16 '>
           {resources.map((resource, i) => (
-            <div
+            <li
               key={i}
               className='flex flex-col p-[18px] gap-[48px]  md:flex-row'
             >
@@ -94,9 +94,9 @@ export default function Resources() {
                   className='object-cover'
                 />
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </Container>
   )
