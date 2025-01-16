@@ -11,8 +11,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      `rounded-[40px] bg-background  flex gap-4 ${className?'' :'p-6'} text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]`
-    )}
+      'rounded-[40px] bg-background  flex gap-4 p-6 text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]', className)}
   >
     {icon && (
       <div>
@@ -26,7 +25,7 @@ const Card = React.forwardRef<
         </div>
       </div>
     )}
-    <div className={cn('flex flex-col gap-4', className)} {...props}>
+    <div className={'flex flex-col gap-4'} {...props}>
       {children}
     </div>
   </div>

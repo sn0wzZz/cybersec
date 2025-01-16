@@ -17,32 +17,42 @@ const ThemeContext = createContext<ThemeContextType | null>(null)
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
-  const [theme, setTheme] = useState<Theme>('light')
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches
+        ? 'dark'
+        : 'light'
+      return (window.localStorage.getItem('theme') as Theme) || systemTheme
+    }
+    return 'light'
+  })
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark')
-      window.localStorage.setItem('theme', 'dark')
-      document.documentElement.classList.add('dark')
-    } else {
-      setTheme('light')
-      window.localStorage.setItem('theme', 'light')
-      document.documentElement.classList.remove('dark')
-    }
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
+    document.documentElement.classList.toggle('dark')
   }
-
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme') as Theme | null
-    if (localTheme) {
-      setTheme(localTheme)
-      if (localTheme === 'dark') {
-        document.documentElement.classList.add('dark')
-      }
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark')
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    if (theme === 'dark') {
       document.documentElement.classList.add('dark')
     }
-  }, [])
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      const newTheme = e.matches ? 'dark' : 'light'
+      if (!localStorage.getItem('theme')) {
+        setTheme(newTheme)
+        document.documentElement.classList.toggle('dark', e.matches)
+      }
+    }
+
+    systemTheme.addEventListener('change', handleSystemThemeChange)
+    return () =>
+      systemTheme.removeEventListener('change', handleSystemThemeChange)
+  }, [theme])
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
