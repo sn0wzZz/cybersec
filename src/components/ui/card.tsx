@@ -3,15 +3,16 @@ import { cn } from '@/lib/utils'
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { icon?: React.ReactNode, inner?: string }
->(({ className, icon, children, inner, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & {
+    icon?: React.ReactNode
+    
+  }
+>(({ className, icon, children, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      'rounded-[40px] bg-background  flex gap-4 text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]', inner? '' : 'p-6',
-      className
+      `rounded-[40px] bg-background  flex gap-4 ${className?'' :'p-6'} text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]`
     )}
-    {...props}
   >
     {icon && (
       <div>
@@ -25,7 +26,9 @@ const Card = React.forwardRef<
         </div>
       </div>
     )}
-    <div className={cn('flex flex-col gap-4', inner)}>{children}</div>
+    <div className={cn('flex flex-col gap-4', className)} {...props}>
+      {children}
+    </div>
   </div>
 ))
 Card.displayName = 'Card'
