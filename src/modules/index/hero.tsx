@@ -10,7 +10,7 @@ export default function Hero() {
     <Container outer='bg-section-gradient py-[175px] ' className='relative flex flex-col lg:flex-row md:py-[150px]  gap-16'>
         <div className='absolute inset-0 flex flex-col items-end'>
           <Image src={wave} alt='wave' className='bottom-0 ' />
-          <Image src={circle} alt='circle' className='right-0' />
+          <Image src={circle} alt='circle' className='right-0 text-background'  />
         </div>
         <div className=' flex flex-col gap-8 items-start z-10  max-w-[647px]'>
           <h1 className='display-medium md:display-xl text-accent'>

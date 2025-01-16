@@ -21,14 +21,18 @@ export default {
       },
       backgroundImage: {
         'section-gradient':
-          'linear-gradient(to bottom, hsla(235, 100%, 98%, 1), hsla(0, 0%, 100%, 1))',
+          'linear-gradient(to bottom, hsl(var(--muted)), hsl(var(--background)))',
+
         'section-gradient-2':
-          'linear-gradient(to bottom right, hsla(235, 100%, 98%, 1), hsla(0, 0%, 100%, 1))',
+          'linear-gradient(to bottom right, hsl(var(--muted)), hsl(var(--background)))',
+
         'quote-gradient':
-          'linear-gradient(to bottom right, hsla(0, 0%, 100%, 1), hsla(72, 94%, 65%, 0.5))',
-        'perk-gradient':
-          'linear-gradient(to bottom, hsla(256, 81%, 16%, 1), hsla(258, 64%, 39%, 1))',
+          'linear-gradient(to bottom right, hsl(var(--background)), hsla(var(--secondary), 0.5))',
+
+        'primary-gradient':
+          'linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--primary-gradient)))',
       },
+
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

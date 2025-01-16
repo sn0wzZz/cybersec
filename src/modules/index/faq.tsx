@@ -48,7 +48,7 @@ export default function FAQ() {
           {faq.map((item, index) => (
             <li
               key={index}
-              className='bg-white rounded-2xl p-6 hover:cursor-pointer '
+              className='bg-background rounded-2xl p-6 hover:cursor-pointer '
               onClick={() =>
                 setActiveIndex(activeIndex === index ? null : index)
               }

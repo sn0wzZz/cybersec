@@ -4,6 +4,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
+import ThemeContextProvider from '@/context/theme-context';
 
 
 const generalSans = localFont({
@@ -34,9 +35,11 @@ export default function RootLayout({
       <body
         className={`${generalSans.variable} ${inter.variable}  antialiased overflow-x-hidden relative`}
       >
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+        <ThemeContextProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </ThemeContextProvider>
       </body>
     </html>
   )

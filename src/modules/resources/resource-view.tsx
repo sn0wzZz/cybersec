@@ -150,7 +150,7 @@ export default function ResourceView() {
           {/* Progress */}
           <div className='max-w-[310px] w-full hidden xl:block'>
             <div className='sticky top-32'>
-              <div className='bg-perk-gradient rounded-[40px] p-[38px] flex flex-col gap-8  '>
+              <div className='bg-primary-gradient rounded-[40px] p-[38px] flex flex-col gap-8  '>
                 <span className='display-xs text-background max-w-[105px] '>
                   Table of Contents
                 </span>
