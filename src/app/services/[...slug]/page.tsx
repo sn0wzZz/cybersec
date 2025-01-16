@@ -1,3 +1,4 @@
+import Container from '@/components/container'
 import { getResourceBySlug } from '@/lib/data'
 
 export default async function page({
@@ -9,10 +10,14 @@ export default async function page({
   console.log('Service slug', slug)
   const resource = getResourceBySlug(slug.join('/'))
   const Content = resource?.content
-  if(Content)return (
-    
-
-    <Content />
-  )
+  if (Content)
+    return (
+      <Container
+        outer='pt-[200px] bg-section-gradient '
+        className=' flex flex-col gap-24'
+      >
+        <Content />
+      </Container>
+    )
   return <div>Resource not found</div>
 }

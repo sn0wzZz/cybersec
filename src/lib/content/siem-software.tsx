@@ -89,10 +89,7 @@ const cards = [
 
 export default function SiemSoftware() {
   return (
-    <Container
-      outer='pt-[200px] bg-section-gradient '
-      className=' flex flex-col gap-24'
-    >
+<>
       <ContentBox
         title={'Security information and event management (SIEM)'}
         caption={'Take full control of your logs and events'}
@@ -249,6 +246,6 @@ export default function SiemSoftware() {
           ))}
         </div>
       </ContentBox>
-    </Container>
+        </>
   )
 }
