@@ -1,5 +1,6 @@
-import Container from '@/components/container'
+import AnimateBlur from '@/components/animate-blur'
 import ContentBox from '@/components/content-box'
+import SecurityIcon from '@/components/icons/security'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Globe } from 'lucide-react'
 import Image from 'next/image'
@@ -9,8 +10,6 @@ import schema from '../../../public/services/articles/schema.png'
 import siem from '../../../public/services/articles/siem.png'
 import wazuh from '../../../public/services/articles/wazuh.png'
 import webSequrity from '../../../public/services/articles/web-sequrity.png'
-import SecurityIcon from '@/components/icons/security'
-import AnimateBlur from '@/components/animate-blur'
 
 const cards = [
   {

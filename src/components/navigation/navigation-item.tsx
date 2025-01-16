@@ -62,6 +62,7 @@ export default function NavigationItem({
     <li>
       <Popover open={isOpen}>
         <PopoverTrigger asChild className='ring-0 outline-0'>
+          <Link href={item.href}>
           <button
             className='flex items-center gap-2 p-2 text-muted-foreground hover:text-primary transition-colors w-full'
             onMouseEnter={() => {
@@ -74,6 +75,7 @@ export default function NavigationItem({
             {item.label}
             {level === 0 ? null : <ChevronRight className='w-4 h-4 ml-auto' />}
           </button>
+            </Link>
         </PopoverTrigger>
         <PopoverContent
           side={level === 0 ? 'bottom' : 'right'}

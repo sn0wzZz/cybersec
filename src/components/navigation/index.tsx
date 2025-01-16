@@ -17,13 +17,10 @@ const navLinks = [
     label: 'Home',
   },
   {
-    href: '/resources',
-    label: 'Resources',
-  },
-  {
     href: '/about',
     label: 'About us',
   },
+
   {
     href: '/services',
     label: 'Services',
@@ -97,8 +94,12 @@ const navLinks = [
     ],
   },
   {
+    href: '/resources',
+    label: 'Resources',
+  },
+  {
     href: '/contacts',
-    label: 'Contacts',
+    label: 'Contacts us',
   },
 ]
 
