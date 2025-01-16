@@ -5,13 +5,16 @@ const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
     icon?: React.ReactNode
-    
   }
 >(({ className, icon, children, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      'rounded-[40px] bg-background  flex gap-4 p-6 text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]', className)}
+      'rounded-[40px] bg-background  flex gap-4 p-6 text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]',
+      className
+      
+    )}
+    {...props}
   >
     {icon && (
       <div>
@@ -19,15 +22,12 @@ const Card = React.forwardRef<
           className={cn(
             'flex items-center justify-center w-[40px] h-[40px] rounded-full bg-muted text-primary'
           )}
-          {...props}
         >
           {icon}
         </div>
       </div>
     )}
-    <div className={'flex flex-col gap-4'} {...props}>
-      {children}
-    </div>
+    <div className={'flex flex-col gap-4'}>{children}</div>
   </div>
 ))
 Card.displayName = 'Card'

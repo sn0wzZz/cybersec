@@ -194,7 +194,7 @@ export default function EmailSequrityGetaway() {
       >
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]'>
           {cards.map((card, i) => (
-            <Card key={i} className='p-[42px]'>
+            <Card key={i}  className='p-10'>
               <CardHeader>
                 <CardTitle>{card.title}</CardTitle>
               </CardHeader>
