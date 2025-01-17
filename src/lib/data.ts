@@ -1,5 +1,8 @@
-import EmailSequrityGetaway from './content/email-sequrity-getaway'
-import SiemSoftware from './content/siem-software'
+import DnsFilteringGateway from './content/passive-secutity/dns-filtering-gateway'
+import EmailSecurityGetaway from './content/passive-secutity/email-security-getaway'
+import SiemSoftware from './content/passive-secutity/siem-software'
+import PenetrationTests from './content/proactive-security/penetration-tests'
+import VulnerabilityAssessment from './content/proactive-security/vulnerability-assessment'
 
 export interface Resource {
   slug: string
@@ -10,22 +13,34 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
-    slug: 'services',
-    title: 'Services',
-    description: 'Learn about Services',
-    content: SiemSoftware,
+    slug: 'passive-security/dns-filtering-gateway',
+    title: 'Dns Filtering Gateway',
+    description: 'Learn about Dns Filtering Gateway',
+    content: DnsFilteringGateway,
   },
   {
-    slug: 'passive-sequrity/siem-software',
+    slug: 'passive-security/siem-software',
     title: 'Siem Software',
     description: 'Learn about Siem Software',
     content: SiemSoftware,
   },
   {
-    slug: 'passive-sequrity/email-sequrity-getaway',
-    title: 'Email Sequrity Getaway',
-    description: 'Learn about Email Sequrity Getaway',
-    content: EmailSequrityGetaway,
+    slug: 'passive-security/email-sequrity-gateway',
+    title: 'Email Sequrity Gateway',
+    description: 'Learn about Email Sequrity Gateway',
+    content: EmailSecurityGetaway,
+  },
+  {
+    slug: 'proactive-security/penetration-tests',
+    title: 'Penetration Tests',
+    description: 'Learn about Penetration Tests',
+    content: PenetrationTests,
+  },
+  {
+    slug: 'proactive-security/vulnerability-assessment',
+    title: 'Vulnerability Assessment',
+    description: 'Learn about Vulnerability Assessment',
+    content: VulnerabilityAssessment,
   },
 ]
 

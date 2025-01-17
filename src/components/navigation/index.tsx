@@ -26,46 +26,42 @@ const navLinks = [
     label: 'Services',
     submenus: [
       {
-        href: '/services/passive-sequrity',
+        href: '/services/passive-security',
         label: 'Passive Security',
         submenus: [
           {
-            href: '/services/passive-sequrity/endpoint-protection',
+            href: '/services/passive-security/endpoint-protection',
             label: 'Endpoint Protection',
           },
           {
-            href: '/services/passive-sequrity/siem-software',
+            href: '/services/passive-security/siem-software',
             label: 'SIEM Software',
           },
           {
-            href: '/services/passive-sequrity/email-sequrity-getaway',
+            href: '/services/passive-security/email-security-getaway',
             label: 'Email Security Getaway',
           },
           {
-            href: '/services/passive-sequrity/dns-filtering-gateway',
+            href: '/services/passive-security/dns-filtering-gateway',
             label: 'DNS Filtering Gateaway',
           },
         ],
       },
       {
-        href: '/services/proactive-sequrity',
+        href: '/services/proactive-security',
         label: 'Proactive Security',
         submenus: [
           {
-            href: '/services/proactive-sequrity/endpoint-protection',
-            label: 'Endpoint Protection',
+            href: '/services/proactive-security/penetration-tests',
+            label: 'Penetration Tests',
           },
           {
-            href: '/services/proactive-sequrity/siem-software',
-            label: 'SIEM Software',
+            href: '/services/proactive-security/vulnerability-assessment',
+            label: 'Vulnerability Assessment',
           },
           {
-            href: '/services/proactive-sequrity/email-sequrity-getaway',
-            label: 'Email Security Getaway',
-          },
-          {
-            href: '/services/proactive-sequrity/dns-filtering-gateway',
-            label: 'DNS Filtering Gateaway',
+            href: '/services/proactive-security/risk-assessment',
+            label: 'Risk Assessment',
           },
         ],
       },
@@ -82,7 +78,7 @@ const navLinks = [
             label: 'SIEM Software',
           },
           {
-            href: '/services/consulting-services/email-sequrity-getaway',
+            href: '/services/consulting-services/email-security-getaway',
             label: 'Email Security Getaway',
           },
           {

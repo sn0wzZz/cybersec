@@ -189,7 +189,7 @@ export default function Page() {
       </ContentBox>
 
       <AnimateSlideUp>
-        <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mx-24 mb-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mx-24 mb-8'>
           {cards.map((card, i) => (
             <Card key={i}>
               <CardHeader className='gap-6' icon={card.icon}>
@@ -355,7 +355,7 @@ export default function Page() {
           ))}
         </div>
         <AnimateBlur>
-          <Image src={pc} alt='pc' className='mx-auto mt-12 max-w-[800px]' />
+          <Image src={pc} alt='pc' className='mx-auto mt-12 max-w-[800px] w-full' />
         </AnimateBlur>
       </ContentBox>
     </Container>

@@ -24,19 +24,23 @@ TabsList.displayName = TabsPrimitive.List.displayName
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
+    noBullet?: boolean
+  }
+>(({ className, children, noBullet, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background',
+      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow data-[state=inactive]:from-white data-[state=inactive]:to-white  data-[state=inactive]:bg-gradient-to-b gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background',
       className
     )}
     {...props}
   >
-    <div className='h-[14px] w-[14px] rounded-full flex-center bg-[hsla(236,100%,97%,1)]'>
-      <span className='h-1 w-1 rounded-full bg-[hsla(257,69%,60%,1)]'></span>
-    </div>
+    {!noBullet && (
+      <div className='h-[14px] w-[14px] rounded-full flex-center bg-[hsla(236,100%,97%,1)]'>
+        <span className='h-1 w-1 rounded-full bg-[hsla(257,69%,60%,1)]'></span>
+      </div>
+    )}
     {children}
   </TabsPrimitive.Trigger>
 ))

@@ -17,25 +17,35 @@ export default function ContentBox({
   title: string
   caption?: string
   images?: StaticImageData[]
-  image?: StaticImageData
+  image?: StaticImageData | StaticImageData[]
+
   children: React.ReactNode
   className?: string
 }) {
-
-
   return (
-    <AnimateSlideUp as='article'
+    <AnimateSlideUp
+      as='article'
       className={cn(
-        `flex flex-col xl:flex-row ${image ? 'mx-[30px] ' : ''}`,
+        `flex flex-col xl:flex-row w-full ${
+          image ? 'md:mx-[30px] items-center  ' : ''
+        }`,
         className
       )}
     >
-      <div className={cn(`flex flex-col gap-6 ${image ? 'xl:w-1/2' : ''}`)}>
+      <div
+        className={cn(`flex flex-col gap-6 ${image ? 'xl:w-1/2' : 'w-full'}`)}
+      >
         <div className='flex flex-col gap-2'>
-          {caption&&<span className='text-primary-gradient text-[14px] font-medium leading-[14px] tracking-[-3%] uppercase '>
-            {`// ${caption}`}
-          </span>}
-          <h3 className='text-primary display-small'>{title}</h3>
+          {caption && (
+            <span className='text-primary-gradient md:text-[14px] text-[10px] font-medium leading-[14px] tracking-[-3%] uppercase '>
+              {`// ${caption}`}
+            </span>
+          )}
+          {title && (
+            <h3 className='text-primary display-xs  md:display-small'>
+              {title}
+            </h3>
+          )}
         </div>
 
         {images?.length && (
@@ -55,15 +65,39 @@ export default function ContentBox({
           </div>
         )}
 
-        <div className='text-foreground [&&_ul>li]:list-disc [&&_ul>li]:ml-6'>
+        <div className='text-foreground [&&_ol>li]:list-decimal [&&_ul>li]:list-disc [&&_:is(ul,ol)>li]:ml-6 relative w-full [&_:is(h1,h2,h3,h4,h5,h6)]:text-primary [&_:is(h1,h2,h3,h4,h5,h6)]:title-small '>
           {children}
         </div>
       </div>
-      {image && (
-        <AnimateBlur className='relative w-full xl:w-1/2 h-[509px] max-w-[509px] mx-auto'>
-          <Image src={image} alt='Web Security' fill className='object-cover' />
-        </AnimateBlur>
-      )}
+      {image &&
+        (Array.isArray(image) ? (
+          <div className='flex-col justify-evenly w-1/2'>
+            {image.map((img, i) => (
+              <AnimateBlur
+                key={i}
+                className={`relative w-full xl:w-1/2 h-[509px] max-w-[509px] mx-auto ${
+                  i > 0 ? 'hidden xl:block' : ''
+                }`}
+              >
+                <Image
+                  src={img}
+                  alt={`Web Security ${i + 1}`}
+                  fill
+                  className='object-cover'
+                />
+              </AnimateBlur>
+            ))}
+          </div>
+        ) : (
+          <AnimateBlur className='relative w-full xl:w-1/2 h-[509px] max-w-[509px] mx-auto'>
+            <Image
+              src={image}
+              alt='Web Security'
+              fill
+              className='object-cover'
+            />
+          </AnimateBlur>
+        ))}
     </AnimateSlideUp>
   )
 }
