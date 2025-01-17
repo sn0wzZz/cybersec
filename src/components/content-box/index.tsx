@@ -71,7 +71,7 @@ export default function ContentBox({
       </div>
       {image &&
         (Array.isArray(image) ? (
-          <div className='flex-col justify-evenly w-1/2'>
+          <div className='flex-col justify-evenly w-full'>
             {image.map((img, i) => (
               <AnimateBlur
                 key={i}

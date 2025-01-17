@@ -29,7 +29,7 @@ export default function PenetrationTests() {
   return (
     <Container global>
       <ContentBox
-        caption='// Proactive security testing'
+        caption='Proactive security testing'
         title='Penetration Tests'
       >
         <p>
@@ -43,7 +43,7 @@ export default function PenetrationTests() {
           {cards.map((card, i) => (
             <Card key={i}>
               <CardHeader className='gap-6' icon={card.icon}>
-                <CardTitle>{card.title}</CardTitle>
+                <CardTitle >{card.title}</CardTitle>
               </CardHeader>
             </Card>
           ))}

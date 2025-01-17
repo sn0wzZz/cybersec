@@ -59,7 +59,7 @@ export default function DnsFilteringGateway() {
           <Image
             src={dns}
             alt='DNS Gateway'
-            className='mx-auto max-w-[740px]'
+            className='mx-auto w-full max-w-[1040px]'
           />
         </AnimateBlur>
       </ContentBox>
@@ -68,12 +68,12 @@ export default function DnsFilteringGateway() {
         caption='Extremely easy to deploy and manage'
         title='How does the system work?'
       >
-        <div className='flex flex-col lg:flex-row gap-4'>
+        <div className='flex flex-col lg:flex-row gap-4 lg:ml-[96px]'>
           <div className='flex flex-col gap-4'>
             <AnimateBlur>
-              <Image src={cyDns} alt='DNS' className=' max-w-[740px]' />
+              <Image src={cyDns} alt='DNS' className='w-full max-w-[740px]' />
             </AnimateBlur>
-            <div className='flex flex-col md:flex-row  gap-4  md:gap-24  md:justify-between '>
+            <div className='flex flex-col md:flex-row  gap-4  md:gap-24   md:justify-between '>
               <div>
                 <h5>It is used to detect:</h5>
                 <ul>
@@ -123,8 +123,8 @@ export default function DnsFilteringGateway() {
         caption='Huge range of useful functionalities'
         title='Features and capabilities'
       >
-        <div className='flex flex-col md:flex-row space-y-4  md:ml-[96px] justify-between bg-gray-700 '>
-          <div className='w-1/2 '>
+        <div className='flex flex-col md:flex-row space-y-4   justify-between '>
+          <div className='md:w-1/2 '>
             <ul>
               <li>Malware blocking</li>
               <li>Internet Content Filtering</li>
@@ -136,7 +136,7 @@ export default function DnsFilteringGateway() {
               <li>24/7 guaranteed support, management and configuration</li>
             </ul>
           </div>
-          <div className='w-1/2'>
+          <div className='md:w-1/2'>
             <ul>
               <li>Prevention of phishing and malicious domains</li>
               <li>Detection of dangerous services and sites</li>
