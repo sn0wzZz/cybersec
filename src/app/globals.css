@@ -45,21 +45,21 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 258 64% 39%; /* hsla(258, 64%, 39%, 1)*/;
+    --foreground: 0 0% 100%; /* hsla(0, 0%, 100%, 1)*/
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+    --popover: 257 78% 18%; /* hsla(257, 78%, 18%, 1) */
     --popover-foreground: 0 0% 98%;
-    --primary: 256 81% 16%; /*hsla(256, 81%, 16%, 1) */
-    --primary-gradient: 258 64% 39%; /* hsla(258, 64%, 39%, 1)*/
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 100%; /* hsla(0, 0%, 100%, 1)*/
+    --primary-gradient: 0 0% 100%; /* hsla(0, 0%, 100%, 1)*/
+    --primary-foreground: 258 64% 39%; /* hsla(258, 64%, 39%, 1)*/;
     --secondary: 72 94% 65%;  /* hsla(72, 94%, 65%, 1)*/
     --secondary-foreground: 0 0% 98%;
-    --muted: 236 100% 97%; /* hsla(236, 100%, 97%, 1)*/
-    --muted-foreground: 240 17% 45%; /* hsla(240, 17%, 45%, 1)*/
+    --muted: 256 81% 16; /* hsla(256, 81%, 16%, 1)*/
+    --muted-foreground: 0 0% 100%; /* hsla(0, 0%, 100%, 1)*/
     --muted-foreground-gray: 256 4% 49%; /*new hsla(256, 4%, 49%, 1)*/
-    --accent: 0 0% 14.9%;
+    --accent: 0 0% 100%; /* hsla(0, 0%, 100%, 1)*/
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;

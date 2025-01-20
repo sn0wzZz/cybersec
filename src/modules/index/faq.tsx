@@ -28,7 +28,7 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   return (
-    <Container className='bg-section-gradient py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16'>
+    <Container className='bg-section-gradient py-[64px] px-4 md:px-[75px]  rounded-[42px] mt-16'>
       <div className=''>
         <div className='flex flex-col lg:flex-row gap-10'>
           <h3 className=' display-large mg:display-xl text-primary'>Frequently Asked Question</h3>

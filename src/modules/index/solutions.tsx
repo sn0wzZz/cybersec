@@ -106,35 +106,43 @@ export default function Solutions() {
         />
 
         <div className='w-full border-b border-white/20 '>
-          <h3 className='display-medium text-white mb-[56px]'>
+          <h3 className='display-medium text-background mb-[56px]'>
             Security and <br />
             protection solutions
           </h3>
         </div>
         <div className='flex flex-col lg:flex-row justify-between items-center w-full gap-10  mt-[56px]'>
           <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-white'>15,000+</h4>
+            <h4 className='display-medium text-background !dark:text-popover'>
+              15,000+
+            </h4>
             <p className='display-xxs text-input'>Customers</p>
           </div>
           <div className=' w-[52px] h-[52px] rounded-full flex-center bg-[hsl(257_69%_60%)]'>
             <ShuffleIcon className='h-6 w-6' />
           </div>
           <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-white'>8000+</h4>
+            <h4 className='display-medium text-background !dark:text-popover'>
+              8000+
+            </h4>
             <p className='display-xxs text-input'>Interactions</p>
           </div>
           <div className=' w-[52px] h-[52px] rounded-full flex-center bg-[hsl(257_69%_60%)]'>
             <ShuffleIcon className='h-6 w-6' />
           </div>
           <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-white'>30000+</h4>
-            <p className='display-xxs text-input'>Hour save</p>
+            <h4 className='display-medium text-background !dark:text-popover'>
+              30000+
+            </h4>
+            <p className='display-xxs text-input !dark:text-popover'>
+              Hour save
+            </p>
           </div>
           <div className=' w-[52px] h-[52px] rounded-full flex-center bg-[hsl(257_69%_60%)]'>
             <ShuffleIcon className='h-6 w-6' />
           </div>
           <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-white'>99.5%</h4>
+            <h4 className='display-medium text-background'>99.5%</h4>
             <p className='display-xxs text-input'>
               Total <br />
               engagement

@@ -83,21 +83,21 @@ const services = [
           <li className='flex gap-4 items-center'>
             <div className=' h-4 w-4  rounded-full border flex justify-center items-center'>
               {' '}
-              <div className='w-[6px] h-[6px] m-1 bg-primary rounded-full'></div>{' '}
+              <div className='w-[6px] h-[6px] m-1 bg-primary !dark:bg-muted rounded-full'></div>{' '}
             </div>
             <p>Comprehensive security accreditations.</p>
           </li>
           <li className='flex gap-4 items-center'>
             <div className=' h-4 w-4  rounded-full border flex justify-center items-center'>
               {' '}
-              <div className='w-[6px] h-[6px] m-1 bg-primary rounded-full'></div>{' '}
+              <div className='w-[6px] h-[6px] m-1 bg-primary !dark:bg-muted rounded-full'></div>{' '}
             </div>
             <p>Advised by top security experts.</p>
           </li>
           <li className='flex gap-4 items-center'>
             <div className=' h-4 w-4  rounded-full border flex justify-center items-center'>
               {' '}
-              <div className='w-[6px] h-[6px] m-1 bg-primary rounded-full'></div>{' '}
+              <div className='w-[6px] h-[6px] m-1 bg-primary !dark:bg-muted rounded-full'></div>{' '}
             </div>
             <p>Fully deployed on Azure and complete data segregation.</p>
           </li>
@@ -122,7 +122,7 @@ export default function Services() {
             <li
               key={i}
               className={cn(
-                `flex flex-col animate-appear gap-8 mt-16 px-4 md:px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] md:py-16 rounded-[50px] ${
+                `flex flex-col animate-appear gap-8 mt-16 py-8 px-8 md:px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] md:py-16 rounded-[50px] ${
                   i % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'
                 }`
               )}

@@ -70,20 +70,20 @@ const navLinks = [
         label: 'Consulting Services ',
         submenus: [
           {
-            href: '/services/consulting-services/endpoint-protection',
-            label: 'Endpoint Protection',
+            href: '/services/consulting-services/soc-as-a-service',
+            label: 'SOC as a service',
           },
           {
-            href: '/services/consulting-services/siem-software',
-            label: 'SIEM Software',
+            href: '/services/consulting-services/security-awareness-training',
+            label: 'Security Awareness Training',
           },
           {
-            href: '/services/consulting-services/email-security-getaway',
-            label: 'Email Security Getaway',
+            href: '/services/consulting-services/information-security-policies',
+            label: 'Information Security Policies',
           },
           {
-            href: '/services/consulting-services/dns-filtering-gateway',
-            label: 'DNS Filtering Gateaway',
+            href: '/services/consulting-services/data-breach-investigation',
+            label: 'Data Breach Investigation',
           },
         ],
       },

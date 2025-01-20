@@ -37,7 +37,7 @@ export default function ContentBox({
       >
         <div className='flex flex-col gap-2'>
           {caption && (
-            <span className='text-primary-gradient md:text-[14px] text-[10px] font-medium leading-[14px] tracking-[-3%] uppercase '>
+            <span className='text-primary-gradient md:text-[14px] text-[12px] font-medium leading-[14px] tracking-[-3%] uppercase '>
               {`// ${caption}`}
             </span>
           )}
@@ -65,13 +65,13 @@ export default function ContentBox({
           </div>
         )}
 
-        <div className='text-foreground [&&_ol>li]:list-decimal [&&_ul>li]:list-disc [&&_:is(ul,ol)>li]:ml-6 relative w-full [&_:is(h1,h2,h3,h4,h5,h6)]:text-primary [&_:is(h1,h2,h3,h4,h5,h6)]:title-small '>
+        <div className='text-foreground [&&_ol>li]:list-decimal [&&_ul>li]:list-disc [&&_:is(ul,ol)>li]:ml-6 relative w-full [&_:is(h1,h2,h3,h4,h5,h6)]:text-primary [&_:is(h4,h5,h6)]:title-small [&_:is(h1,h2,h3)]:display-xxs '>
           {children}
         </div>
       </div>
       {image &&
         (Array.isArray(image) ? (
-          <div className='flex-col justify-evenly w-full'>
+          <div className='flex flex-col justify-evenly w-full'>
             {image.map((img, i) => (
               <AnimateBlur
                 key={i}
