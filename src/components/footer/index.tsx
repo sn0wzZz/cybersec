@@ -91,7 +91,7 @@ export default function Footer() {
     <Container as='footer' className=' py-16'>
       <div className='flex flex-col md:flex-row justify-between mb-[48px] gap-16 '>
         <div className='flex justify-center flex-col gap-4'>
-          <Image src={logo} alt={logo} />
+          <Image src={logo} alt={logo} className='dark:grayscale dark:invert' />
           <span className=' body-medium'>Lorem ipsum text</span>
         </div>
         <div className='flex gap-[42] justify-between'>

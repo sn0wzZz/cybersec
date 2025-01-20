@@ -3,7 +3,9 @@ import InformationSecurityPolicies from './content/consulting-service/informatio
 import SecurityAwarenessTraining from './content/consulting-service/security-awareness-training'
 import SOCAsAService from './content/consulting-service/soc-as-a-service'
 import DnsFilteringGateway from './content/passive-secutity/dns-filtering-gateway'
+
 import EmailSecurityGetaway from './content/passive-secutity/email-security-getaway'
+import EndpointProtection from './content/passive-secutity/endpoint-ptrotection'
 import SiemSoftware from './content/passive-secutity/siem-software'
 import PenetrationTests from './content/proactive-security/penetration-tests'
 import RiskAssessment from './content/proactive-security/risk-assessment'
@@ -17,6 +19,12 @@ export interface Resource {
 }
 
 export const resources: Resource[] = [
+  {
+    slug: 'passive-security/endpoint-protection',
+    title: 'Endpoint Protection',
+    description: 'Learn about Endpoint Protection',
+    content: EndpointProtection,
+  },
   {
     slug: 'passive-security/dns-filtering-gateway',
     title: 'Dns Filtering Gateway',
@@ -78,7 +86,8 @@ export const resources: Resource[] = [
     title: 'Data Breach Investigation',
     description: 'Learn about Data Breach Investigation',
     content: DataBreachInvestigation,
-  }
+  },
+
 ]
 
 export function getResourceBySlug(slug: string): Resource | undefined {

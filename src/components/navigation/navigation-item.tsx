@@ -12,8 +12,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEventHandler } from 'react'
 
-type NavigationItem = {
-  href: string
+export type NavigationItem = {
+  href?: string
   label: string
   submenus?: NavigationItem[]
 }
@@ -44,9 +44,10 @@ export default function NavigationItem({
     return (
       <li>
         <Link
-          href={item.href}
+          href={item.href?? ''}
           className={cn(
-            'block p-2 hover:text-primary transition-colors text-base font-normal',
+            'block p-2 hover:text-primary transition-colors text-base font-normal relative',
+            'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary',
             pathname === item.href
               ? 'text-primary font-medium'
               : 'text-muted-foreground'
@@ -61,21 +62,26 @@ export default function NavigationItem({
   return (
     <li>
       <Popover open={isOpen}>
-        <PopoverTrigger asChild className='ring-0 outline-0'>
-          <Link href={item.href}>
-          <button
-            className='flex items-center gap-2 p-2 text-muted-foreground hover:text-primary transition-colors w-full'
-            onMouseEnter={() => {
-              if (!isOpen) {
-                setActiveMenu(id)
-              }
-            }}
-            onMouseLeave={handleClose}
-          >
-            {item.label}
-            {level === 0 ? null : <ChevronRight className='w-4 h-4 ml-auto' />}
-          </button>
-            </Link>
+        <PopoverTrigger asChild className='!ring-0 !outline-0'>
+          <Link href={item.href?? ''}>
+            <button
+              className={cn(
+                'flex items-center gap-2 p-2 text-muted-foreground hover:text-primary transition-colors w-full relative',
+                'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary'
+              )}
+              onMouseEnter={() => {
+                if (!isOpen) {
+                  setActiveMenu(id)
+                }
+              }}
+              onMouseLeave={handleClose}
+            >
+              {item.label}
+              {level === 0 ? null : (
+                <ChevronRight className='w-4 h-4 ml-auto' />
+              )}
+            </button>
+          </Link>
         </PopoverTrigger>
         <PopoverContent
           side={level === 0 ? 'bottom' : 'right'}

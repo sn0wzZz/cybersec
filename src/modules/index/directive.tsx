@@ -25,7 +25,7 @@ const perks = [
 export default function Directive() {
 
   return (
-    <Container as='section' className='flex flex-col gap-4'>
+    <Container as='section' className='flex flex-col gap-4 '>
       <div className='flex flex-col lg:flex-row gap-6 justify-between'>
         <div className='flex flex-col gap-6 items-start'>
           <h2 className='display-large md:display-xl text-accent max-w-[707px]'>

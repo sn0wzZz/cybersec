@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import wave from '../../../public/hero-wave.svg'
-import circle from '../../../public/hero-circle.svg'
+
 import Container from '@/components/container'
 import hero from '../../../public/about/hero-about.png'
 import BarChartIcon from '@/components/icons/bar-chart'
@@ -13,7 +13,8 @@ export default function Hero() {
     >
       <div className='absolute inset-0 flex flex-col items-end top-10'>
         <Image src={wave} alt='wave' className='bottom-0 ' />
-        <Image src={circle} alt='circle' className='right-0' />
+       <div className='w-[512px] h-[256px] relative after:content-[""] -z-0 after:absolute after:inset-0 after:rounded-t-full after:bg-gradient-to-b from-background to-primary-muted  after:z-20' />
+      
       </div>
       <div className=' flex flex-col gap-8 items-start z-10  max-w-[647px]'>
         <h1 className='display-medium md:display-xl text-accent'>

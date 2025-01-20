@@ -7,9 +7,12 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 
-import NavigationItem from './navigation-item'
+import NavigationItem, {
+  type NavigationItem as TNavItem,
+} from './navigation-item'
 import { MenuProvider } from '@/context/navigation-context'
 import ThemeToggle from './theme-toggle'
+import { ChevronDown } from 'lucide-react'
 
 const navLinks = [
   {
@@ -26,7 +29,6 @@ const navLinks = [
     label: 'Services',
     submenus: [
       {
-        href: '/services/passive-security',
         label: 'Passive Security',
         submenus: [
           {
@@ -48,7 +50,7 @@ const navLinks = [
         ],
       },
       {
-        href: '/services/proactive-security',
+
         label: 'Proactive Security',
         submenus: [
           {
@@ -66,7 +68,6 @@ const navLinks = [
         ],
       },
       {
-        href: '/services/consulting-services',
         label: 'Consulting Services ',
         submenus: [
           {
@@ -99,19 +100,83 @@ const navLinks = [
   },
 ]
 
-
-
 export default function Navigation() {
   const pathname = usePathname()
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
   const handleMenu = () => setMenuIsOpen((prevMenuIsOpen) => !prevMenuIsOpen)
+  const [openDropdowns, setOpenDropdowns] = useState<string[]>([])
+
+  const toggleDropdown = (href: string) => {
+    setOpenDropdowns((prev) =>
+      prev.includes(href)
+        ? prev.filter((item) => item !== href)
+        : [...prev, href]
+    )
+  }
+const renderSubmenu = (submenu: TNavItem, level = 1) => (
+  <li key={submenu.href || submenu.label}>
+    <div
+      className='flex flex-col w-full cursor-pointer'
+      onClick={() => toggleDropdown(submenu.href || submenu.label)}
+    >
+      <div className='flex justify-between items-center'>
+        {submenu.href ? (
+          <Link
+            href={submenu.href}
+            className='text-primary'
+            onClick={() => !submenu.submenus && setMenuIsOpen(false)}
+          >
+            {submenu.label}
+          </Link>
+        ) : (
+          <span className='text-primary'>{submenu.label}</span>
+        )}
+        {submenu.submenus && (
+          <button className={'p-2'}>
+            <ChevronDown
+              className={cn(
+                'w-6 h-6 transition-transform',
+                openDropdowns.includes(submenu.href || submenu.label)
+                  ? 'rotate-180'
+                  : ''
+              )}
+            />
+          </button>
+        )}
+      </div>
+
+      {submenu.submenus && (
+        <ul
+          className={`pl-4 flex flex-col gap-4 ml-${level * 4} ${
+            openDropdowns.includes(submenu.href || submenu.label)
+              ? 'max-h-96'
+              : 'max-h-0'
+          } transition-all duration-500 overflow-hidden`}
+        >
+          {submenu.submenus.map((nestedSubmenu: TNavItem) =>
+            renderSubmenu(nestedSubmenu, level + 1)
+          )}
+        </ul>
+      )}
+    </div>
+  </li>
+)
+
+
 
   return (
     <MenuProvider>
       <header className='fixed  top-6  w-full z-50'>
-        <div className=' mx-4 md:mx-8 2xl:mx-auto bg-background/70 max-w-[1440px] backdrop-blur-3xl backdrop-saturate-150 rounded-3xl py-4 px-6 flex justify-between items-center '>
+        <div className=' mx-4 md:mx-8 2xl:mx-auto bg-background/70 dark:bg-muted/90 !dark:saturate-100 max-w-[1440px] backdrop-blur-3xl backdrop-saturate-150 rounded-3xl py-4 px-6 flex justify-between items-center '>
+          {/* Desktop menu */}
           <nav className='flex  gap-16'>
-            <Image src={logo} alt='cybersec.net' />
+            <Link href={'/'}>
+              <Image
+                src={logo}
+                alt='cybersec.net'
+                className='dark:grayscale dark:invert'
+              />
+            </Link>
             <ul className='hidden lg:flex items-center gap-[42px]'>
               {navLinks.map((link, idx) => (
                 <NavigationItem
@@ -150,30 +215,60 @@ export default function Navigation() {
             ></span>
           </div>
         </button>
+        {/* Mobile Menu */}
         <nav
           className={`absolute lg:hidden bg-background  px-4 w-full   h-[100dvh] -top-6 -bottom-6 z-10  transition-transform duration-300 ease-in  ${
             !menuIsOpen ? 'translate-x-full' : 'translate-x-0'
           }   pt-40 `}
         >
-          <ul className='lg:hidden flex flex-col  gap-[42px] w-full'>
+          <ul className='lg:hidden flex flex-col gap-[42px] w-full'>
             {navLinks.map((link) => (
-              <li
-                key={link.href}
-                className={cn(
-                  `w-full  ${
-                    pathname == link.href
-                      ? 'text-primary-gradient font-medium'
-                      : ' font-normal text-primary'
-                  }`
-                )}
-              >
-                <Link
-                  href={link.href}
-                  className=' display-small w-full flex'
-                  onClick={() => setMenuIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
+              <li key={link.href}>
+                <div className='flex flex-col w-full cursor-pointer'>
+                  <div
+                    className='flex justify-between items-center'
+                    onClick={() => toggleDropdown(link.href)}
+                  >
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        `display-small ${
+                          pathname == link.href
+                            ? 'text-primary-gradient font-medium'
+                            : 'font-normal text-primary'
+                        }`
+                      )}
+                      onClick={() => link.href&& !link.submenus && setMenuIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                    {link.submenus && (
+                      <button className='p-2'>
+                        <ChevronDown
+                          className={cn(
+                            'w-6 h-6 transition-transform',
+                            openDropdowns.includes(link.href)
+                              ? '-rotate-180'
+                              : ''
+                          )}
+                        />
+                      </button>
+                    )}
+                  </div>
+
+                  {link.submenus && (
+                    <ul
+                      className={cn(
+                        `pl-4  flex flex-col gap-4 transition-all duration-500 overflow-hidden`,
+                        openDropdowns.includes(link.href)
+                          ? 'max-h-96'
+                          : 'max-h-0'
+                      )}
+                    >
+                      {link.submenus.map((submenu) => renderSubmenu(submenu))}
+                    </ul>
+                  )}
+                </div>
               </li>
             ))}
             <Button className='border !px-4 !py-3 w-max' size={'lg'}>

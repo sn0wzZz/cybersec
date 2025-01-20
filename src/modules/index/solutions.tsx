@@ -1,3 +1,4 @@
+'use client'
 import Container from '@/components/container'
 import Image from 'next/image'
 import map from '../../../public/map.svg'
@@ -7,17 +8,35 @@ import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import ShuffleIcon from '@/components/icons/shuffle'
 
+import { useScroll, motion, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+
 export default function Solutions() {
+
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  })
+
+  const x = useTransform(scrollYProgress, [0, 1], [-1000, 1000])
   return (
     <Container className='mt-16'>
-      <div className='bg-section-gradient py-[100px] md:py-[175px] relative rounded-[60px] overflow-hidden'>
+      <div
+        ref={ref}
+        className='bg-section-gradient py-[100px] md:py-[175px] relative rounded-[60px] overflow-hidden'
+      >
         <h3 className='display-large md:display-xl text-primary text-center '>
           Security and <br /> protection solutions
         </h3>
         <h4 className='title-medium text-[hsl(240_17%_45%)] text-center mt-[100px] '>
           Expertise and quality
         </h4>
-        <div className=' absolute max-w-[309px] w-full h-[309px] bg-[hsl(257_69%_60%)] blur-[154px]  rounded-full top-[380px] right-[140px] '></div>
+        {/* <div className=' absolute max-w-[309px] w-full h-[309px] bg-[hsl(257_69%_60%)] blur-[154px]  rounded-full top-[380px] right-[140px] '></div> */}
+        <motion.div
+          style={{ x }}
+          className='absolute max-w-[309px] w-full h-[309px] bg-[hsl(257_69%_60%)] blur-[154px] rounded-full top-[380px] right-[140px]'
+        />
         <div className='relative bg-background mt-[60px] mx-4 md:mx-16 rounded-[60px] lg:h-[671px] gap-10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden'>
           <div className='lg:max-w-[318px] w-full h-[108px] flex flex-col justify-between z-10 lg:row-start-2 lg:col-start-2 lg:ml-auto lg:mr-10  mx-8 lg:mx-auto mt-8 lg:mt-0  '>
             <div className='flex gap-4 my-3 py-3'>

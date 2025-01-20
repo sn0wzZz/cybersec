@@ -74,7 +74,7 @@ const resources = [
 
 export default function ResourceContainer() {
   return (
-    <Container className='py-10 md:py-16' outer='bg-section-gradient-2'>
+    <Container className='py-10 md:py-16' >
       <div className='flex flex-col lg:flex-row justify-between items-start  gap-8'>
         <h4 className='display-medium md:display-xl text-primary max-w-[521px]'>
           Here is our latest Resources{' '}

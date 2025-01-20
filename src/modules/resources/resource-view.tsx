@@ -76,7 +76,7 @@ export default function ResourceView() {
   const section3Ref = useSection('p-3')
 
   return (
-    <Container className='py-16 ' outer='bg-section-gradient-2'>
+    <Container className='py-16 ' >
       <div className='rounded-[40px] bg-background py-8 px-4 md:p-16'>
         <div className='flex flex-col lg:flex-row justify-between gap-8'>
           <div className='flex flex-col gap-3'>

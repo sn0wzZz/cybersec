@@ -5,54 +5,16 @@ const PcIcon = (
 ) => {
   return (
     <svg
-      width='20'
-      height='21'
-      viewBox='0 0 20 21'
+      width='23'
+      height='19'
+      viewBox='0 0 23 19'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
       {...props}
     >
       <path
-        d='M2.5 2.83203V17.832H17.5'
-        stroke='#1E0A52'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M16.6663 15.332V17.832'
-        stroke='#1E0A52'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M13.3337 13.665V17.8317'
-        stroke='#1E0A52'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M10 11.165V17.8317'
-        stroke='#1E0A52'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M6.66626 13.665V17.8317'
-        stroke='#1E0A52'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M2.5 9.4987C7.5 9.4987 6.66667 5.33203 10 5.33203C13.3333 5.33203 12.5 9.4987 17.5 9.4987'
-        stroke='#1E0A52'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
+        d='M1.5 18.332C1.21667 18.332 0.979337 18.236 0.788003 18.044C0.59667 17.852 0.50067 17.6147 0.500003 17.332C0.499337 17.0494 0.595337 16.812 0.788003 16.62C0.98067 16.428 1.218 16.332 1.5 16.332H21.5C21.7833 16.332 22.021 16.428 22.213 16.62C22.405 16.812 22.5007 17.0494 22.5 17.332C22.4993 17.6147 22.4033 17.8524 22.212 18.045C22.0207 18.2377 21.7833 18.3334 21.5 18.332H1.5ZM3.5 15.332C2.95 15.332 2.47934 15.1364 2.088 14.745C1.69667 14.3537 1.50067 13.8827 1.5 13.332V2.33203C1.5 1.78203 1.696 1.31136 2.088 0.920031C2.48 0.528698 2.95067 0.332698 3.5 0.332031H19.5C20.05 0.332031 20.521 0.528031 20.913 0.920031C21.305 1.31203 21.5007 1.7827 21.5 2.33203V13.332C21.5 13.882 21.3043 14.353 20.913 14.745C20.5217 15.137 20.0507 15.3327 19.5 15.332H3.5ZM3.5 13.332H19.5V2.33203H3.5V13.332Z'
+        fill='currentColor'
       />
     </svg>
   )
