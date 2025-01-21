@@ -31,13 +31,13 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow data-[state=inactive]:from-white data-[state=inactive]:to-white  data-[state=inactive]:bg-gradient-to-b gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background',
+      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow data-[state=inactive]:from-muted data-[state=inactive]:to-muted  data-[state=inactive]:bg-gradient-to-b gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background  duration-500 [&[data-state=active]_div]:bg-size-200 [&[data-state=active]_div]:bg-pos-0 [&[data-state=active]_div]:hover:bg-pos-100',
       className
     )}
     {...props}
   >
     {!noBullet && (
-      <div className='h-[14px] w-[14px] rounded-full flex-center bg-[hsla(236,100%,97%,1)]'>
+      <div className='h-[14px] w-[14px] rounded-full flex-center bg-muted'>
         <span className='h-1 w-1 rounded-full bg-[hsla(257,69%,60%,1)]'></span>
       </div>
     )}

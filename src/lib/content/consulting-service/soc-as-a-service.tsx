@@ -113,6 +113,9 @@ export default function SOCAsAService() {
             company resources and can easily scale to meet the needs of
             organizations.
           </p>
+          <Button variant={'secondary'} className=' mt-8 mr-auto'>
+            Get Quote
+          </Button>
         </ContentBox>
       </Container>
 
@@ -132,7 +135,7 @@ export default function SOCAsAService() {
             assets, ensuring continuous security and compliance.
           </p>
 
-          <Button variant={'outline'}>Contact us</Button>
+          <Button variant={'secondary'} className='text-primary' size={'lg'}>Contact us</Button>
         </Container>
       </AnimateBlur>
 
@@ -336,7 +339,7 @@ export default function SOCAsAService() {
               security and compliance. Our team is ready to assist you in
               creating a secure and resilient IT environment.
             </p>
-            <Button>Contact us</Button>
+            <Button size={'lg'}>Contact us</Button>
           </div>
         </ContentBox>
       </Container>

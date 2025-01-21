@@ -1,13 +1,14 @@
 'use client'
 import Container from '@/components/container'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
+import { Globe, Network } from 'lucide-react'
 import Image from 'next/image'
+import { useState } from 'react'
 import service1 from '../../../public/services/service-1.png'
 import service2 from '../../../public/services/service-2.png'
 import service3 from '../../../public/services/service-3.png'
-import { Globe, Network } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
 
 const services = [
   {
@@ -21,7 +22,7 @@ const services = [
         </p>
         <div className='flex flex-col md:flex-row gap-4 leading-[30px]'>
           <div className='flex flex-col gap-4'>
-            <div className='p-[14px] w-max rounded-full border text-primary mb-6'>
+            <div className='p-[14px] w-max rounded-full border text-primary mb-6 dark:bg-primary-item'>
               <Globe />
             </div>
             <h4 className='text-primary display-xs'>Web Penetration Test</h4>
@@ -31,7 +32,7 @@ const services = [
             </p>
           </div>
           <div className='flex flex-col gap-4 '>
-            <div className='p-[14px] w-max rounded-full border text-primary mb-6'>
+            <div className='p-[14px] w-max rounded-full border text-primary mb-6 dark:bg-primary-item'>
               <Network />
             </div>
             <h4 className='text-primary display-xs'>
@@ -81,23 +82,23 @@ const services = [
 
         <ul className='flex flex-col gap-8'>
           <li className='flex gap-4 items-center'>
-            <div className=' h-4 w-4  rounded-full border flex justify-center items-center'>
+            <div className=' h-4 w-4  rounded-full  flex justify-center items-center bg-border/40'>
               {' '}
-              <div className='w-[6px] h-[6px] m-1 bg-primary !dark:bg-muted rounded-full'></div>{' '}
+              <div className='w-[6px] h-[6px] m-1 bg-primary dark:bg-primary-item rounded-full'></div>{' '}
             </div>
             <p>Comprehensive security accreditations.</p>
           </li>
           <li className='flex gap-4 items-center'>
-            <div className=' h-4 w-4  rounded-full border flex justify-center items-center'>
+            <div className=' h-4 w-4  rounded-full  flex justify-center items-center bg-border/40'>
               {' '}
-              <div className='w-[6px] h-[6px] m-1 bg-primary !dark:bg-muted rounded-full'></div>{' '}
+              <div className='w-[6px] h-[6px] m-1 bg-primary dark:bg-primary-item rounded-full'></div>{' '}
             </div>
             <p>Advised by top security experts.</p>
           </li>
           <li className='flex gap-4 items-center'>
-            <div className=' h-4 w-4  rounded-full border flex justify-center items-center'>
+            <div className=' h-4 w-4  rounded-full  flex justify-center items-center bg-border/40'>
               {' '}
-              <div className='w-[6px] h-[6px] m-1 bg-primary !dark:bg-muted rounded-full'></div>{' '}
+              <div className='w-[6px] h-[6px] m-1 bg-primary dark:bg-primary-item rounded-full'></div>{' '}
             </div>
             <p>Fully deployed on Azure and complete data segregation.</p>
           </li>
@@ -110,6 +111,10 @@ const services = [
 
 export default function Services() {
   const [isExpanded, setIsExpaned] = useState(false)
+
+
+
+
   return (
     <Container className='my-32'>
       <h3 className='display-large md:display-xl text-primary'>
@@ -119,10 +124,17 @@ export default function Services() {
         {services
           .slice(0, isExpanded ? services.length : 3)
           .map((service, i) => (
-            <li
+            <motion.li
+              initial={{ scale: 0.8, opacity: 0.5 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: i * 0.3,
+                ease: 'easeOut',
+              }}
               key={i}
               className={cn(
-                `flex flex-col animate-appear gap-8 mt-16 py-8 px-8 md:px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] md:py-16 rounded-[50px] ${
+                `flex flex-col animate-appear gap-8 mt-16 py-8 px-8 md:px-[80px] shadow-[0px_60px_154px_0px_hsla(225,100%,95%,0.6)] dark:shadow-none dark:border-t dark:bg-card md:py-16 rounded-[50px] ${
                   i % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'
                 }`
               )}
@@ -141,7 +153,7 @@ export default function Services() {
                   className='object-cover'
                 />
               </div>
-            </li>
+            </motion.li>
           ))}
       </ul>
       <div className='flex justify-center w-full mt-16'>

@@ -6,6 +6,7 @@ import binary from '../../../../public/services/articles/binary.png'
 import AnimateBlur from '@/components/animate-blur'
 import Image from 'next/image'
 import Container from '@/components/container'
+import { Button } from '@/components/ui/button'
 
 export default function DnsFilteringGateway() {
   return (
@@ -29,6 +30,9 @@ export default function DnsFilteringGateway() {
           cloud-based solution checks all your DNS requests against a predefined
           policy, thereby allowing or blocking access to the requested domain.
         </p>
+        <Button variant={'secondary'} className=' mt-8 mx-auto'>
+          Get Quote
+        </Button>
       </ContentBox>
       <ContentBox
         caption='Benefits from additional control and prevention'
@@ -148,6 +152,9 @@ export default function DnsFilteringGateway() {
               <li>Access to own web interface for management and monitoring</li>
             </ul>
           </div>
+          <Button variant={'secondary'} className=' mt-8 mr-auto'>
+            Get Quote
+          </Button>
         </div>
       </ContentBox>
     </Container>

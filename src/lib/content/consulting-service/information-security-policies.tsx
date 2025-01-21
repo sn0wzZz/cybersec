@@ -4,6 +4,7 @@ import ContentBox from '@/components/content-box';
 import pcLock from '../../../../public/services/articles/pc-lock.png'
 import files from '../../../../public/services/articles/files.png'
 import network from '../../../../public/services/articles/network.png'
+import { Button } from '@/components/ui/button';
 
 
 
@@ -15,28 +16,33 @@ export default function InformationSecurityPolicies() {
         title='Information Security Policies'
         image={pcLock}
       >
-        Cybersecurity is an important issue for both the IT department and
-        executives and directors. However, security should be a concern for
-        every employee in an organization, not just IT professionals and top
-        managers. One effective way to educate employees about the importance of
-        security is through cybersecurity policies that explain each employee’s
-        responsibilities for protecting IT systems and data. A cybersecurity
-        policy sets the standards of behavior for a variety of activities within
-        an organization. <br /> <br /> Cybersecurity policies are important
-        because cyberattacks and data breaches are terribly expensive. At the
-        same time, employees are often the weak links in an organization’s
-        security. Employees share passwords, click on malicious URLs and
-        attachments, use unapproved cloud applications, and ignore the
-        encryption of sensitive files. <br /> <br /> These types of policies are
-        especially critical in public companies or organizations that operate in
-        highly regulated industries such as healthcare, finance, or insurance.
-        These organizations are at risk of heavy fines if their security
-        procedures are deemed inadequate. <br /> <br /> Cybersecurity policies
-        are also critical to an organization’s public image and trust.
-        Customers, partners, shareholders and prospective employees want
-        evidence that the organization can protect their sensitive data. Without
-        a cybersecurity policy, an organization may not be able to provide such
-        evidence.
+        <p>
+          Cybersecurity is an important issue for both the IT department and
+          executives and directors. However, security should be a concern for
+          every employee in an organization, not just IT professionals and top
+          managers. One effective way to educate employees about the importance
+          of security is through cybersecurity policies that explain each
+          employee’s responsibilities for protecting IT systems and data. A
+          cybersecurity policy sets the standards of behavior for a variety of
+          activities within an organization. <br /> <br /> Cybersecurity
+          policies are important because cyberattacks and data breaches are
+          terribly expensive. At the same time, employees are often the weak
+          links in an organization’s security. Employees share passwords, click
+          on malicious URLs and attachments, use unapproved cloud applications,
+          and ignore the encryption of sensitive files. <br /> <br /> These
+          types of policies are especially critical in public companies or
+          organizations that operate in highly regulated industries such as
+          healthcare, finance, or insurance. These organizations are at risk of
+          heavy fines if their security procedures are deemed inadequate. <br />{' '}
+          <br /> Cybersecurity policies are also critical to an organization’s
+          public image and trust. Customers, partners, shareholders and
+          prospective employees want evidence that the organization can protect
+          their sensitive data. Without a cybersecurity policy, an organization
+          may not be able to provide such evidence.
+        </p>
+        <Button variant={'secondary'} className=' mt-8 mr-auto'>
+          Get Quote
+        </Button>
       </ContentBox>
 
       <ContentBox
@@ -95,6 +101,9 @@ export default function InformationSecurityPolicies() {
           <li>Secure website management</li>
           <li>Secure workstation management</li>
         </ul>
+        <Button variant={'secondary'} className=' mt-8 mr-auto'>
+          Get Quote
+        </Button>
       </ContentBox>
     </Container>
   )

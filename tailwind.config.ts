@@ -13,6 +13,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        hero: '0px 44px 64px 24px hsla(var(--shadow-hero) / 0.2)',
+      },
       backgroundSize: {
         'size-200': '200% 200%',
       },
@@ -49,6 +52,7 @@ export default {
           DEFAULT: 'hsl(var(--primary))',
           gradient: 'hsl(var(--primary-gradient))',
           foreground: 'hsl(var(--primary-foreground))',
+          item: 'hsl(var(--primary-item))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -170,7 +174,7 @@ export default {
         },
         '.display-medium': {
           fontSize: '40px',
-          fontWeight: '500',
+          fontWeight: '600',
           lineHeight: '40px',
           letterSpacing: '-2%',
         },

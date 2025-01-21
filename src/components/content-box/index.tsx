@@ -5,12 +5,17 @@ import { StaticImageData } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 import AnimateBlur from '../animate-blur'
 import AnimateSlideUp from '../animate-slide-up'
+import { Button } from '../ui/button'
+import Link from 'next/link'
 
 export default function ContentBox({
   title,
   caption,
   images,
   image,
+  inner,
+  button,
+  childrenDiv,
   className,
   children,
 }: {
@@ -18,8 +23,10 @@ export default function ContentBox({
   caption?: string
   images?: StaticImageData[]
   image?: StaticImageData | StaticImageData[]
-
-  children: React.ReactNode
+  inner?: string
+  button?: { label?: string; href?: string; fn?: () => void }
+  childrenDiv?: string
+  children?: React.ReactNode
   className?: string
 }) {
   return (
@@ -33,19 +40,43 @@ export default function ContentBox({
       )}
     >
       <div
-        className={cn(`flex flex-col gap-6 ${image ? 'xl:w-1/2' : 'w-full'}`)}
+        className={cn(
+          `flex flex-col gap-6 ${image ? 'xl:w-1/2' : 'w-full'}`,
+          inner
+        )}
       >
-        <div className='flex flex-col gap-2'>
-          {caption && (
-            <span className='text-primary-gradient md:text-[14px] text-[12px] font-medium leading-[14px] tracking-[-3%] uppercase '>
-              {`// ${caption}`}
-            </span>
-          )}
-          {title && (
-            <h3 className='text-primary display-xs  md:display-small'>
-              {title}
-            </h3>
-          )}
+        <div className='flex sm:items-center justify-between w-full flex-col sm:flex-row gap-6 sm:text-nowrap'>
+          <div className='flex flex-col gap-2'>
+            {caption && (
+              <span className='text-primary-gradient md:text-[14px] text-[12px] font-medium leading-[14px] tracking-[-3%] uppercase  '>
+                {`// ${caption}`}
+              </span>
+            )}
+            {title && (
+              <h3 className='text-primary display-xs  md:display-small'>
+                {title}
+              </h3>
+            )}
+          </div>
+
+          {button &&
+            (button.href ? (
+              <Button
+                variant={'secondary'}
+                className=' mr-auto sm:ml-auto sm:mr-0'
+                asChild
+              >
+                <Link href={button.href}>{button.label ?? 'Get Quote'}</Link>
+              </Button>
+            ) : (
+              <Button
+                variant={'secondary'}
+                className=' mr-auto sm:ml-auto sm:mr-0'
+                onClick={button?.fn}
+              >
+                {button.label ?? 'Get Quote'}
+              </Button>
+            ))}
         </div>
 
         {images?.length && (
@@ -65,7 +96,12 @@ export default function ContentBox({
           </div>
         )}
 
-        <div className='text-foreground [&&_ol>li]:list-decimal [&&_ul>li]:list-disc [&&_:is(ul,ol)>li]:ml-6 relative w-full [&_:is(h1,h2,h3,h4,h5,h6)]:text-primary [&_:is(h4,h5,h6)]:title-small [&_:is(h1,h2,h3)]:display-xxs '>
+        <div
+          className={cn(
+            `[&&_ol>li]:list-decimal [&&_ul>li]:list-disc [&&_:is(ul,ol)>li]:ml-6 relative w-full [&_:is(h1,h2,h3,h4,h5,h6)]:text-primary [&_:is(h4,h5,h6)]:title-small [&_:is(h1,h2,h3)]:display-xxs`,
+            childrenDiv
+          )}
+        >
           {children}
         </div>
       </div>

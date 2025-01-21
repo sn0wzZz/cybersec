@@ -1,3 +1,4 @@
+'use client'
 import AnimateBlur from '@/components/animate-blur'
 import ContentBox from '@/components/content-box'
 import SecurityIcon from '@/components/icons/security'
@@ -11,6 +12,7 @@ import siem from '../../../../public/services/articles/siem.png'
 import wazuh from '../../../../public/services/articles/wazuh.png'
 import webSequrity from '../../../../public/services/articles/web-sequrity.png'
 import Container from '@/components/container'
+import { Button } from '@/components/ui/button'
 
 const cards = [
   {
@@ -91,8 +93,9 @@ export default function SiemSoftware() {
   return (
     <Container global>
       <ContentBox
-        title={'Security information and event management (SIEM)'}
         caption={'Take full control of your logs and events'}
+        title={'Security information and event management (SIEM)'}
+        button={{ fn: () => {} }}
       >
         <p>
           Security information and event management (SIEM) is a combined
@@ -162,7 +165,7 @@ export default function SiemSoftware() {
           </p>
         </ContentBox>
         <AnimateBlur>
-          <Image src={siem} alt='SIEM' className=' max-w-[860] mx-auto' />
+          <Image src={siem} alt='SIEM' className=' max-w-[860] mx-auto w-full' />
         </AnimateBlur>
       </div>
 
@@ -246,6 +249,9 @@ export default function SiemSoftware() {
           ))}
         </div>
       </ContentBox>
+      <Button variant={'secondary'} className='mx-auto'>
+        Get Quote
+      </Button>
     </Container>
   )
 }

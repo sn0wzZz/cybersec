@@ -38,7 +38,7 @@ export const resources: Resource[] = [
     content: SiemSoftware,
   },
   {
-    slug: 'passive-security/email-sequrity-gateway',
+    slug: 'passive-security/email-security-getaway',
     title: 'Email Sequrity Gateway',
     description: 'Learn about Email Sequrity Gateway',
     content: EmailSecurityGetaway,
@@ -78,16 +78,14 @@ export const resources: Resource[] = [
     slug: 'consulting-services/information-security-policies',
     title: 'Information Security Policies',
     description: 'Learn about Information',
-    content: InformationSecurityPolicies
-  }
-  ,
+    content: InformationSecurityPolicies,
+  },
   {
     slug: 'consulting-services/data-breach-investigation',
     title: 'Data Breach Investigation',
     description: 'Learn about Data Breach Investigation',
     content: DataBreachInvestigation,
   },
-
 ]
 
 export function getResourceBySlug(slug: string): Resource | undefined {

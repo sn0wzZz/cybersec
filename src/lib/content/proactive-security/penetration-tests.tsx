@@ -1,3 +1,4 @@
+'use client'
 import AnimateSlideUp from '@/components/animate-slide-up'
 import ContentBox from '@/components/content-box'
 import PcCodeIcon from '@/components/icons/pc-code'
@@ -9,6 +10,7 @@ import code from '../../../../public/services/articles/code.png'
 import clickbait from '../../../../public/services/articles/clickbait.png'
 import server from '../../../../public/services/articles/server.png'
 import Container from '@/components/container'
+import { Button } from '@/components/ui/button'
 
 const cards = [
   {
@@ -31,6 +33,7 @@ export default function PenetrationTests() {
       <ContentBox
         caption='Proactive security testing'
         title='Penetration Tests'
+        button={{ fn: () => {} }}
       >
         <p>
           Our organization has many years of experience in conducting
@@ -43,7 +46,7 @@ export default function PenetrationTests() {
           {cards.map((card, i) => (
             <Card key={i}>
               <CardHeader className='gap-6' icon={card.icon}>
-                <CardTitle >{card.title}</CardTitle>
+                <CardTitle>{card.title}</CardTitle>
               </CardHeader>
             </Card>
           ))}
@@ -224,6 +227,9 @@ export default function PenetrationTests() {
             findings during the test – short-term, medium-term, and long-term)
           </li>
         </ul>
+        <Button variant={'secondary'} className=' mt-8 mr-auto'>
+          Get Quote
+        </Button>
       </ContentBox>
     </Container>
   )

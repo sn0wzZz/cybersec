@@ -1,3 +1,4 @@
+'use client'
 import AnimateBlur from '@/components/animate-blur'
 import Container from '@/components/container'
 import ContentBox from '@/components/content-box'
@@ -22,6 +23,7 @@ import PasteSearchIcon from '@/components/icons/paste-search'
 import FactCheckIcon from '@/components/icons/fact-check'
 import PersonCheckIcon from '@/components/icons/person-check'
 import BackHandIcon from '@/components/icons/back-hand'
+import { Button } from '@/components/ui/button'
 
 const cards = [
   {
@@ -150,12 +152,13 @@ const cards3 = [
 export default function EndpointProtection() {
   return (
     <Container
-      outer='pt-[200px] bg-section-gradient '
+      outer='bg-section-gradient '
       className=' flex flex-col gap-24'
-    >
+      >
       <ContentBox
         caption=' An innovative solution to protect your devices'
         title='Malwarebytes Endpoint Protection'
+        button={{fn: ()=> {}}}
       >
         <p>
           For cybercriminals, the primary target remains enterprise networks,
@@ -355,13 +358,15 @@ export default function EndpointProtection() {
             </Card>
           ))}
         </div>
-        <AnimateBlur>
+        <AnimateBlur className='flex flex-col justify-center'>
           <Image
             src={pc}
             alt='pc'
             className='mx-auto mt-12 max-w-[800px] w-full'
           />
+        <Button variant={'secondary'} className='mt-8 mx-auto'>Get Quote</Button>
         </AnimateBlur>
+
       </ContentBox>
     </Container>
   )

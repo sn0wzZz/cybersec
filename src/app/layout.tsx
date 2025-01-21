@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Inter} from "next/font/google";
+// import {Inter} from "next/font/google";
 import "./globals.css";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
@@ -10,13 +10,12 @@ import ThemeContextProvider from '@/context/theme-context';
 const generalSans = localFont({
   src: './fonts/GeneralSans-Regular.woff',
   variable: '--font-general-sans',
-  weight: '100 900',
 })
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+// const inter = Inter({
+//   subsets: ['latin'],
+//   variable: '--font-inter',
+// })
 
 
 
@@ -33,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${generalSans.variable} ${inter.variable}  antialiased overflow-x-hidden relative`}
+        className={`   ${generalSans.className} antialiased overflow-x-hidden relative`}
       >
         <ThemeContextProvider>
           <Navigation />

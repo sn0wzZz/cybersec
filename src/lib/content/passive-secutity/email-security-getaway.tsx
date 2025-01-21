@@ -7,6 +7,7 @@ import email from '../../../../public/services/articles/email.png'
 import emailGateway from '../../../../public/services/articles/email-gateway.png'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Container from '@/components/container'
+import { Button } from '@/components/ui/button'
 
 const cards = [
   {
@@ -161,6 +162,9 @@ export default function EmailSecurityGetaway() {
 
         <AnimateBlur>
           <Image src={titan} alt='titan' className='mt-6 max-w-[276px]' />
+          <Button variant={'secondary'} className=' mt-8 mx-auto'>
+            Get Quote
+          </Button>
         </AnimateBlur>
       </ContentBox>
       <ContentBox
@@ -211,13 +215,13 @@ export default function EmailSecurityGetaway() {
         caption='Extremely easy to deploy and manage'
         title='How does the system work?'
       >
-      <AnimateBlur>
-        <Image
-          src={emailGateway}
-          alt='Email Gateway'
-          className='mx-auto max-w-[740px] w-full'
-        />
-      </AnimateBlur>
+        <AnimateBlur>
+          <Image
+            src={emailGateway}
+            alt='Email Gateway'
+            className='mx-auto max-w-[740px] w-full'
+          />
+        </AnimateBlur>
       </ContentBox>
 
       <ContentBox title='SEG implementation process'>
@@ -261,6 +265,9 @@ export default function EmailSecurityGetaway() {
             hotline.
           </li>
         </ul>
+        <Button variant={'secondary'} className=' mt-8 mx-auto'>
+          Get Quote
+        </Button>
       </ContentBox>
     </Container>
   )

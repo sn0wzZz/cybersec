@@ -8,23 +8,71 @@ import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import ShuffleIcon from '@/components/icons/shuffle'
 
-import { useScroll, motion, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import {
+  useScroll,
+  motion,
+  useTransform,
+  animate,
+  useInView,
+} from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import AnimateSlideUp from '@/components/animate-slide-up'
+
+const CountingNumber = ({ value, text }: { value: string; text: string }) => {
+  const nodeRef = useRef<HTMLHeadingElement>(null)
+  const isInView = useInView(nodeRef, { once: true })
+
+  useEffect(() => {
+    const node = nodeRef.current
+
+    if (isInView) {
+      const hasDecimal = value.includes('.')
+      const controls = animate(0, parseFloat(value), {
+        duration: 1.5,
+        onUpdate(value) {
+          if (node) {
+            node.textContent = hasDecimal
+              ? value.toFixed(1) + '%'
+              : Math.round(value).toLocaleString() + '+'
+          }
+        },
+      })
+
+      return () => controls.stop()
+    }
+  }, [value, isInView])
+
+  return (
+    <div className='flex flex-col gap-4 w-[168px]'>
+      <h4
+        ref={nodeRef}
+        className='display-medium text-background dark:text-muted !dark:text-popover'
+      >
+        0
+      </h4>
+      <p className='display-xxs text-border'>{text}</p>
+    </div>
+  )
+}
+
+
 
 export default function Solutions() {
-
   const ref = useRef(null)
+  const numbersRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   })
+
+
 
   const x = useTransform(scrollYProgress, [0, 1], [-1000, 1000])
   return (
     <Container className='mt-16'>
       <div
         ref={ref}
-        className='bg-section-gradient py-[100px] md:py-[175px] relative rounded-[60px] overflow-hidden'
+        className='bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-card to-95%  dark:from-card dark:to-card pt-[100px] md:pt-[175px] mb-[100px] dark:border-t relative rounded-[60px] overflow-hidden'
       >
         <h3 className='display-large md:display-xl text-primary text-center '>
           Security and <br /> protection solutions
@@ -116,59 +164,47 @@ export default function Solutions() {
           </div>
         </div>
       </div>
+      <AnimateSlideUp>
+        <motion.div
+          ref={numbersRef}
+          className='bg-gradient-to-b from-primary to-primary-gradient p-8 md:p-16 rounded-[60px] flex flex-col items-center justify-center gap-10 relative '
+        >
+          <Image
+            src={wave}
+            alt='wave'
+            className='absolute  top-10 right-0 max-w-[807px] rotate-[6] '
+          />
 
-      <div className='bg-gradient-to-b from-primary to-primary-gradient p-8 md:p-16 rounded-[60px] flex flex-col items-center justify-center gap-10 relative '>
-        <Image
-          src={wave}
-          alt='wave'
-          className='absolute  top-10 right-0 max-w-[807px] rotate-[6] '
-        />
+          <div className='w-full border-b border-input '>
+            <h3 className='display-medium text-background mb-[56px]'>
+              Security and <br />
+              protection solutions
+            </h3>
+          </div>
 
-        <div className='w-full border-b border-white/20 '>
-          <h3 className='display-medium text-background mb-[56px]'>
-            Security and <br />
-            protection solutions
-          </h3>
-        </div>
-        <div className='flex flex-col lg:flex-row justify-between items-center w-full gap-10  mt-[56px]'>
-          <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-background !dark:text-popover'>
-              15,000+
-            </h4>
-            <p className='display-xxs text-input'>Customers</p>
+          <div className='flex flex-col lg:flex-row justify-between items-center w-full gap-10  mt-[56px]'>
+            <CountingNumber value='15000' text='Customers' />
+
+            <div className=' w-[52px] h-[52px] rounded-full flex-center bg-primary-item'>
+              <ShuffleIcon className='h-6 w-6' />
+            </div>
+            <CountingNumber value='8000' text='Interactions' />
+            <div className=' w-[52px] h-[52px] rounded-full flex-center bg-primary-item'>
+              <ShuffleIcon className='h-6 w-6' />
+            </div>
+            <CountingNumber value='30000' text='Hour saved' />
+            <div className=' w-[52px] h-[52px] rounded-full flex-center bg-primary-item'>
+              <ShuffleIcon className='h-6 w-6' />
+            </div>
+            
+              <CountingNumber
+                value='99.5%'
+                text='Total engagement'
+              />
+        
           </div>
-          <div className=' w-[52px] h-[52px] rounded-full flex-center bg-[hsl(257_69%_60%)]'>
-            <ShuffleIcon className='h-6 w-6' />
-          </div>
-          <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-background !dark:text-popover'>
-              8000+
-            </h4>
-            <p className='display-xxs text-input'>Interactions</p>
-          </div>
-          <div className=' w-[52px] h-[52px] rounded-full flex-center bg-[hsl(257_69%_60%)]'>
-            <ShuffleIcon className='h-6 w-6' />
-          </div>
-          <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-background !dark:text-popover'>
-              30000+
-            </h4>
-            <p className='display-xxs text-input !dark:text-popover'>
-              Hour save
-            </p>
-          </div>
-          <div className=' w-[52px] h-[52px] rounded-full flex-center bg-[hsl(257_69%_60%)]'>
-            <ShuffleIcon className='h-6 w-6' />
-          </div>
-          <div className='flex flex-col gap-4 w-[168px]'>
-            <h4 className='display-medium text-background'>99.5%</h4>
-            <p className='display-xxs text-input'>
-              Total <br />
-              engagement
-            </p>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </AnimateSlideUp>
     </Container>
   )
 }

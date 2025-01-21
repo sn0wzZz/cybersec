@@ -1,5 +1,6 @@
 import Container from '@/components/container'
 import ContentBox from '@/components/content-box'
+import { Button } from '@/components/ui/button'
 
 export default function SecurityAwarenessTraining() {
   return (
@@ -20,6 +21,9 @@ export default function SecurityAwarenessTraining() {
           consolidate the knowledge. At the completion of the training, each
           employee receives a personal certificate.
         </p>
+        <Button variant={'secondary'} className=' mt-8 mr-auto'>
+          Get Quote
+        </Button>
       </ContentBox>
 
       <ContentBox
@@ -141,6 +145,9 @@ export default function SecurityAwarenessTraining() {
               <strong>4.</strong> What to do if we are already hacked
             </p>
           </div>
+          <Button variant={'secondary'} className=' mt-8 mr-auto'>
+            Get Quote
+          </Button>
         </div>
       </ContentBox>
     </Container>

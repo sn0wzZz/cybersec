@@ -3,7 +3,9 @@ import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+
 
 const faq = [
   {
@@ -26,12 +28,28 @@ const faq = [
 
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+const ref = useRef(null)
+
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ['start end', 'end start'],
+})
+
+const y = useTransform(scrollYProgress, [0, 1], [100, -100])
+const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
 
   return (
-    <Container className='bg-section-gradient py-[64px] px-4 md:px-[75px]  rounded-[42px] mt-16'>
+       <motion.div
+      ref={ref}
+      style={{ y, opacity }}
+    >
+
+    <Container className='bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-card dark:to-card dark:border-t py-[64px] px-4 md:px-[75px]  rounded-[42px] mt-16'>
       <div className=''>
         <div className='flex flex-col lg:flex-row gap-10'>
-          <h3 className=' display-large mg:display-xl text-primary'>Frequently Asked Question</h3>
+          <h3 className=' display-large mg:display-xl text-primary'>
+            Frequently Asked Question
+          </h3>
           <div className='flex flex-col justify-between gap-4'>
             <p>
               Our team can assist you with the monitoring and maintenance of
@@ -48,7 +66,7 @@ export default function FAQ() {
           {faq.map((item, index) => (
             <li
               key={index}
-              className='bg-background rounded-2xl p-6 hover:cursor-pointer '
+              className='bg-background dark:bg-muted  rounded-2xl p-6 hover:cursor-pointer '
               onClick={() =>
                 setActiveIndex(activeIndex === index ? null : index)
               }
@@ -57,7 +75,7 @@ export default function FAQ() {
                 <h4 className='display-xxs md:display-xs font-medium text-primary'>
                   {item.q}
                 </h4>
-                <button className=' flex justify-between items-center p-4 hover:bg-gradient-to-b from-primary to-primary-gradient border transition-all duration-100 bg-size-200 bg-pos-0 hover:bg-pos-100 ease-in hover:text-white rounded-full'>
+                <button className=' flex justify-between items-center p-4 hover:bg-gradient-to-b from-primary to-primary-gradient border transition-all duration-100 bg-size-200 bg-pos-0 hover:bg-pos-100 ease-in hover:text-white dark:hover:text-muted rounded-full'>
                   <div className='relative w-6 h-6'>
                     <div
                       className={cn(
@@ -79,7 +97,7 @@ export default function FAQ() {
                   activeIndex === index ? 'max-h-[500px] ' : 'max-h-0'
                 )}
               >
-                <p className='text-muted-foreground body-large py-2'>
+                <p className='text-foreground body-large py-2'>
                   {item.a}
                 </p>
               </div>
@@ -88,5 +106,6 @@ export default function FAQ() {
         </ul>
       </div>
     </Container>
+    </motion.div>
   )
 }

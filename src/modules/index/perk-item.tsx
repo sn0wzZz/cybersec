@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
+
 export default function PerkItem({
   perk,
   index,
@@ -19,7 +20,7 @@ export default function PerkItem({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       key={index}
-      className='flex w-[454px] flex-col gap-6 items-start bg-gradient-to-b from-card via-card to-card dark:from-muted dark:via-background dark:to-muted rounded-[40px] px-[32px] pt-[76px] pb-[44px] text-accent hover:text-white hover:from-primary  hover:via-primary-gradient hover:to-primary dark:hover:from-foreground  dark:hover:via-foreground dark:hover:to-foreground transition-all dark:hover:text-muted duration-500 bg-size-200 bg-pos-0 hover:bg-pos-100 hover:cursor-pointer'
+      className='flex w-[454px] flex-col gap-6 items-start bg-gradient-to-b from-card via-card to-card dark:from-card dark:via-card dark:to-card dark:border-t rounded-[40px] px-[32px] pt-[76px] pb-[44px] text-accent hover:text-white hover:from-primary  hover:via-primary-gradient hover:to-primary dark:hover:from-primary  dark:hover:via-primary dark:hover:to-primary transition-all dark:hover:text-muted duration-500 bg-size-200 bg-pos-0 hover:bg-pos-100 hover:cursor-pointer'
     >
       <div className='flex flex-col gap-9'>
         <div className='flex gap-[42px]'>
@@ -43,10 +44,10 @@ export default function PerkItem({
 
       <Button
         className={cn(
-          `title-medium rounded-full transition-all duration-300 mt-6 ${
+          `title-medium rounded-full transition-all duration-300 mt-6 dark:transition-none dark:duration-0 ${
             isHovering
-              ? 'bg-transparent text-muted-foreground border-muted-foreground'
-              : 'border-transparent text-accent'
+              ? 'bg-transparent text-muted-foreground border-muted-foreground dark:border dark:border-transparent dark:from-primary dark:to-primary  dark:hover:from-primary dark:hover:to-primary  dark:text-primary-foreground'
+              : 'border-transparent text-accent  dark:from-card dark:to-card dark:border dark:border-border'
           }`
         )}
         variant={'outline'}
