@@ -49,7 +49,7 @@ export default function Directive() {
   const  perksY = useTransform(perksProgress, [0, 1], [500, 0])
 
   return (
-    <Container as='section' className='flex flex-col gap-4 '>
+    <Container as='section' className='flex flex-col gap-4 overflow-x-hidden'>
       <div className='flex flex-col lg:flex-row gap-6 justify-between'>
         <motion.div
           ref={textRef}
