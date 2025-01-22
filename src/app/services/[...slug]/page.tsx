@@ -11,7 +11,7 @@ export default async function page({
   const Content = resource?.content
   if (Content)
     return (
-      <div className='pt-[200px] bg-section-gradient'>
+      <div className='pt-[200px] bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-background dark:to-background '>
         <Content />
       </div>
     )

@@ -152,10 +152,10 @@ export default function DnsFilteringGateway() {
               <li>Access to own web interface for management and monitoring</li>
             </ul>
           </div>
+        </div>
           <Button variant={'secondary'} className=' mt-8 mr-auto'>
             Get Quote
           </Button>
-        </div>
       </ContentBox>
     </Container>
   )

@@ -15,7 +15,8 @@ export default function Partners() {
       <h4 className='mx-auto display-medium text-primary'>
         Trusted by 20,000+ customers across Europe
       </h4>
-      <div className='flex flex-col gap-3 md:gap-0'>
+
+      <div className='flex flex-col gap-3 md:gap-0 dark:partners-filter'>
         <div className='overflow-scroll no-scrollbar '>
           <div className='flex justify-around gap-4 m-max'>
             {partners.map((partner, i) => (

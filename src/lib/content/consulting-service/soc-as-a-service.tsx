@@ -121,8 +121,8 @@ export default function SOCAsAService() {
 
       <AnimateBlur>
         <Container
-          outer='bg-primary'
-          className='text-primary-foreground py-12 my-12 md:py-24 flex items-center flex-col md:flex-row gap-12 md:gap-8   '
+          outer='bg-primary dark:bg-muted'
+          className='text-primary-foreground dark:text-primary py-12 my-12 md:py-24 flex items-center flex-col md:flex-row gap-12 md:gap-8   '
         >
           <p>
             Our SOC as a Service (Security Operations Center as a Service)
@@ -274,14 +274,14 @@ export default function SOCAsAService() {
       </Container>
       <AnimateBlur>
         <Container
-          outer='bg-primary '
+          outer='bg-primary dark:bg-muted '
           className='text-primary-foreground py-12 md:py-24  [&&_li]:list-disc [&_li]:ml-4 my-16 min-h-[600px] '
         >
           <h4 className='text-white display-xs md:display-medium mb-8'>
             Our approach
           </h4>
           <Tabs defaultValue='onboarding-and-assessment'>
-            <TabsList className='bg-transparent rounded-none   w-full xl:w-auto '>
+            <TabsList className='bg-transparent  rounded-none   w-full xl:w-auto '>
               <div className='grid grid-cols-1 xl:grid-cols-4 gap-4 w-full xl:w-auto  '>
                 {approach.map((scan) => (
                   <TabsTrigger

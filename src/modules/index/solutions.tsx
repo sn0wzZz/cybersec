@@ -85,8 +85,8 @@ export default function Solutions() {
           style={{ x }}
           className='absolute max-w-[309px] w-full h-[309px] bg-[hsl(257_69%_60%)] blur-[154px] rounded-full top-[380px] right-[140px]'
         />
-        <div className='relative bg-background mt-[60px] mx-4 md:mx-16 rounded-[60px] lg:h-[671px] gap-10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden'>
-          <div className='lg:max-w-[318px] w-full h-[108px] flex flex-col justify-between z-10 lg:row-start-2 lg:col-start-2 lg:ml-auto lg:mr-10  mx-8 lg:mx-auto mt-8 lg:mt-0  '>
+        <div className='relative bg-background  mt-[60px] mx-4 md:mx-16 rounded-[60px] lg:h-[671px] gap-10 grid grid-cols-1 lg:grid-cols-2 overflow-hidden'>
+          <div className='lg:max-w-[318px] w-full md:h-[108px] flex flex-col justify-between z-10 lg:row-start-2 lg:col-start-2 lg:ml-auto lg:mr-10  mx-4 md:mx-8 lg:mx-auto mt-8 lg:mt-0  '>
             <div className='flex gap-4 my-3 py-3'>
               <div className=' h-8 w-8  rounded-full border flex justify-center items-center'>
                 {' '}
@@ -109,7 +109,7 @@ export default function Solutions() {
             </div>
           </div>
 
-          <div className='bg-background w-full lg:max-w-[386px] h-[268px] px-[26px] py-[29px] rounded-3xl flex flex-col justify-between relative  z-10 lg:row-start-3 lg:row-span-2 mx-auto'>
+          <div className='bg-background dark:bg-muted w-full lg:max-w-[386px] h-[268px] px-[26px] py-[29px] rounded-3xl flex flex-col justify-between relative  z-10 lg:row-start-3 lg:row-span-2 mx-auto'>
             <div className='flex gap-4 items-center '>
               <div className='h-[51px] w-[51px] bg-secondary rounded-full'></div>
               <div>
@@ -122,7 +122,7 @@ export default function Solutions() {
             </Button>
           </div>
 
-          <div className='bg-background lg:max-w-[386px] w-full h-[280px] px-[26px] py-[29px] rounded-3xl flex flex-col justify-between z-10 relative lg:row-start-4 lg:col-start-2 mx-auto '>
+          <div className='bg-background dark:bg-muted lg:max-w-[386px] w-full md:h-[280px]  px-[26px] py-[29px] rounded-3xl flex flex-col justify-between z-10 relative lg:row-start-4 lg:col-start-2 mx-auto '>
             <h5 className='title-medium text-primary'>
               Security and protection solutions
             </h5>
@@ -154,12 +154,12 @@ export default function Solutions() {
             <Image
               src={map}
               alt='map'
-              className='absolute bottom-0 top-20 left-40 right-40'
+              className='absolute bottom-0 top-20 left-40 right-40  dark:map-filter'
             />
             <Image
               src={integration}
               alt='integration pins'
-              className='absolute top-[10%] left-[26%] max-h-[500px] '
+              className='absolute top-[10%] left-[26%] max-h-[500px] dark:primary-filter '
             />
           </div>
         </div>
@@ -196,12 +196,8 @@ export default function Solutions() {
             <div className=' w-[52px] h-[52px] rounded-full flex-center bg-primary-item'>
               <ShuffleIcon className='h-6 w-6' />
             </div>
-            
-              <CountingNumber
-                value='99.5%'
-                text='Total engagement'
-              />
-        
+
+            <CountingNumber value='99.5%' text='Total engagement' />
           </div>
         </motion.div>
       </AnimateSlideUp>

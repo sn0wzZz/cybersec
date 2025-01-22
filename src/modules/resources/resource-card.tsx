@@ -1,3 +1,4 @@
+import AnimateBlur from '@/components/animate-blur'
 import Bullet from '@/components/bullet'
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
@@ -21,7 +22,9 @@ export default function ResourceCard({
   compact?: boolean
 }) {
   return (
-    <li className={` p-[20px] bg-background rounded-[40px] h-full`}>
+    <li>
+
+    <AnimateBlur className={` p-[20px] bg-background dark:bg-muted rounded-[40px] h-full`}>
       <div
         className={`relative mb-[32px] ${
           compact ? 'h-[286px]' : 'h-[286px] lg:h-[493px]'
@@ -57,6 +60,7 @@ export default function ResourceCard({
         </Button>
           </Link>
       </div>
+    </AnimateBlur>
     </li>
   )
 }

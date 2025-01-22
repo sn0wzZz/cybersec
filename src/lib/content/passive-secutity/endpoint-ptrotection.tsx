@@ -152,7 +152,7 @@ const cards3 = [
 export default function EndpointProtection() {
   return (
     <Container
-      outer='bg-section-gradient '
+      
       className=' flex flex-col gap-24'
       >
       <ContentBox

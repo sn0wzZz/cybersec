@@ -48,7 +48,7 @@ export default function ContentBox({
         <div className='flex sm:items-center justify-between w-full flex-col sm:flex-row gap-6 sm:text-nowrap'>
           <div className='flex flex-col gap-2'>
             {caption && (
-              <span className='text-primary-gradient md:text-[14px] text-[12px] font-medium leading-[14px] tracking-[-3%] uppercase  '>
+              <span className='text-primary-gradient dark:text-primary-item md:text-[14px] text-[12px] font-medium leading-[14px] tracking-[-3%] uppercase  '>
                 {`// ${caption}`}
               </span>
             )}

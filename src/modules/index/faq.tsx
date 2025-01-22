@@ -2,10 +2,9 @@
 import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
-import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-
+import { useState } from 'react'
 
 const faq = [
   {
@@ -28,25 +27,20 @@ const faq = [
 
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
-const ref = useRef(null)
-
-const { scrollYProgress } = useScroll({
-  target: ref,
-  offset: ['start end', 'end start'],
-})
-
-const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
 
   return (
-       <motion.div
-      ref={ref}
-      style={{ y, opacity }}
-    >
-
-    <Container className='bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-card dark:to-card dark:border-t py-[64px] px-4 md:px-[75px]  rounded-[42px] mt-16'>
-      <div className=''>
-        <div className='flex flex-col lg:flex-row gap-10'>
+    <Container className=' '>
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0.5 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+    
+            ease: 'easeOut',
+          }}
+          className='bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-card dark:to-card dark:border-t py-[64px] px-4 md:px-[75px]  rounded-[42px] mt-16'
+        >
+        <div className='flex flex-col lg:flex-row gap-10 container mx-auto'>
           <h3 className=' display-large mg:display-xl text-primary'>
             Frequently Asked Question
           </h3>
@@ -97,15 +91,12 @@ const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
                   activeIndex === index ? 'max-h-[500px] ' : 'max-h-0'
                 )}
               >
-                <p className='text-foreground body-large py-2'>
-                  {item.a}
-                </p>
+                <p className='text-foreground body-large py-2'>{item.a}</p>
               </div>
             </li>
           ))}
         </ul>
-      </div>
-    </Container>
     </motion.div>
+      </Container>
   )
 }

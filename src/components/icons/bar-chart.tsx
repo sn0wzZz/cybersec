@@ -8,7 +8,7 @@ const BarChartIcon = (
       width='20'
       height='21'
       viewBox='0 0 20 21'
-      fill='currentColor'
+      fill='none'
       xmlns='http://www.w3.org/2000/svg'
       {...props}
     >
@@ -27,21 +27,21 @@ const BarChartIcon = (
         strokeLinejoin='round'
       />
       <path
-        d='M13.3337 13.665V17.8317'
+        d='M13.3337 13.6654V17.8321'
         stroke='currentColor'
         strokeWidth='2'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
-        d='M10 11.165V17.8317'
+        d='M10 11.1654V17.8321'
         stroke='currentColor'
         strokeWidth='2'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
-        d='M6.66626 13.665V17.8317'
+        d='M6.66626 13.6654V17.8321'
         stroke='currentColor'
         strokeWidth='2'
         strokeLinecap='round'

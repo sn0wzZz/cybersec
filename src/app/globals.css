@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 @layer base {
@@ -100,6 +101,12 @@ body {
     .primary-filter{
       filter: brightness(0) saturate(100%) invert(9%) sepia(42%) saturate(3309%) hue-rotate(242deg) brightness(102%) contrast(114%);
     }
+    .map-filter{
+      filter: brightness(0) saturate(100%) invert(36%) sepia(0%) saturate(1%) hue-rotate(185deg) brightness(97%) contrast(87%);
+    }
+.partners-filter{
+  filter: brightness(0) saturate(100%) invert(91%) sepia(6%) saturate(79%) hue-rotate(21deg) brightness(90%) contrast(91%);
+}
 
   .white-scrollbar {
   /* width */
@@ -115,7 +122,7 @@ body {
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: hsla(0, 0%, 100%, 1);
+    @apply bg-white dark:bg-muted;
   }
 
   /* Handle on hover */
@@ -127,11 +134,11 @@ body {
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border focus:outline-none focus-visible:outline-none;
   }
   body {
     font-family: var(--font-general-sans);
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground ;
   }
 
   /* width */

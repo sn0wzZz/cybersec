@@ -2,6 +2,7 @@ import Container from '@/components/container'
 import cert1 from '../../../public/about/cert-1.png'
 import Image from 'next/image'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import AnimateSlideUp from '@/components/animate-slide-up'
 
 const certifications = [
   {
@@ -49,6 +50,8 @@ const certifications = [
 export default function Certifications() {
   return (
     <Container className=' py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16'>
+      <AnimateSlideUp>
+
       <div className=' flex flex-col gap-16'>
         <div className='flex flex-col lg:flex-row gap-10 justify-between lg:items-center'>
           <h3 className=' display-large mg:display-xl text-primary max-w-[589px]'>
@@ -61,23 +64,22 @@ export default function Certifications() {
             </p>
           </div>
         </div>
-        <div className='bg-section-gradient rounded-[50px] p-4 md:p-[50px] w-full'>
+        <div className='bg-gradient-to-b dark:bg-gradient-to-br from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-muted dark:to-primary-item rounded-[50px] p-4 md:p-[50px] w-full'>
           <Tabs defaultValue='ccna' className='overflow-hidden'>
             <TabsList className=' overflow-x-scroll no-scrollbar  w-full'>
-              <div className=' flex flex-row w-full justify-between'>
-
-              {certifications.map((cert) => (
-                <TabsTrigger key={cert.value} value={cert.value}>
-                  {cert.label}
-                </TabsTrigger>
-              ))}
+              <div className=' flex flex-row w-full justify-between gap-4'>
+                {certifications.map((cert) => (
+                  <TabsTrigger key={cert.value} value={cert.value}>
+                    {cert.label}
+                  </TabsTrigger>
+                ))}
               </div>
             </TabsList>
             {certifications.map((cert, i) => (
               <TabsContent key={cert.value} value={cert.value}>
-                <div className=' bg-background rounded-[50px] w-[1190] flex flex-col gap-10 lg:flex-row  md:items-center justify-between p-[30px]'>
+                <div className=' bg-background dark:bg-muted rounded-[50px]  flex flex-col gap-10 lg:flex-row  md:items-center justify-between p-[30px]'>
                   <div className='flex flex-col  gap-12'>
-                    <div className='bg-secondary h-[80px] w-[80px] flex-center rounded-full font-medium text-2xl'>
+                    <div className='bg-secondary h-[80px] w-[80px] flex-center rounded-full font-medium text-2xl dark:text-muted'>
                       0{i + 1}
                     </div>
                     <div className='display-medium lg:display-large text-primary max-w-[531px] [&_span]:text-input'>
@@ -90,7 +92,7 @@ export default function Certifications() {
                       alt={`vision-${i + 1}`}
                       fill
                       className=' object-cover'
-                    />
+                      />
                   </div>
                 </div>
               </TabsContent>
@@ -98,6 +100,7 @@ export default function Certifications() {
           </Tabs>
         </div>
       </div>
+                      </AnimateSlideUp>
     </Container>
   )
 }

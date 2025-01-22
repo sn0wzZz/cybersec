@@ -19,7 +19,9 @@ export default function Container({
     <div className={outer}>
       <Component
         className={cn(
-          `container max-w-[1440px] mx-auto   `, global ? 'flex flex-col gap-24' : '',className
+          `container max-w-[1440px] mx-auto  overflow-hidden    `,
+          global ? 'flex flex-col gap-24' : '',
+          className
         )}
       >
         {children}

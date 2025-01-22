@@ -14,7 +14,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex  md:h-[120px] items-center justify-center rounded-[50px] bg-background p-1 text-muted-foreground",
+      "inline-flex  md:h-[120px] items-center justify-center rounded-[50px] bg-background dark:bg-muted p-1 text-muted-foreground ",
       className
     )}
     {...props}
@@ -31,13 +31,13 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow data-[state=inactive]:from-muted data-[state=inactive]:to-muted  data-[state=inactive]:bg-gradient-to-b gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background  duration-500 [&[data-state=active]_div]:bg-size-200 [&[data-state=active]_div]:bg-pos-0 [&[data-state=active]_div]:hover:bg-pos-100',
+      'inline-flex items-center justify-center whitespace-nowrap rounded-full py-[19px] px-[19px] md:py-[38px] md:px-[38px] display-xxs font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gradient-to-b from-primary to-primary-gradient data-[state=active]:text-primary-foreground data-[state=active]:shadow data-[state=inactive]:from-background data-[state=inactive]:to-background dark:data-[state=inactive]:from-muted dark:data-[state=inactive]:to-muted  data-[state=inactive]:bg-gradient-to-b gap-3 [&[data-state=active]_div]:bg-[hsla(240,17%,45%,1)] [&[data-state=active]_span]:bg-background  duration-500 [&[data-state=active]_div]:bg-size-200 [&[data-state=active]_div]:bg-pos-0 [&[data-state=active]_div]:hover:bg-pos-100',
       className
     )}
     {...props}
   >
     {!noBullet && (
-      <div className='h-[14px] w-[14px] rounded-full flex-center bg-muted'>
+      <div className='h-[14px] w-[14px] rounded-full flex-center bg-muted/50 dark:bg-input'>
         <span className='h-1 w-1 rounded-full bg-[hsla(257,69%,60%,1)]'></span>
       </div>
     )}
@@ -54,7 +54,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-[42px] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      "mt-[42px] ring-offset-background dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
       className
     )}
     {...props}

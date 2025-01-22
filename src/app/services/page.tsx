@@ -110,7 +110,7 @@ export default function Page() {
   return (
     <>
       <Container
-        outer='pt-[200px] bg-section-gradient '
+        outer='pt-[200px] bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-background dark:to-background '
         className=' flex flex-col gap-24'
       >
         <ContentBox

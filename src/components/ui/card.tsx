@@ -10,7 +10,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'rounded-[40px] bg-background  flex gap-4 p-6 text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)]',
+      'rounded-[40px] bg-card  flex gap-4 p-6 text-card-foreground shadow-[0px_34px_94px_0px_hsla(240,100%,96%,0.7)] dark:shadow-none dark:border-t',
       className
       
     )}
@@ -20,7 +20,7 @@ const Card = React.forwardRef<
       <div>
         <div
           className={cn(
-            'flex items-center justify-center w-[40px] h-[40px] rounded-full bg-muted text-primary'
+            'flex items-center justify-center w-[40px] h-[40px] rounded-full bg-muted dark:bg-primary-item text-primary'
           )}
         >
           {icon}
@@ -47,7 +47,7 @@ const CardHeader = React.forwardRef<
       <div>
         <div
           className={cn(
-            'flex items-center justify-center w-[56px] h-[56px] rounded-full bg-primary-gradient text-white'
+            'flex items-center justify-center w-[56px] h-[56px] rounded-full bg-gradient-to-b from-primary to-primary-gradient dark:from-muted dark:to-primary-foreground text-white'
           )}
           {...props}
         >

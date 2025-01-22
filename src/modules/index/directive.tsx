@@ -1,7 +1,7 @@
 'use client'
 import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
-import { ChevronRight, Play } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import PerkItem from './perk-item'
 import { useScroll, motion, useTransform } from 'framer-motion'
 import { useRef } from 'react'
@@ -73,12 +73,23 @@ export default function Directive() {
         <motion.div
           ref={playerRef}
           style={{ x: playerX }}
-          className='w-full max-w-[550px] aspect-video flex-center bg-muted rounded-3xl'
+          className='w-full max-w-[550px] aspect-video flex-center bg-muted rounded-3xl overflow-hidden'
         >
-          <Play className='w-16 h-16 text-primary' />
+          <iframe
+            width='100%'
+            height='100%'
+            src='https://www.youtube.com/embed/dQw4w9WgXcQ'
+            title='YouTube video'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowFullScreen
+          />
         </motion.div>
       </div>
-      <motion.div ref={perksRef} style={{y: perksY}} className='overflow-x-scroll no-scrollbar'>
+      <motion.div
+        ref={perksRef}
+        style={{ y: perksY }}
+        className='overflow-x-scroll no-scrollbar'
+      >
         <div className='flex gap-[20px] mt-[75px] w-max'>
           {perks.map((perk, i) => (
             <PerkItem key={i} perk={perk} index={i} />

@@ -1,6 +1,7 @@
 import Container from '@/components/container'
 import vision1 from '../../../public/about/vision-1.png'
 import Image from 'next/image'
+import AnimateSlideUp from '@/components/animate-slide-up'
 
 const visions = [
   {
@@ -25,7 +26,9 @@ const visions = [
 
 export default function Vision() {
   return (
-    <Container className=' py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16 relative before:h-[716px] before:w-[716px] before:bg-[hsla(236,100%,97%,1)] before:absolute  before:right-[-133px] before:rounded-full before:-z-10 before:top-32 before:blur-[284px] overflow-hidden'>
+    <Container className=' py-[64px] px-4 md:px-[75px]  radius-[42px] mt-16 relative before:h-[716px] before:w-[716px] before:bg-[hsla(236,100%,97%,1)] dark:before:bg-popover before:absolute  before:right-[303px] before:rounded-full before:-z-10 before:top-32  overflow-hidden before:blur-[184px] dark:before:blur-[84px] '>
+      <AnimateSlideUp>
+
       <div className=' flex flex-col gap-16'>
         <div className='flex flex-col lg:flex-row gap-10 justify-between lg:items-center'>
           <h3 className=' display-large mg:display-xl text-primary max-w-[589px]'>
@@ -45,13 +48,13 @@ export default function Vision() {
             {visions.map((vision, i) => (
               <li
                 key={`vision-${i}`}
-                className=' rounded-[50px] w-[350px] lg:w-[1290px] flex flex-col gap-10 lg:flex-row  md:items-center justify-between bg-background p-[30px]'
+                className=' rounded-[50px] w-[350px] lg:w-[1290px] flex flex-col gap-10 lg:flex-row  md:items-center justify-between bg-background dark:bg-muted p-[30px]'
               >
                 <div className='flex flex-col  gap-12'>
-                  <div className='bg-secondary h-[80px] w-[80px] flex-center rounded-full font-medium text-2xl'>
+                  <div className='bg-secondary h-[80px] w-[80px] flex-center rounded-full font-medium text-2xl dark:text-muted'>
                     0{i + 1}
                   </div>
-                  <div className='display-medium lg:display-large text-primary max-w-[531px] [&_span]:text-input'>
+                  <div className='display-medium lg:display-large text-primary max-w-[531px] [&_span]:text-input dark:[&_span]:text-primary-item'>
                     {vision.title}
                   </div>
                 </div>
@@ -68,6 +71,7 @@ export default function Vision() {
           </ul>
         </div>
       </div>
+      </AnimateSlideUp>
     </Container>
   )
 }
