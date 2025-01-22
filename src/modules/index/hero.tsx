@@ -86,7 +86,7 @@ export default function Hero() {
                 key={i}
                 className='h-[51px]  aspect-square relative bg-background rounded-full flex-center'
               >
-                {user.progress===0&&<span className='absolute w-5 h-5  bg-white dark:text-muted top-0 -right-1 z-10 flex justify-center items-center rounded-full border border-white text-primary '> <Check2Icon className='h-3 w-3 '/></span>}
+                {user.progress===0&&<span className='absolute w-5 h-5  bg-white dark:text-muted top-0 -right-1 z-10 flex justify-center items-center rounded-full border border-white text-primary '> <Check2Icon className='h-5 w-5 '/></span>}
                 <motion.div
                   initial={{ '--progress': 0 }}
                   animate={{ '--progress': user.progress }}
