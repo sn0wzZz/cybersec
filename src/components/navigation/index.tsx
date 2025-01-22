@@ -217,9 +217,9 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
         </button>
         {/* Mobile Menu */}
         <nav
-          className={`absolute lg:hidden bg-background  px-4 w-full   h-[100dvh] -top-6 -bottom-6 z-10  transition-transform duration-300 ease-in  ${
+          className={`absolute lg:hidden bg-background px-4 w-full md:w-[500px] md:right-0 h-[100dvh] -top-6 -bottom-6 z-10 transition-transform duration-300 ease-in ${
             !menuIsOpen ? 'translate-x-full' : 'translate-x-0'
-          }   pt-40 `}
+          } pt-40`}
         >
           <ul className='lg:hidden flex flex-col gap-[42px] w-full'>
             {navLinks.map((link) => (
@@ -238,7 +238,9 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
                             : 'font-normal text-primary'
                         }`
                       )}
-                      onClick={() => link.href&& !link.submenus && setMenuIsOpen(false)}
+                      onClick={() =>
+                        link.href && !link.submenus && setMenuIsOpen(false)
+                      }
                     >
                       {link.label}
                     </Link>

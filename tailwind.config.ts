@@ -13,6 +13,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens:{
+        lg:'1156px'
+      },
       boxShadow: {
         hero: '0px 44px 64px 24px hsla(var(--shadow-hero) / 0.2)',
       },

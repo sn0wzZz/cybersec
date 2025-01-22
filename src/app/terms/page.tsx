@@ -1,10 +1,11 @@
+import AnimateSlideUp from '@/components/animate-slide-up'
 import Bullet from '@/components/bullet'
 import Container from '@/components/container'
 
 export default function page() {
   return (
     <Container>
-      <div className='bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-muted dark:to-muted p-8 md:p-16 rounded-[50px]  flex flex-col gap-2 mt-[150px] [&_p]:body-large [&_p]:text-muted-foreground [&_p]:ml-8 [&_p]:first:mt-4'>
+      <AnimateSlideUp className='bg-gradient-to-b from-[hsla(235,100%,98%,1)] from-5% to-background to-95%  dark:from-muted dark:to-muted p-8 md:p-16 rounded-[50px]  flex flex-col gap-2 mt-[150px] [&_p]:body-large [&_p]:text-muted-foreground [&_p]:ml-8 [&_p]:first:mt-4'>
         <div className='flex items-center gap-2'>
           <Bullet />
           <h4 className='display-small text-primary'>
@@ -83,7 +84,7 @@ export default function page() {
           <br />
           <br />
         </p>
-      </div>
+      </AnimateSlideUp>
     </Container>
   )
 }
