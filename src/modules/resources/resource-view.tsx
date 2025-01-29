@@ -12,7 +12,7 @@ import FacebookIcon from '@/components/icons/facebook'
 import InstagramIcon from '@/components/icons/instagram'
 import XIcon from '@/components/icons/x'
 import LinkedIcon from '@/components/icons/Linkedin'
-import CodeSnippet from '@/components/ui/code-block'
+import CodeSnippet from '@/components/ui/code-snippet'
 
 const aditionalResources = [
   {
