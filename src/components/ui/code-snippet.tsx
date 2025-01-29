@@ -29,7 +29,7 @@ interface CodeSnippetProps {
 const CodeSnippet = ({ code, language }: CodeSnippetProps) => {
   const [copied, setCopied] = useState(false)
 
-  useEffect(() => {
+  useEffect(() => { 
     // Prism.js needs to highlight the code after it is rendered
     Prism.highlightAll()
   }, [code])
