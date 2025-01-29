@@ -20,13 +20,13 @@ const buttonVariants = cva(
           'bg-muted border text-primary hover:text-muted text-bold shadow-sm hover:bg-primary bg-gradient-to-b from-muted to-primary-muted  hover:bg-gradient-to-b hover:from-primary-gradient hover:to-primary hover:border-0',
         ghost: ' text-primary hover:text-primary/80 !p-0 !m-0',
         link: 'text-primary underline-offset-4 hover:underline',
-        icon: 'w-[39px] h-[39px] bg-muted flex justify-center items-center !rounded-full text-primary hover:bg-muted/80',
+        icon: 'w-[39px] h-[39px] bg-muted !p-0 !flex !justify-center !items-center !rounded-full  text-primary hover:bg-muted/70 dark:bg-[hsla(236,100%,97%,1)] dark:text-muted dark:hover:bg-primary/80',
       },
       size: {
         default: 'h-11 px-6 py-4 rounded-[14px]',
         sm: 'h-8 rounded-md px-3 text-xs',
         lg: 'h-[62px] rounded-[24px] p-[24px]',
-        icon: 'h-9 w-9',
+        icon: 'h-[39px] w-[39px]',
       },
     },
     defaultVariants: {

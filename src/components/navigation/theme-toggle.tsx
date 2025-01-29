@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { useTheme } from '@/context/theme-context'
 import { Moon, Sun } from 'lucide-react'
 import {
@@ -12,6 +13,17 @@ import {
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
+
+  const [mounted, setMounted] = useState(false)
+
+  // This useEffect ensures that we only render the component client-side
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // If not mounted yet, return null to avoid SSR mismatch
+  if (!mounted) return null
+
   return (
     <Select defaultValue={theme} onValueChange={toggleTheme}>
       <SelectTrigger className='w-16'>

@@ -2,12 +2,17 @@
 
 import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
-import { Clock3, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Clock3 } from 'lucide-react'
 import Image from 'next/image'
 import { useIntersectionObserver } from '@uidotdev/usehooks'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import AnimateSlideUp from '@/components/animate-slide-up'
+import FacebookIcon from '@/components/icons/facebook'
+import InstagramIcon from '@/components/icons/instagram'
+import XIcon from '@/components/icons/x'
+import LinkedIcon from '@/components/icons/Linkedin'
+import CodeSnippet from '@/components/ui/code-block'
 
 const aditionalResources = [
   {
@@ -79,7 +84,7 @@ export default function ResourceView() {
   return (
     <Container className='py-16 overflow-visible '>
       <AnimateSlideUp>
-        <div className='rounded-[40px] bg-background dark:bg-muted py-8 px-4 md:p-16 relative'>
+        <div className='rounded-[40px] bg-background dark:bg-card dark:border-t py-8 px-4 md:p-16 relative'>
           <div className='flex flex-col lg:flex-row justify-between gap-8'>
             <div className='flex flex-col gap-3'>
               <span className='body-large text-muted-foreground-gray'>
@@ -134,22 +139,22 @@ export default function ResourceView() {
             <div>
               <span className='display-xxs text-primary '>Social Share:</span>
               <div className='mt-4 flex gap-[20px]'>
-                <Button variant={'icon'} className=''>
-                  <Facebook className='fill-primary ' />
+                <Button variant={'icon'} size={'icon'} className=' '>
+                  <FacebookIcon className=' h-4 w-4 ' />
                 </Button>
-                <Button variant={'icon'} className=''>
-                  <Instagram className='fill-primary stroke-muted' />
+                <Button variant={'icon'} size={'icon'} className=''>
+                  <InstagramIcon className=' h-4 w-4 ' />
                 </Button>
-                <Button variant={'icon'} className=''>
-                  <Twitter className='fill-primary' />
+                <Button variant={'icon'} size={'icon'} className=''>
+                  <XIcon className=' h-4 w-4 ' />
                 </Button>
-                <Button variant={'icon'} className=''>
-                  <Linkedin className='fill-primary' />
+                <Button variant={'icon'} size={'icon'} className=''>
+                  <LinkedIcon className=' h-4 w-4 ' />
                 </Button>
               </div>
             </div>
           </div>
-          <hr />
+          <hr className='dark:border-white' />
           <div className=' mt-10 md:mt-16 flex flex-col xl:flex-row  gap-12'>
             {/* Progress */}
             <div className='max-w-[310px] w-full hidden xl:block'>
@@ -161,7 +166,7 @@ export default function ResourceView() {
                   <div>
                     <div
                       onClick={() => scrollToSection('p-1')}
-                      className={`cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary after:rounded-full ${
+                      className={`cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary dark:after:bg-muted after:rounded-full ${
                         activeSection === 'p-1' ? 'opacity-100' : 'opacity-50'
                       }`}
                     >
@@ -171,7 +176,7 @@ export default function ResourceView() {
                     </div>
                     <div
                       onClick={() => scrollToSection('p-2')}
-                      className={` cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary after:rounded-full ${
+                      className={` cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary dark:after:bg-muted after:rounded-full ${
                         activeSection === 'p-2' ? 'opacity-100' : 'opacity-50'
                       }`}
                     >
@@ -181,7 +186,7 @@ export default function ResourceView() {
                     </div>
                     <div
                       onClick={() => scrollToSection('p-3')}
-                      className={` cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary after:rounded-full ${
+                      className={` cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary dark:after:bg-muted after:rounded-full ${
                         activeSection === 'p-3' ? 'opacity-100' : 'opacity-50'
                       }`}
                     >
@@ -192,9 +197,9 @@ export default function ResourceView() {
                   </div>
                 </div>
 
-                <div className='w-full mt-[56px] h-[2px] bg-muted rounded-full'>
+                <div className='w-full mt-[56px] h-[2px] bg-muted dark:bg-primary rounded-full'>
                   <div
-                    className='h-[2px] bg-primary rounded-full transition-all duration-200 relative ease-out '
+                    className='h-[2px] bg-primary dark:bg-primary-item rounded-full transition-all duration-200 relative ease-out '
                     style={{ width: `${readingProgress}%` }}
                   />
                 </div>
@@ -286,6 +291,89 @@ export default function ResourceView() {
                   victims in Taiwan using a unique communication technique. 
                 </p>
               </div>
+
+              <div className='flex flex-col gap-6'>
+                <CodeSnippet
+                  code={`const a = 100
+const a = 100
+const a = 100
+const a = 100
+const a = 100`}
+                  language='js'
+                />
+                <CodeSnippet
+                  code={`<h5 className='display-xxs md:display-small text-primary'
+ref={section3Ref}
+id='p-3'
+>
+Toyota confirmed that its network was breached after a threat
+actor leaked a 240GB
+</h5>`}
+                  language='html'
+                />
+                <CodeSnippet code={`npm run build`} language='bash' />
+                <CodeSnippet
+                  code={`import requests
+
+def fetch_data(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Check for HTTP errors
+        data = response.json()
+        return data
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return None
+
+url = "https://api.example.com/data"
+data = fetch_data(url)
+if data:
+    print("Data fetched successfully:", data)
+else:
+    print("Failed to fetch data.")`}
+                  language='python'
+                />
+                <CodeSnippet
+                  code={`// Java Example: Simple Java program to fetch data from an API
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class ApiFetcher {
+    public static void main(String[] args) {
+        String urlString = "https://api.example.com/data";
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            
+            // Check for successful response code
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+                
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+                
+                // Print the response
+                System.out.println("Data fetched successfully: " + response.toString());
+            } else {
+                System.out.println("Failed to fetch data. HTTP Code: " + connection.getResponseCode());
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching data: " + e.getMessage());
+        }
+    }
+}
+`}
+                  language='java'
+                />
+              </div>
               <div className='flex flex-col gap-6'>
                 <h5
                   className='display-xxs md:display-small text-primary'
@@ -323,7 +411,7 @@ export default function ResourceView() {
                     <Link
                       href={resource.href}
                       key={`res-${i + 1}`}
-                      className='flex bg-background dark:bg-muted dark:text-primary justify-between w-full rounded-3xl px-4 py-3 shadow-[20px_24px_64px_0px_hsla(225,100%,95%,0.5)] dark:shadow-[20px_24px_64px_0px_hsla(257,69%,60%,0.4)]'
+                      className='flex bg-background dark:bg-muted dark:text-primary justify-between w-full rounded-3xl px-4 py-3 shadow-[20px_24px_64px_0px_hsla(225,100%,95%,0.5)] dark:shadow-none'
                     >
                       <div className='flex flex-col justify-between items-start max-w-[112px]'>
                         <div className='shadow-[0px_8px_18px_0px_hsla(225,100%,95%,0.5)] dark:shadow-[20px_24px_64px_0px_hsla(257,69%,60%,0.4)] bg-background dark:bg-muted dark:text-primary title-small py-2 px-3 rounded-xl border'>
