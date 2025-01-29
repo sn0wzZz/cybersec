@@ -35,8 +35,8 @@ const CodeSnippet = ({ code, language }: CodeSnippetProps) => {
   }, [code])
 
   return (
-    <div className='relative !rounded-[32px] overflow-hidden'>
-      <pre className='dark:bg-background bg-primary dark:border-t w-full max-w-[600px] text-white p-[20px]  overflow-auto '>
+    <div className='relative '>
+      <pre className='dark:bg-background bg-primary dark:border-t w-full max-w-[600px] text-white p-[20px]  overflow-auto !rounded-[32px] no-scrollbar'>
         <code
           className={`language-${language}`}
           dangerouslySetInnerHTML={{
