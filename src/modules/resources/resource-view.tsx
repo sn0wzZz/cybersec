@@ -20,7 +20,7 @@ const aditionalResources = [
     title: 'Weekly Cybersecurity Report 40',
     href: '/',
     image: '/resources/resource-9.png',
-  },
+  }, 
   {
     tag: ['Article'],
     title: 'Weekly Cybersecurity Report 35',
