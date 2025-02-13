@@ -1,7 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useTheme } from '@/context/theme-context'
 import { Moon, Sun } from 'lucide-react'
 import {
   Select,
@@ -10,22 +8,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useTheme } from 'next-themes'
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
-
-  const [mounted, setMounted] = useState(false)
-
-  // This useEffect ensures that we only render the component client-side
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // If not mounted yet, return null to avoid SSR mismatch
-  if (!mounted) return null
-
+ const { theme, setTheme } = useTheme()
   return (
-    <Select defaultValue={theme} onValueChange={toggleTheme}>
+    <Select defaultValue={theme} onValueChange={setTheme}>
       <SelectTrigger className='w-16'>
         <SelectValue>
           {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}

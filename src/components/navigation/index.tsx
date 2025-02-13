@@ -1,18 +1,18 @@
 'use client'
-import Image from 'next/image'
-import Link from 'next/link'
-import logo from '../../../public/logo.svg'
-import { Button } from '../ui/button'
-import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { Button } from '../ui/button'
 
+import { MenuProvider } from '@/context/navigation-context'
+import { ChevronDown } from 'lucide-react'
+import Logo from '../logo'
 import NavigationItem, {
   type NavigationItem as TNavItem,
 } from './navigation-item'
-import { MenuProvider } from '@/context/navigation-context'
+import Searchbar from './searchbar'
 import ThemeToggle from './theme-toggle'
-import { ChevronDown } from 'lucide-react'
 
 const navLinks = [
   {
@@ -167,16 +167,10 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
   return (
     <MenuProvider>
       <header className='fixed  top-6  w-full z-50'>
-        <div className=' mx-4 md:mx-8 2xl:mx-auto bg-background/70 dark:bg-muted/90 !dark:saturate-100 max-w-[1440px] backdrop-blur-3xl backdrop-saturate-150 rounded-3xl py-4 px-6 flex justify-between items-center '>
+        <div className=' mx-4 md:mx-8 2xl:mx-auto bg-background/70 dark:bg-card/90 dark:border-t !dark:saturate-100 max-w-[1440px] backdrop-blur-3xl backdrop-saturate-150 rounded-3xl py-4 px-6 flex justify-between items-center '>
           {/* Desktop menu */}
           <nav className='flex  gap-16'>
-            <Link href={'/'}>
-              <Image
-                src={logo}
-                alt='cybersec.net'
-                className='dark:grayscale dark:invert'
-              />
-            </Link>
+            <Logo />
             <ul className='hidden lg:flex items-center gap-[42px]'>
               {navLinks.map((link, idx) => (
                 <NavigationItem
@@ -190,12 +184,13 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
           </nav>
 
           <div className='lg:flex items-center gap-4 hidden '>
+            <Searchbar  />
             <ThemeToggle />
             <Button className='hidden lg:flex'>Get Quote</Button>
           </div>
         </div>
         <button
-          className='text-primary-50 w-10 h-10 block absolute top-6 right-10 md:right-14  focus:outline-none z-50  lg:hidden'
+          className='text-primary-50 w-10 h-10 block absolute top-4 right-10 md:right-14  focus:outline-none z-50  lg:hidden'
           onClick={handleMenu}
         >
           <span className='sr-only'>Open main menu</span>

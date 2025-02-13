@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
-import ThemeContextProvider from '@/context/theme-context';
+import { ThemeProvider } from '@/providers/theme-provider';
 
 
 const generalSans = localFont({
@@ -34,11 +34,11 @@ export default function RootLayout({
       <body
         className={`   ${generalSans.className} antialiased overflow-x-hidden relative`}
       >
-        <ThemeContextProvider>
+        <ThemeProvider attribute='class' defaultTheme='light'>
           <Navigation />
           <main>{children}</main>
           <Footer />
-        </ThemeContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

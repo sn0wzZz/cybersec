@@ -24,7 +24,7 @@ export default function ResourceCard({
   return (
     <li>
 
-    <AnimateBlur className={` p-[20px] bg-background dark:bg-muted rounded-[40px] h-full`}>
+    <AnimateBlur className={` p-[20px] bg-background dark:bg-card dark:border-t  rounded-[40px] h-full`}>
       <div
         className={`relative mb-[32px] ${
           compact ? 'h-[286px]' : 'h-[286px] lg:h-[493px]'

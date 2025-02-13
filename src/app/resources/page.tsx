@@ -2,6 +2,7 @@ import HeroReusable from '@/components/hero-reusable'
 import hero from '../../../public/resources/resource-1.png'
 
 import ResourceContainer from '@/modules/resources/resource-container'
+import { Suspense } from 'react'
 
 
 
@@ -13,7 +14,10 @@ export default function page() {
         image={hero}
         button={{ href: '/' }}
       />
+      <Suspense fallback={<div>Loading...</div>}>
+
       <ResourceContainer />
+      </Suspense>
     </div>
   )
 }

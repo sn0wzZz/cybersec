@@ -1,9 +1,12 @@
+'use client';
 import Container from '@/components/container';
 
-import { Input } from '@/components/ui/input';
-import SearchIcon from '@/components/icons/search';
 
-import ResourceCard from './resource-card'
+import Filters from '@/components/filters';
+import Searchbar from '@/components/navigation/searchbar';
+// import { useSearchParams } from 'next/navigation';
+// import { useState } from 'react';
+import ResourceCard from './resource-card';
 
 const resources = [
   {
@@ -71,21 +74,30 @@ const resources = [
   },
 ]
 
+const resourceFilters = [
+  { label: 'All Categories', value: 'all' },
+  { label: 'SaaS', value: 'saas' },
+  { label: 'Analytics', value: 'analytics' },
+  { label: 'Security', value: 'security' },
+]
 
 export default function ResourceContainer() {
+  // const searchParams = useSearchParams()
+  // const [filteredResources, setFilteredResources] = useState(resources)
+  // const currentFilter = searchParams.get('filter') || 'all'
+  // console.log(filteredResources, currentFilter)
+
   return (
     <Container className='py-10 md:py-16'>
       <div className='flex flex-col lg:flex-row justify-between items-start  gap-8'>
         <h4 className='display-medium md:display-xl text-primary max-w-[521px] text-nowrap'>
-          Here is our latest <br /> Resources{' '}
+          Here is our latest  Resources{' '}
         </h4>
-        <div className='flex bg-background dark:bg-input items-center p-[14px] rounded-2xl w-full lg:max-w-[312px]'>
-          <Input
-            className='!border-0 !outline-0 !ring-0 shadow-none body-large placeholder:body-large dark:placeholder:text-border dark:text-muted  w-full '
-            placeholder='Search...'
-          />
-          <SearchIcon />
-        </div>
+      </div>
+      <div className='flex  justify-between mt-8 flex-col-reverse  gap-4 lg:flex-row'>
+      <Filters filters={resourceFilters} paramName='filter' />
+      <Searchbar />
+       
       </div>
       <div className='flex flex-col md:flex-row mt-16 gap-[19px]'>
         <ul className='max-w-[797px] flex flex-col gap-8 h-full'>
