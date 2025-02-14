@@ -7,10 +7,11 @@ import Link from 'next/link';
 
 export default function Logo() {
   const {theme} = useTheme()
+  const resolvedTheme = theme || 'light'
   return (
     <Link href={'/'}>
       <Image
-        src={theme === 'light'? '/logo.svg': '/logo-dark.svg'}
+        src={resolvedTheme === 'light' ? '/logo.svg' : '/logo-dark.svg'}
         alt='cybersec.net'
         width={180}
         height={40}

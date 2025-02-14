@@ -1,8 +1,8 @@
 import Container from '@/components/container';
 import ContentBox from '@/components/content-box';
-import code from '../../../../public/services/articles/code.png'
+import CTA from '@/components/cta';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import code from '../../../../public/services/articles/code.png';
 
 const benefits = [
   {
@@ -53,9 +53,6 @@ export default function DataBreachInvestigation() {
           to the service, which includes all facts and circumstances,
           photographic material, recommendations, conclusions and analyses.
         </p>
-        <Button variant={'secondary'} className=' mt-8 mr-auto'>
-          Get Quote
-        </Button>
       </ContentBox>
 
       <ContentBox
@@ -75,9 +72,7 @@ export default function DataBreachInvestigation() {
           ))}
         </div>
       </ContentBox>
-        <Button variant={'secondary'} className='mx-auto'>
-          Get Quote
-        </Button>
+   <CTA/>
     </Container>
   )
 }

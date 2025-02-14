@@ -1,13 +1,13 @@
-import ContentBox from '@/components/content-box'
 import AnimateBlur from '@/components/animate-blur'
-import Image from 'next/image'
-import titan from '../../../../public/services/articles/titan.png'
-import privacyLock from '../../../../public/services/articles/privacy-lock.png'
-import email from '../../../../public/services/articles/email.png'
-import emailGateway from '../../../../public/services/articles/email-gateway.png'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Container from '@/components/container'
-import { Button } from '@/components/ui/button'
+import ContentBox from '@/components/content-box'
+import CTA from '@/components/cta'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Image from 'next/image'
+import emailGateway from '../../../../public/services/articles/email-gateway.png'
+import email from '../../../../public/services/articles/email.png'
+import privacyLock from '../../../../public/services/articles/privacy-lock.png'
+import titan from '../../../../public/services/articles/titan.png'
 
 const cards = [
   {
@@ -162,9 +162,6 @@ export default function EmailSecurityGetaway() {
 
         <AnimateBlur>
           <Image src={titan} alt='titan' className='mt-6 max-w-[276px]' />
-          <Button variant={'secondary'} className=' mt-8 mx-auto'>
-            Get Quote
-          </Button>
         </AnimateBlur>
       </ContentBox>
       <ContentBox
@@ -265,10 +262,8 @@ export default function EmailSecurityGetaway() {
             hotline.
           </li>
         </ul>
-        <Button variant={'secondary'} className=' mt-8 mx-auto'>
-          Get Quote
-        </Button>
       </ContentBox>
+      <CTA />
     </Container>
   )
 }

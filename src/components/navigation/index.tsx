@@ -171,7 +171,7 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
           {/* Desktop menu */}
           <nav className='flex  gap-16'>
             <Logo />
-            <ul className='hidden lg:flex items-center gap-[42px]'>
+            <ul className='hidden xl:flex items-center gap-[42px]'>
               {navLinks.map((link, idx) => (
                 <NavigationItem
                   key={link.href || idx}
@@ -183,14 +183,14 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
             </ul>
           </nav>
 
-          <div className='lg:flex items-center gap-4 hidden '>
+          <div className='xl:flex items-center gap-4 hidden '>
             <Searchbar  />
             <ThemeToggle />
             <Button className='hidden lg:flex'>Get Quote</Button>
           </div>
         </div>
         <button
-          className='text-primary-50 w-10 h-10 block absolute top-4 right-10 md:right-14  focus:outline-none z-50  lg:hidden'
+          className='text-primary-50 w-10 h-10 block absolute top-4 right-10 md:right-14  focus:outline-none z-50  xl:hidden'
           onClick={handleMenu}
         >
           <span className='sr-only'>Open main menu</span>
@@ -212,7 +212,7 @@ const renderSubmenu = (submenu: TNavItem, level = 1) => (
         </button>
         {/* Mobile Menu */}
         <nav
-          className={`absolute lg:hidden bg-background px-4 w-full md:w-[500px] md:right-0 h-[100dvh] -top-6 -bottom-6 z-10 transition-transform duration-300 ease-in ${
+          className={`absolute xl:hidden bg-background px-4 w-full md:w-[500px] md:right-0 h-[100dvh] -top-6 -bottom-6 z-10 transition-transform duration-300 ease-in ${
             !menuIsOpen ? 'translate-x-full' : 'translate-x-0'
           } pt-40`}
         >

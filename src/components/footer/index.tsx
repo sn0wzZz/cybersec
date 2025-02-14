@@ -111,7 +111,7 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <hr />
+      <hr className='border-white' />
       <div className='flex flex-col md:flex-row gap-4 justify-between mt-[48px] text-muted-foreground px-4'>
         <div>
           <span>&copy; 2024 - Cybersec</span>

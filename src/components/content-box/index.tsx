@@ -11,6 +11,7 @@ import Link from 'next/link'
 export default function ContentBox({
   title,
   caption,
+  id,
   images,
   image,
   inner,
@@ -24,6 +25,7 @@ export default function ContentBox({
   images?: StaticImageData[]
   image?: StaticImageData | StaticImageData[]
   inner?: string
+  id?: string
   button?: { label?: string; href?: string; fn?: () => void }
   childrenDiv?: string
   children?: React.ReactNode
@@ -32,6 +34,7 @@ export default function ContentBox({
   return (
     <AnimateSlideUp
       as='article'
+      id={id}
       className={cn(
         `flex flex-col xl:flex-row w-full ${
           image ? 'md:mx-[30px] items-center  ' : ''
@@ -63,7 +66,7 @@ export default function ContentBox({
             (button.href ? (
               <Button
                 variant={'secondary'}
-                className=' mr-auto sm:ml-auto sm:mr-0'
+                className=' mr-auto sm:ml-auto sm:mr-0 dark:from-muted dark:to-primary-foreground hover:dark:from-primary-foreground hover:dark:to-muted hover:dark:text-white dark:border-none  dark:text-white'
                 asChild
               >
                 <Link href={button.href}>{button.label ?? 'Get Quote'}</Link>
@@ -71,7 +74,7 @@ export default function ContentBox({
             ) : (
               <Button
                 variant={'secondary'}
-                className=' mr-auto sm:ml-auto sm:mr-0'
+                className=' mr-auto sm:ml-auto sm:mr-0  dark:from-muted dark:to-primary-foreground hover:dark:from-primary-foreground hover:dark:to-muted hover:dark:text-white dark:border-none dark:text-white'
                 onClick={button?.fn}
               >
                 {button.label ?? 'Get Quote'}

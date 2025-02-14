@@ -36,7 +36,7 @@ const CodeSnippet = ({ code, language }: CodeSnippetProps) => {
 
   return (
     <div className='relative '>
-      <pre className='dark:bg-background bg-primary dark:border-t  w-full max-w-[600px] text-white p-[20px]   !rounded-[32px] no-scrollbar'>
+      <pre className='dark:bg-background bg-primary dark:border-t  w-full xl:max-w-[600px] text-white p-[20px]   !rounded-[32px] no-scrollbar'>
         <code
           className={`language-${language}  w-full max-w-[600px] !flex-wrap !text-wrap`}
           dangerouslySetInnerHTML={{

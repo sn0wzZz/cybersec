@@ -2,10 +2,7 @@
 
 import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
-import { Clock3 } from 'lucide-react'
 import Image from 'next/image'
-import { useIntersectionObserver } from '@uidotdev/usehooks'
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import AnimateSlideUp from '@/components/animate-slide-up'
 import FacebookIcon from '@/components/icons/facebook'
@@ -13,6 +10,7 @@ import InstagramIcon from '@/components/icons/instagram'
 import XIcon from '@/components/icons/x'
 import LinkedIcon from '@/components/icons/Linkedin'
 import CodeSnippet from '@/components/ui/code-snippet'
+import Progress from '@/components/progress'
 
 const aditionalResources = [
   {
@@ -20,7 +18,7 @@ const aditionalResources = [
     title: 'Weekly Cybersecurity Report 40',
     href: '/',
     image: '/resources/resource-9.png',
-  }, 
+  },
   {
     tag: ['Article'],
     title: 'Weekly Cybersecurity Report 35',
@@ -35,52 +33,7 @@ const aditionalResources = [
   },
 ]
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    })
-  }
-}
-
 export default function ResourceView() {
-  const [activeSection, setActiveSection] = useState<string>('p-1')
-  const [readingProgress, setReadingProgress] = useState(0)
-
-  const useSection = (sectionId: string) => {
-    const [ref, entry] = useIntersectionObserver({
-      threshold: 0.5,
-      root: null,
-      rootMargin: '-300px 0px',
-    })
-
-    useEffect(() => {
-      if (entry?.isIntersecting) {
-        setActiveSection(sectionId)
-      }
-    }, [entry?.isIntersecting, sectionId])
-
-    return ref
-  }
-
-  const handleScroll = () => {
-    const totalHeight =
-      document.documentElement.scrollHeight - window.innerHeight
-    const progress = (window.scrollY / totalHeight) * 100
-    setReadingProgress(progress)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const section1Ref = useSection('p-1')
-  const section2Ref = useSection('p-2')
-  const section3Ref = useSection('p-3')
-
   return (
     <Container className='py-16 overflow-visible '>
       <AnimateSlideUp>
@@ -157,64 +110,29 @@ export default function ResourceView() {
           <hr className='dark:border-white' />
           <div className=' mt-10 md:mt-16 flex flex-col xl:flex-row  gap-12'>
             {/* Progress */}
-            <div className='max-w-[310px] w-full hidden xl:block'>
-              <div className='sticky top-32'>
-                <div className='bg-primary-gradient rounded-[40px] p-[38px] flex flex-col gap-8  '>
-                  <span className='display-xs text-background max-w-[105px] '>
-                    Table of Contents
-                  </span>
-                  <div>
-                    <div
-                      onClick={() => scrollToSection('p-1')}
-                      className={`cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary dark:after:bg-muted after:rounded-full ${
-                        activeSection === 'p-1' ? 'opacity-100' : 'opacity-50'
-                      }`}
-                    >
-                      <p className='ml-8 pb-[30px] title-medium text-primary-foreground border-b border-dashed'>
-                        Before hard working then grow your business
-                      </p>
-                    </div>
-                    <div
-                      onClick={() => scrollToSection('p-2')}
-                      className={` cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary dark:after:bg-muted after:rounded-full ${
-                        activeSection === 'p-2' ? 'opacity-100' : 'opacity-50'
-                      }`}
-                    >
-                      <p className='ml-8 pb-[30px] title-medium text-primary-foreground border-b border-dashed'>
-                        Before hard working then grow your business
-                      </p>
-                    </div>
-                    <div
-                      onClick={() => scrollToSection('p-3')}
-                      className={` cursor-pointer transition-all duration-300 eas-out pb-2.5 mb-3.5 border-l border-spacing-y-20 border-dashed relative before:absolute before:-top-4 before:-left-4 before:h-8 before:w-8 before:bg-primary before:rounded-full before:border before:border-primary-gradient dark:before:border-muted after:absolute after:-top-1 after:-left-1 after:h-2 after:w-2 after:bg-secondary dark:after:bg-muted after:rounded-full ${
-                        activeSection === 'p-3' ? 'opacity-100' : 'opacity-50'
-                      }`}
-                    >
-                      <p className='ml-8 pb-[30px] title-medium text-primary-foreground border-b border-dashed'>
-                        Before hard working then grow your business
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            <div className='max-w-[310px] w-full hidden xl:block '>
 
-                <div className='w-full mt-[56px] h-[2px] bg-muted dark:bg-primary rounded-full'>
-                  <div
-                    className='h-[2px] bg-primary dark:bg-primary-item rounded-full transition-all duration-200 relative ease-out '
-                    style={{ width: `${readingProgress}%` }}
-                  />
-                </div>
-                <div className='w-full flex justify-center gap-2 items-center mt-6'>
-                  <Clock3 className='w-4 h-4 text-primary' />
-                  <span>10 min read</span>
-                </div>
-              </div>
-            </div>
+            <Progress
+              sections={[
+                {
+                  id: 'p-1',
+                  title: 'Weekly Cybersecurity Report | Week 34, 2024',
+                },
+                { id: 'p-2', title: 'What is 360 feedback?' },
+                {
+                  id: 'p-3',
+                  title:
+                    'Toyota confirmed that its network was breached after a threat actor leaked a 240GB',
+                },
+              ]}
+              readTime={10}
+            />
+                  </div>
             {/* Article */}
             <div className='flex flex-col gap-10 md:gap-28 dark:text-foreground'>
               <div className='flex flex-col gap-6'>
                 <h5
                   className='display-xxs md:display-small text-primary '
-                  ref={section1Ref}
                   id='p-1'
                 >
                   01.Weekly Cybersecurity Report | Week 34, 2024
@@ -230,7 +148,6 @@ export default function ResourceView() {
               <div className='flex flex-col gap-6'>
                 <h5
                   className='display-xxs md:display-small text-primary'
-                  ref={section2Ref}
                   id='p-2'
                 >
                   02.What is 360 feedback?
@@ -377,7 +294,6 @@ public class ApiFetcher {
               <div className='flex flex-col gap-6'>
                 <h5
                   className='display-xxs md:display-small text-primary'
-                  ref={section3Ref}
                   id='p-3'
                 >
                   Toyota confirmed that its network was breached after a threat
@@ -411,10 +327,10 @@ public class ApiFetcher {
                     <Link
                       href={resource.href}
                       key={`res-${i + 1}`}
-                      className='flex bg-background dark:bg-muted dark:text-primary justify-between w-full rounded-3xl px-4 py-3 shadow-[20px_24px_64px_0px_hsla(225,100%,95%,0.5)] dark:shadow-none'
+                      className='flex bg-background dark:bg-background dark:border-t dark:text-primary justify-between w-full rounded-3xl px-4 py-3 shadow-[20px_24px_64px_0px_hsla(225,100%,95%,0.5)] dark:shadow-none'
                     >
                       <div className='flex flex-col justify-between items-start max-w-[112px]'>
-                        <div className='shadow-[0px_8px_18px_0px_hsla(225,100%,95%,0.5)] dark:shadow-[20px_24px_64px_0px_hsla(257,69%,60%,0.4)] bg-background dark:bg-muted dark:text-primary title-small py-2 px-3 rounded-xl border'>
+                        <div className='shadow-[0px_8px_18px_0px_hsla(225,100%,95%,0.5)] dark:shadow-none bg-background dark:bg-muted dark:text-primary title-small py-2 px-3 rounded-xl border'>
                           {resource.tag}
                         </div>
 

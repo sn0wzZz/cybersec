@@ -14,6 +14,7 @@ import EmailsIcon from '@/components/icons/emails'
 import LabProfileIcon from '@/components/icons/lab-profile'
 import MoneyBagIcon from '@/components/icons/money-bag'
 import PasswordIcon from '@/components/icons/password'
+import CTA from '@/components/cta'
 
 
 const cards = [
@@ -140,7 +141,7 @@ export default function Page() {
       </Container>
 
       <Container
-        outer='mt-[100px] py-[100px] bg-muted '
+        outer='mt-[100px] py-[100px] bg-muted dark:bg-card '
         className=' flex flex-col gap-24'
       >
         <ContentBox
@@ -168,6 +169,10 @@ export default function Page() {
           </div>
         </AnimateBlur>
       </Container>
+<Container>
+
+    <CTA />
+</Container>
     </>
   )
 }

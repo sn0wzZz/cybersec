@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
@@ -12,29 +12,41 @@ interface Filter {
 interface FiltersProps {
   filters: Filter[]
   paramName?: string
+  onFilterChange: (filterValue: string) => void // New callback
 }
 
-const Filters = ({ filters, paramName = 'filter' }: FiltersProps) => {
+const Filters = ({
+  filters,
+  paramName = 'filter',
+  onFilterChange,
+}: FiltersProps) => {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
 
-  // Set the default filter to 'all' if no filter is specified in the URL
+  // Get the current filter from the URL or default to 'all'
   const currentFilter = searchParams.get(paramName) || 'all'
+  const [selectedFilter, setSelectedFilter] = useState(currentFilter)
+
+  useEffect(() => {
+    setSelectedFilter(currentFilter)
+  }, [currentFilter])
 
   const handleFilterChange = (filterValue: string) => {
-    console.log('Filter changed to:', filterValue) // Debugging
-    const params = new URLSearchParams(searchParams)
+    setSelectedFilter(filterValue)
+    onFilterChange(filterValue) // Pass the selected filter to the parent
 
-    // If the selected filter is 'all', remove the filter param from the URL
+    const params = new URLSearchParams(searchParams)
     if (filterValue === 'all') {
       params.delete(paramName)
     } else {
       params.set(paramName, filterValue)
     }
 
-    // Update the URL without causing a full page reload
-    replace(`${pathname}?${params.toString()}`)
+    // Update the URL without reloading
+    replace(`${pathname}?${params.toString()}`, {
+      scroll: false,
+    })
   }
 
   return (
@@ -46,7 +58,7 @@ const Filters = ({ filters, paramName = 'filter' }: FiltersProps) => {
             onClick={() => handleFilterChange(filter.value)}
             className={cn(
               'px-3 py-3.5 h-11 flex items-center rounded-[16px] border transition-colors duration-300',
-              currentFilter === filter.value
+              selectedFilter === filter.value
                 ? 'bg-primary-item text-white border-transparent'
                 : 'bg-background dark:bg-card dark:text-primary'
             )}

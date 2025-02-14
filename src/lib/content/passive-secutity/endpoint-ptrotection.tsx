@@ -23,7 +23,9 @@ import PasteSearchIcon from '@/components/icons/paste-search'
 import FactCheckIcon from '@/components/icons/fact-check'
 import PersonCheckIcon from '@/components/icons/person-check'
 import BackHandIcon from '@/components/icons/back-hand'
-import { Button } from '@/components/ui/button'
+
+import Progress from '@/components/progress'
+import CTA from '@/components/cta'
 
 const cards = [
   {
@@ -151,223 +153,258 @@ const cards3 = [
 
 export default function EndpointProtection() {
   return (
-    <Container
-      
-      className=' flex flex-col gap-24'
-      >
-      <ContentBox
-        caption=' An innovative solution to protect your devices'
-        title='Malwarebytes Endpoint Protection'
-        button={{fn: ()=> {}}}
-      >
-        <p>
-          For cybercriminals, the primary target remains enterprise networks,
-          where data, users and enterprise systems come together to generate and
-          implement business processes. To protect your enterprise endpoints and
-          prevent unauthorized parties from using them as entry points into your
-          infrastructure, your IT security team should review ways to enhance
-          your existing security. Implementing the full lifecycle of endpoint
-          protection, from automatically blocking a common threat to quickly and
-          appropriately responding to complex incidents, requires preventative
-          technologies complemented by advanced defense capabilities. <br />{' '}
+    <Container className='overflow-visible flex gap-12'>
+      <div className=' flex flex-col gap-24'>
+        <ContentBox
+          caption=' An innovative solution to protect your devices'
+          title='Malwarebytes Endpoint Protection'
+          id='p-1'
+        
+        >
+          <p>
+            For cybercriminals, the primary target remains enterprise networks,
+            where data, users and enterprise systems come together to generate
+            and implement business processes. To protect your enterprise
+            endpoints and prevent unauthorized parties from using them as entry
+            points into your infrastructure, your IT security team should review
+            ways to enhance your existing security. Implementing the full
+            lifecycle of endpoint protection, from automatically blocking a
+            common threat to quickly and appropriately responding to complex
+            incidents, requires preventative technologies complemented by
+            advanced defense capabilities. <br /> <br />
+            Malwarebytes Endpoint Protection provides affordable security with
+            massive visibility across all enterprise network endpoints together,
+            with superior protection enabling the automation of routine tasks to
+            detect, prioritize, investigate and neutralize sophisticated threats
+            and APT-like attacks.
+            <br /> <br /> CYBERSEC is an official partner of Malwarebytes and as
+            such we can provide our customers with access to the Nebula® and
+            Oneview® platforms as part of the service. Whether you use Endpoint
+            Protection or Endpoint Protection and Response for your endpoints,
+            we&apos;ll provide you with monitoring and support, as well as a
+            24/7 emergency hotline.
+          </p>
+          <AnimateBlur>
+            <Image
+              src={malwarebytes}
+              alt='malwarebytes'
+              className='mx-auto mt-12'
+            />
+          </AnimateBlur>
+        </ContentBox>
+
+        <AnimateSlideUp>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mx-4 mb-8'>
+            {cards.map((card, i) => (
+              <Card key={i}>
+                <CardHeader className='gap-6' icon={card.icon}>
+                  <CardTitle>{card.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{card.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </AnimateSlideUp>
+
+        <ContentBox
+          caption='Additional information about the service'
+          title='Malwarebytes Endpoint Protection'
+          id='p-2'
+          image={clickbait}
+        >
+          Malwarebytes (EP) for Windows and Mac can easily replace or complement
+          other endpoint security solutions, including Microsoft Defender. The
+          software is known for being a seamless, simple and cost-effective
+          deployment solution through a single endpoint agent and offers robust
+          integrations and compatibility. <br />- Non-disruptive, deployment
+          within minutes (even on AD networks)
+          <br />- One endpoint agent, for all Malwarebytes services, simple
+          integration
+          <br />- An intuitive cloud management console that is also used by our
+          SOC. <br />
+          <br /> Enter the world of Malwarebytes Endpoint Protection, a complete
+          malware protection and removal solution with predictive threat
+          detection, proactive threat blocking, and integrated end-to-end
+          protection. Powered by Malwarebytes&apos;s cloud technologies,
+          Endpoint Protection software provides flexible management and speed of
+          their PC and server protection software for organizations of all
+          sizes. <br />
           <br />
-          Malwarebytes Endpoint Protection provides affordable security with
-          massive visibility across all enterprise network endpoints together,
-          with superior protection enabling the automation of routine tasks to
-          detect, prioritize, investigate and neutralize sophisticated threats
-          and APT-like attacks.
-          <br /> <br /> CYBERSEC is an official partner of Malwarebytes and as
-          such we can provide our customers with access to the Nebula® and
-          Oneview® platforms as part of the service. Whether you use Endpoint
-          Protection or Endpoint Protection and Response for your endpoints,
-          we&apos;ll provide you with monitoring and support, as well as a 24/7
-          emergency hotline.
-        </p>
-        <AnimateBlur>
-          <Image
-            src={malwarebytes}
-            alt='malwarebytes'
-            className='mx-auto mt-12'
-          />
-        </AnimateBlur>
-      </ContentBox>
+          With Malwarebytes cloud management software, you can easily scale to
+          meet future requirements. Our cyber intelligence expertise provides
+          you with a solution powered by threat intelligence from millions of
+          endpoints, both business and consumer. Malwarebytes Nebula and
+          OneView&apos;s REST API makes it easy to integrate with SIEM, SOAR,
+          ITSM, etc. for further automation and compatibility.
+        </ContentBox>
 
-      <AnimateSlideUp>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mx-24 mb-8'>
-          {cards.map((card, i) => (
-            <Card key={i}>
-              <CardHeader className='gap-6' icon={card.icon}>
-                <CardTitle>{card.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{card.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </AnimateSlideUp>
+        <ContentBox
+          caption='Advantages of our solution'
+          title='Advantages and opportunities'
+          id='p-3'
+        >
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+            {cards2.map((card, i) => (
+              <Card key={i} icon={card.icon}>
+                <CardHeader>
+                  <CardTitle>{card.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{card.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </ContentBox>
 
-      <ContentBox
-        caption='Additional information about the service'
-        title='Malwarebytes Endpoint Protection'
-        image={clickbait}
-      >
-        Malwarebytes (EP) for Windows and Mac can easily replace or complement
-        other endpoint security solutions, including Microsoft Defender. The
-        software is known for being a seamless, simple and cost-effective
-        deployment solution through a single endpoint agent and offers robust
-        integrations and compatibility. <br />- Non-disruptive, deployment
-        within minutes (even on AD networks)
-        <br />- One endpoint agent, for all Malwarebytes services, simple
-        integration
-        <br />- An intuitive cloud management console that is also used by our
-        SOC. <br />
-        <br /> Enter the world of Malwarebytes Endpoint Protection, a complete
-        malware protection and removal solution with predictive threat
-        detection, proactive threat blocking, and integrated end-to-end
-        protection. Powered by Malwarebytes&apos;s cloud technologies, Endpoint
-        Protection software provides flexible management and speed of their PC
-        and server protection software for organizations of all sizes. <br />
-        <br />
-        With Malwarebytes cloud management software, you can easily scale to
-        meet future requirements. Our cyber intelligence expertise provides you
-        with a solution powered by threat intelligence from millions of
-        endpoints, both business and consumer. Malwarebytes Nebula and
-        OneView&apos;s REST API makes it easy to integrate with SIEM, SOAR,
-        ITSM, etc. for further automation and compatibility.
-      </ContentBox>
+        <ContentBox
+          caption='Antivirus software solution... and more'
+          title='Malwarebytes Endpoint Protection and Response'
+          id='p-4'
+        >
+          Malwarebytes EDR includes integrated endpoint protection and automated
+          adaptive detection techniques that learn at every stage of the threat
+          detection process. Unlike more reactive signature-based solutions that
+          allow malware to run before it actually starts working, Malwarebytes
+          Endpoint Protection EDR detects and blocks threats before devices are
+          infected. Malwarebytes EDR proactively and accurately detects and
+          prevents both malicious code and suspicious behavior. <br /> <br />{' '}
+          The software uses unique Machine Learning technology to detect not
+          only known threats, but also to find unknown ones. Malwarebytes EDR
+          boasts higher accuracy and lower false-positives than the normal
+          product designed for smaller organizations, which is why they have one
+          of the lowest false-positive rates in the industry. Granular isolation
+          capabilities prevent lateral movement in an active attack, allowing
+          you to quarantine and completely isolate individual machines, subnets,
+          or groups and continue active remediation and investigation
+          activities. <br />- Detects 0day threats with very few false
+          positives. <br />- Granular isolation for Windows processes, networks,
+          and desktops. <br />
+          - Removes executables, artifacts, and changes to settings and
+          registries. <br /> <br />
+          For Windows platforms, Malwarebytes EDR includes a unique 72-hour
+          ransomware recovery technology that can turn back the clock and
+          quickly return your business and its documents to a previous state. If
+          an attack affects user files, Malwarebytes can easily roll back those
+          changes to restore files that were encrypted, deleted, or modified in
+          a ransomware attack.
+        </ContentBox>
 
-      <ContentBox
-        caption='Advantages of our solution'
-        title='Advantages and opportunities'
-      >
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
-          {cards2.map((card, i) => (
-            <Card key={i} icon={card.icon}>
-              <CardHeader>
-                <CardTitle>{card.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{card.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </ContentBox>
+        <ContentBox
+          caption='Advantages and disadvantages'
+          title='EDR vs traditional antivirus software'
+          id='p-5'
+        >
+          On the one hand, you have out-of-the-box antivirus software designed
+          for the user who wants to protect multiple personal devices on their
+          home network at home. An antivirus program stops computer viruses, but
+          it can also stop modern threats such as some ransomware, adware, and
+          Trojan malware. <br /> <br /> On the other hand, you have EDR for the
+          business user protecting hundreds, potentially thousands of end
+          devices simultaneously. The devices can be personal employee devices
+          (BYOD) as well as workstations that are governed by the company&apos;s
+          corporate policies. <br /> <br /> When it comes to threat analysis,
+          the typical user just wants to know that their devices are protected.
+          Counting and reporting does not extend much beyond how many threats
+          and what types of threats were blocked in a given period of time. This
+          is not enough for a business user. Security administrators need to
+          know &quot;What happened to my endpoints before and what is happening
+          to my endpoints now?&quot; Traditional antivirus software is not good
+          at answering these questions, but this is where EDR excels. At any
+          given time, EDR has a view on the daily functions of the endpoint.
+          When something outside of normal computer operations and functions
+          occurs, administrators are alerted, presented with the full range of
+          incident information, and given a number of options for action. <br />{' '}
+          <br />
+          <strong>
+            Some capabilities that Malwarebytes EDR offers that are different
+            from traditional antivirus software
+          </strong>
+          <br />
+          - Isolate the computer from the network
+          <br />- Isolate the user from the computer
+          <br />- Shutdown, isolation and control over active processes
+          <br />- Update installed software, operating system, software agent of
+          Malwarebytes
+          <br />- Possibility of full tracking of each process, what and how it
+          performed over time, including sub-processes, impacts on other
+          processes, etc.
+          <br />- Ability to recover files affected by Ransomware in 72 hours
+          <br />- Ability to create detailed exceptions for files that are
+          misdiagnosed as virus/malicious. (IP, MD5 hash, SHA1 hash, wildcard
+          name, folder, full path exclusions)
+          <br />- Ability to apply detailed policies for different software
+          settings on protected computers
+          <br />- Ability to apply automatic notification for different events,
+          criticality, categories, etc.
+          <br />- Option to add additional threats you wish to be blocked
+        </ContentBox>
 
-      <ContentBox
-        caption='Antivirus software solution... and more'
-        title='Malwarebytes Endpoint Protection and Response'
-      >
-        Malwarebytes EDR includes integrated endpoint protection and automated
-        adaptive detection techniques that learn at every stage of the threat
-        detection process. Unlike more reactive signature-based solutions that
-        allow malware to run before it actually starts working, Malwarebytes
-        Endpoint Protection EDR detects and blocks threats before devices are
-        infected. Malwarebytes EDR proactively and accurately detects and
-        prevents both malicious code and suspicious behavior. <br /> <br /> The
-        software uses unique Machine Learning technology to detect not only
-        known threats, but also to find unknown ones. Malwarebytes EDR boasts
-        higher accuracy and lower false-positives than the normal product
-        designed for smaller organizations, which is why they have one of the
-        lowest false-positive rates in the industry. Granular isolation
-        capabilities prevent lateral movement in an active attack, allowing you
-        to quarantine and completely isolate individual machines, subnets, or
-        groups and continue active remediation and investigation activities.{' '}
-        <br />- Detects 0day threats with very few false positives. <br />-
-        Granular isolation for Windows processes, networks, and desktops. <br />
-        - Removes executables, artifacts, and changes to settings and
-        registries. <br /> <br />
-        For Windows platforms, Malwarebytes EDR includes a unique 72-hour
-        ransomware recovery technology that can turn back the clock and quickly
-        return your business and its documents to a previous state. If an attack
-        affects user files, Malwarebytes can easily roll back those changes to
-        restore files that were encrypted, deleted, or modified in a ransomware
-        attack.
-      </ContentBox>
-
-      <ContentBox
-        caption='Advantages and disadvantages'
-        title='EDR vs traditional antivirus software'
-      >
-        On the one hand, you have out-of-the-box antivirus software designed for
-        the user who wants to protect multiple personal devices on their home
-        network at home. An antivirus program stops computer viruses, but it can
-        also stop modern threats such as some ransomware, adware, and Trojan
-        malware. <br /> <br /> On the other hand, you have EDR for the business
-        user protecting hundreds, potentially thousands of end devices
-        simultaneously. The devices can be personal employee devices (BYOD) as
-        well as workstations that are governed by the company&apos;s corporate
-        policies. <br /> <br /> When it comes to threat analysis, the typical
-        user just wants to know that their devices are protected. Counting and
-        reporting does not extend much beyond how many threats and what types of
-        threats were blocked in a given period of time. This is not enough for a
-        business user. Security administrators need to know &quot;What happened
-        to my endpoints before and what is happening to my endpoints now?&quot;
-        Traditional antivirus software is not good at answering these questions,
-        but this is where EDR excels. At any given time, EDR has a view on the
-        daily functions of the endpoint. When something outside of normal
-        computer operations and functions occurs, administrators are alerted,
-        presented with the full range of incident information, and given a
-        number of options for action. <br /> <br />
-        <strong>
-          Some capabilities that Malwarebytes EDR offers that are different from
-          traditional antivirus software
-        </strong>
-        <br />
-        - Isolate the computer from the network
-        <br />- Isolate the user from the computer
-        <br />- Shutdown, isolation and control over active processes
-        <br />- Update installed software, operating system, software agent of
-        Malwarebytes
-        <br />- Possibility of full tracking of each process, what and how it
-        performed over time, including sub-processes, impacts on other
-        processes, etc.
-        <br />- Ability to recover files affected by Ransomware in 72 hours
-        <br />- Ability to create detailed exceptions for files that are
-        misdiagnosed as virus/malicious. (IP, MD5 hash, SHA1 hash, wildcard
-        name, folder, full path exclusions)
-        <br />- Ability to apply detailed policies for different software
-        settings on protected computers
-        <br />- Ability to apply automatic notification for different events,
-        criticality, categories, etc.
-        <br />- Option to add additional threats you wish to be blocked
-      </ContentBox>
-
-      <ContentBox
-        caption='Investing in your cyber defense is always preferable to potential losses'
-        title='Benefits and return on investment'
-      >
-        <p>
-          The biggest threat at the moment are so-called ransomware attacks. In
-          a really huge part of the business, it happens that even with the help
-          of 1 compromised computer, malicious individuals access information
-          and data for the entire company. What follows after that is usually
-          stealing (downloading) the compromised data and infecting key company
-          assets with Ransomware for extortion purposes.
-        </p>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8'>
-          {cards3.map((card, i) => (
-            <Card key={i} icon={card.icon}>
-              <CardHeader>
-                <CardTitle>{card.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{card.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        <AnimateBlur className='flex flex-col justify-center'>
-          <Image
-            src={pc}
-            alt='pc'
-            className='mx-auto mt-12 max-w-[800px] w-full'
-          />
-        <Button variant={'secondary'} className='mt-8 mx-auto'>Get Quote</Button>
-        </AnimateBlur>
-
-      </ContentBox>
+        <ContentBox
+          caption='Investing in your cyber defense is always preferable to potential losses'
+          title='Benefits and return on investment'
+          id='p-6'
+        >
+          <p>
+            The biggest threat at the moment are so-called ransomware attacks.
+            In a really huge part of the business, it happens that even with the
+            help of 1 compromised computer, malicious individuals access
+            information and data for the entire company. What follows after that
+            is usually stealing (downloading) the compromised data and infecting
+            key company assets with Ransomware for extortion purposes.
+          </p>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8'>
+            {cards3.map((card, i) => (
+              <Card key={i} icon={card.icon}>
+                <CardHeader>
+                  <CardTitle>{card.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{card.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <AnimateBlur className='flex flex-col justify-center'>
+            <Image
+              src={pc}
+              alt='pc'
+              className='mx-auto mt-12 max-w-[800px] w-full'
+            />
+          </AnimateBlur>
+          <CTA />
+        </ContentBox>
+      </div>
+      <Progress
+        sections={[
+          {
+            id: 'p-1',
+            title: 'Malwarebytes Endpoint Protection',
+          },
+          {
+            id: 'p-2',
+            title: 'Malwarebytes Endpoint Protection',
+          },
+          {
+            id: 'p-3',
+            title: 'Advantages and opportunities',
+          },
+          {
+            id: 'p-4',
+            title: 'Malwarebytes Endpoint Protection and Response',
+          },
+          {
+            id: 'p-5',
+            title: 'EDR vs traditional antivirus software',
+          },
+        
+        ]}
+        readTime={15}
+        contentStyle='dark:from-card dark:to-card '
+        className='hidden lg:block h-max'
+      />
     </Container>
   )
 }

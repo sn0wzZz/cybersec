@@ -96,7 +96,7 @@ export default function OperationCenter() {
         </AnimateSlideUp>
       </div>
       <AnimateBlur noDelay>
-        <div className='bg-gradient-to-b from-primary dark:from-muted dark:to-muted to-primary-gradient  p-8 md:p-16 rounded-[50px] mt-16 flex flex-col gap-4'>
+        <div className='bg-gradient-to-b from-primary dark:from-card dark:to-card dark:border-t to-primary-gradient  p-8 md:p-16 rounded-[50px] mt-16 flex flex-col gap-4'>
           <div className='flex items-center gap-2'>
             <Bullet />
             <h4 className='display-small text-card dark:text-primary'>

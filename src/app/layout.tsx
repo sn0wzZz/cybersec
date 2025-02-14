@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`   ${generalSans.className} antialiased overflow-x-hidden relative`}
+        className={`${generalSans.className} antialiased overflow-x-hidden relative`}
       >
         <ThemeProvider attribute='class' defaultTheme='light'>
           <Navigation />

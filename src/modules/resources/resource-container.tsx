@@ -7,6 +7,8 @@ import Searchbar from '@/components/navigation/searchbar';
 // import { useSearchParams } from 'next/navigation';
 // import { useState } from 'react';
 import ResourceCard from './resource-card';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const resources = [
   {
@@ -82,31 +84,47 @@ const resourceFilters = [
 ]
 
 export default function ResourceContainer() {
-  // const searchParams = useSearchParams()
-  // const [filteredResources, setFilteredResources] = useState(resources)
-  // const currentFilter = searchParams.get('filter') || 'all'
-  // console.log(filteredResources, currentFilter)
+  const searchParams = useSearchParams()
+  const [selectedFilter, setSelectedFilter] = useState(
+    searchParams.get('filter') || 'all'
+  )
+
+  useEffect(() => {
+    setSelectedFilter(searchParams.get('filter') || 'all')
+  }, [searchParams])
+
+  // Filter resources based on the selected category
+  const filteredResources =
+    selectedFilter === 'all'
+      ? resources
+      : resources.filter((resource) =>
+          resource.tags.map((tag) => tag.toLowerCase()).includes(selectedFilter)
+        )
+
 
   return (
     <Container className='py-10 md:py-16'>
       <div className='flex flex-col lg:flex-row justify-between items-start  gap-8'>
         <h4 className='display-medium md:display-xl text-primary max-w-[521px] text-nowrap'>
-          Here is our latest  Resources{' '}
+          Here is our latest Resources{' '}
         </h4>
       </div>
       <div className='flex  justify-between mt-8 flex-col-reverse  gap-4 lg:flex-row'>
-      <Filters filters={resourceFilters} paramName='filter' />
-      <Searchbar />
-       
+        <Filters
+          filters={resourceFilters}
+          paramName='filter'
+          onFilterChange={setSelectedFilter}
+        />
+        <Searchbar />
       </div>
       <div className='flex flex-col md:flex-row mt-16 gap-[19px]'>
         <ul className='max-w-[797px] flex flex-col gap-8 h-full'>
-          {resources.slice(0, 3).map((resource, i) => (
+          {filteredResources.slice(0, 3).map((resource, i) => (
             <ResourceCard key={`resource-${i + 1}`} resource={resource} />
           ))}
         </ul>
         <ul className='lg:max-w-[481px] flex flex-col gap-8 h-full'>
-          {resources.slice(3, resources.length).map((resource, i) => (
+          {filteredResources.slice(3, resources.length).map((resource, i) => (
             <ResourceCard
               key={`resource-${i + 1}`}
               resource={resource}

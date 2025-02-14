@@ -1,7 +1,7 @@
 import Container from '@/components/container'
 import ContentBox from '@/components/content-box'
+import CTA from '@/components/cta'
 import bug from '../../../../public/services/articles/bug.png'
-import { Button } from '@/components/ui/button'
 
 export default function RiskAssessment() {
   return (
@@ -52,9 +52,7 @@ export default function RiskAssessment() {
             problems?
           </li>
         </ul>
-        <Button variant={'secondary'} className=' mt-8 mr-auto'>
-          Get Quote
-        </Button>
+
       </ContentBox>
 
       <ContentBox
@@ -112,10 +110,8 @@ export default function RiskAssessment() {
           assessments are an integral part of any organization’s IT risk
           management and broader risk management strategy.
         </p>
-        <Button variant={'secondary'} className=' mt-8 mr-auto'>
-          Get Quote
-        </Button>
       </ContentBox>
+      <CTA />
     </Container>
   )
 }

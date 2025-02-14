@@ -1,10 +1,10 @@
 import Container from '@/components/container';
 import ContentBox from '@/components/content-box';
 
-import pcLock from '../../../../public/services/articles/pc-lock.png'
-import files from '../../../../public/services/articles/files.png'
-import network from '../../../../public/services/articles/network.png'
-import { Button } from '@/components/ui/button';
+import CTA from '@/components/cta';
+import files from '../../../../public/services/articles/files.png';
+import network from '../../../../public/services/articles/network.png';
+import pcLock from '../../../../public/services/articles/pc-lock.png';
 
 
 
@@ -40,9 +40,6 @@ export default function InformationSecurityPolicies() {
           their sensitive data. Without a cybersecurity policy, an organization
           may not be able to provide such evidence.
         </p>
-        <Button variant={'secondary'} className=' mt-8 mr-auto'>
-          Get Quote
-        </Button>
       </ContentBox>
 
       <ContentBox
@@ -101,10 +98,8 @@ export default function InformationSecurityPolicies() {
           <li>Secure website management</li>
           <li>Secure workstation management</li>
         </ul>
-        <Button variant={'secondary'} className=' mt-8 mr-auto'>
-          Get Quote
-        </Button>
       </ContentBox>
+      <CTA />
     </Container>
   )
 }

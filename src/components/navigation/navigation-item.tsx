@@ -18,6 +18,21 @@ export type NavigationItem = {
   submenus?: NavigationItem[]
 }
 
+// 🔹 Recursive function to check if a menu item or any of its submenus match the current path
+function isMenuActive(item: NavigationItem, pathname: string): boolean {
+  if (!item.href) return false
+
+  // Direct match or starts with the item.href (fixes direct parent highlighting)
+  if (pathname === item.href || pathname.startsWith(`${item.href}/`)) {
+    return true
+  }
+
+  // Check submenus recursively
+  return item.submenus
+    ? item.submenus.some((submenu) => isMenuActive(submenu, pathname))
+    : false
+}
+
 export default function NavigationItem({
   item,
   level = 0,
@@ -30,6 +45,13 @@ export default function NavigationItem({
   const pathname = usePathname()
   const { activeMenu, setActiveMenu } = useMenu()
   const isOpen = activeMenu?.startsWith(id)
+
+  const hasActiveSubmenu = item.submenus?.some((submenu) =>
+    isMenuActive(submenu, pathname)
+  )
+
+  const isActive =
+    isMenuActive(item, pathname) || hasActiveSubmenu
 
   const handleClose: MouseEventHandler<HTMLDivElement | HTMLButtonElement> = (
     e
@@ -44,13 +66,13 @@ export default function NavigationItem({
     return (
       <li>
         <Link
-          href={item.href?? ''}
+          href={item.href ?? ''}
           className={cn(
-            'block p-2 hover:text-primary transition-colors text-base font-normal relative',
-            'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary',
-            pathname === item.href
+            'block p-2 hover:text-primary transition-colors text-base !font-[400] relative',
+            'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary dark:after:bg-input',
+            isActive
               ? 'text-primary font-medium'
-              : 'text-muted-foreground'
+              : 'text-muted-foreground dark:text-input'
           )}
         >
           {item.label}
@@ -63,11 +85,14 @@ export default function NavigationItem({
     <li>
       <Popover open={isOpen}>
         <PopoverTrigger asChild className='!ring-0 !outline-0'>
-          <Link href={item.href?? ''}>
+          <Link href={item.href ?? ''}>
             <button
               className={cn(
-                'flex items-center gap-2 p-2 text-muted-foreground hover:text-primary transition-colors w-full relative',
-                'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary'
+                'flex items-center gap-2 p-2 transition-colors w-full relative',
+                'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary dark:after:bg-input',
+                isActive
+                  ? 'text-primary font-medium'
+                  : 'text-muted-foreground dark:text-input'
               )}
               onMouseEnter={() => {
                 if (!isOpen) {
@@ -85,7 +110,7 @@ export default function NavigationItem({
         </PopoverTrigger>
         <PopoverContent
           side={level === 0 ? 'bottom' : 'right'}
-          className=' mx-2'
+          className='mx-2'
           sideOffset={level === 0 ? 0 : 20}
           alignOffset={level === 0 ? 0 : -24}
           align='start'

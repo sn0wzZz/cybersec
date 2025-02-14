@@ -9,6 +9,7 @@ import PenIcon from '@/components/icons/pen'
 import PcCodeIcon from '@/components/icons/pc-code'
 import NetworkInteligenceIcon from '@/components/icons/network-inteligence'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import CTA from '@/components/cta'
 
 const approach = [
   {
@@ -113,9 +114,6 @@ export default function SOCAsAService() {
             company resources and can easily scale to meet the needs of
             organizations.
           </p>
-          <Button variant={'secondary'} className=' mt-8 mr-auto'>
-            Get Quote
-          </Button>
         </ContentBox>
       </Container>
 
@@ -135,7 +133,7 @@ export default function SOCAsAService() {
             assets, ensuring continuous security and compliance.
           </p>
 
-          <Button variant={'secondary'} className='text-primary' size={'lg'}>Contact us</Button>
+          <Button variant={'secondary'} className='text-primary hover:from-border  hover:border hover:text-primary hover:to-border hover:dark:from-input hover:dark:to-input dark:text-muted border dark:border from-white to-white' size={'lg'}>Contact us</Button>
         </Container>
       </AnimateBlur>
 
@@ -282,7 +280,7 @@ export default function SOCAsAService() {
           </h4>
           <Tabs defaultValue='onboarding-and-assessment'>
             <TabsList className='bg-transparent  rounded-none   w-full xl:w-auto '>
-              <div className='grid grid-cols-1 xl:grid-cols-4 gap-4 w-full xl:w-auto  '>
+              <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 w-full xl:w-auto  '>
                 {approach.map((scan) => (
                   <TabsTrigger
                     noBullet
@@ -327,21 +325,7 @@ export default function SOCAsAService() {
             ))}
           </div>
         </ContentBox>
-        <ContentBox
-          caption='stable security'
-          title='Start right now'
-          className=' my-24'
-        >
-          <div className=' flex items-center flex-col md:flex-row gap-12 md:gap-8'>
-            <p>
-              Contact us today to learn more about how our SOC as a Service can
-              safeguard your organization’s digital assets and ensure robust
-              security and compliance. Our team is ready to assist you in
-              creating a secure and resilient IT environment.
-            </p>
-            <Button size={'lg'}>Contact us</Button>
-          </div>
-        </ContentBox>
+        <CTA />
       </Container>
     </>
   )
