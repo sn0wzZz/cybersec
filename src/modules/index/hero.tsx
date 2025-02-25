@@ -2,6 +2,7 @@
 import Container from '@/components/container'
 import Check2Icon from '@/components/icons/check-2'
 import { Button } from '@/components/ui/button'
+import { Block } from '@/lib/types'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronRight, TrendingUp } from 'lucide-react'
 import Image from 'next/image'
@@ -16,27 +17,30 @@ import user1 from '../../../public/home/user-1.png'
 import user2 from '../../../public/home/user-2.png'
 import user3 from '../../../public/home/user-3.png'
 import user4 from '../../../public/home/user-4.png'
+import Link from 'next/link'
 
-const memojies= [
-memojie4,memojie3, memojie2, memojie1
-]
+const memojies = [memojie4, memojie3, memojie2, memojie1]
 const users = [
-  { avatar: user1, progress:75 },
-  { avatar: user2, progress:33 },
-  { avatar: user3, progress:66 },
-  { avatar: user4, progress:0 },
-  
+  { avatar: user1, progress: 75 },
+  { avatar: user2, progress: 33 },
+  { avatar: user3, progress: 66 },
+  { avatar: user4, progress: 0 },
 ]
 
-export default function Hero() {
+export default function Hero({ block }: { block: Block | undefined }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [-175, 1750]) 
-  const cardY = useTransform(scrollYProgress, [0, 1], [475, -4000]) 
+  const headline = block?.title
+  const description = block?.description
+  const linkHref = block?.linkHref
+  const linkLabel = block?.linkLabel
+
+  const y = useTransform(scrollYProgress, [0, 1], [-175, 1750])
+  const cardY = useTransform(scrollYProgress, [0, 1], [475, -4000])
 
   return (
     <Container
@@ -57,18 +61,19 @@ export default function Hero() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-        className=' flex flex-col gap-8 items-start z-10  max-w-[647px]'
+        className=' flex flex-col gap-8 items-start z-10 lg:min-w-[647px] max-w-[647px]'
       >
-        <h1 className='display-medium md:display-xl text-accent'>
-          Our business is to protect yours
-        </h1>
-        <p className='mb-[42px] text-2xl body-medium text-muted-foreground'>
-          Take advantage of innovative solutions to protect your IT
-          infrastructure and business security.
-        </p>
-        <Button size={'lg'} className='mt-[24px] z-10'>
-          Get FREE Quote
-        </Button>
+        <h1 className='display-medium md:display-xl text-accent'>{headline}</h1>
+
+        <div
+          className='mb-[42px] text-2xl body-medium text-muted-foreground dark:text-foreground'
+          dangerouslySetInnerHTML={{ __html: description ?? '' }}
+        />
+        <Link href={linkHref ?? ''}>
+          <Button size={'lg'} className='mt-[24px] z-10'>
+            {linkLabel ?? 'Get FREE Quote'}
+          </Button>
+        </Link>
       </motion.div>
       {/* Card */}
       <motion.div
@@ -86,7 +91,12 @@ export default function Hero() {
                 key={i}
                 className='h-[51px]  aspect-square relative bg-background rounded-full flex-center'
               >
-                {user.progress===0&&<span className='absolute w-5 h-5  bg-white dark:text-muted top-0 -right-1 z-10 flex justify-center items-center rounded-full border border-white text-primary '> <Check2Icon className='h-5 w-5 '/></span>}
+                {user.progress === 0 && (
+                  <span className='absolute w-5 h-5  bg-white dark:text-muted top-0 -right-1 z-10 flex justify-center items-center rounded-full border border-white text-primary '>
+                    {' '}
+                    <Check2Icon className='h-5 w-5 ' />
+                  </span>
+                )}
                 <motion.div
                   initial={{ '--progress': 0 }}
                   animate={{ '--progress': user.progress }}

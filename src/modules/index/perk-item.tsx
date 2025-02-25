@@ -1,22 +1,22 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { Perk } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-
 export default function PerkItem({
   perk,
   index,
 }: {
-  perk: { tag: string; title: string; href: string }
+  perk: Perk
   index: number
 }) {
   const [isHovering, setIsHover] = useState(false)
   return (
     <Link
-      href={perk.href}
+      href={perk.linkHref?? ''}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       key={index}
@@ -52,7 +52,7 @@ export default function PerkItem({
         )}
         variant={'outline'}
       >
-        Learn more <ChevronRight className='w-6 h-6' />
+        {perk.linkLabel==='' ? 'Learn more' : perk.linkLabel} <ChevronRight className='w-6 h-6' />
       </Button>
     </Link>
   )

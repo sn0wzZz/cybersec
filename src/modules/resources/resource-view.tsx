@@ -9,31 +9,50 @@ import FacebookIcon from '@/components/icons/facebook'
 import InstagramIcon from '@/components/icons/instagram'
 import XIcon from '@/components/icons/x'
 import LinkedIcon from '@/components/icons/Linkedin'
-import CodeSnippet from '@/components/ui/code-snippet'
+// import CodeSnippet from '@/components/ui/code-snippet'
 import Progress from '@/components/progress'
+import { CMSResource } from './resource-container'
+import { useEffect, useState } from 'react'
 
-const aditionalResources = [
-  {
-    tag: ['Article'],
-    title: 'Weekly Cybersecurity Report 40',
-    href: '/',
-    image: '/resources/resource-9.png',
-  },
-  {
-    tag: ['Article'],
-    title: 'Weekly Cybersecurity Report 35',
-    href: '/',
-    image: '/resources/resource-5.png',
-  },
-  {
-    tag: ['Article'],
-    title: 'Weekly Cybersecurity Report 41',
-    href: '/',
-    image: '/resources/resource-4.png',
-  },
-]
+// const aditionalResources = [
+//   {
+//     tag: ['Article'],
+//     title: 'Weekly Cybersecurity Report 40',
+//     href: '/',
+//     image: '/resources/resource-9.png',
+//   },
+//   {
+//     tag: ['Article'],
+//     title: 'Weekly Cybersecurity Report 35',
+//     href: '/',
+//     image: '/resources/resource-5.png',
+//   },
+//   {
+//     tag: ['Article'],
+//     title: 'Weekly Cybersecurity Report 41',
+//     href: '/',
+//     image: '/resources/resource-4.png',
+//   },
+// ]
 
-export default function ResourceView() {
+export default function ResourceView({
+  data,
+  additionalResources,
+}: {
+  data: CMSResource | undefined
+  additionalResources?: CMSResource[] | undefined
+}) {
+  const [sections, setSections] = useState<{ id: string; title: string }[]>([])
+
+  useEffect(() => {
+    const h3Elements = document.querySelectorAll('h4')
+    const sections = Array.from(h3Elements).map((h3) => ({
+      id: h3.id,
+      title: h3.textContent || '',
+    }))
+    setSections(sections)
+  }, [])
+
   return (
     <Container className='py-16 overflow-visible '>
       <AnimateSlideUp>
@@ -46,14 +65,14 @@ export default function ResourceView() {
               <div className='flex  items-center gap-4'>
                 <div className='relative h-[53px] w-[53px] rounded-full  overflow-hidden'>
                   <Image
-                    src={'/resources/avatar-2.png'}
+                    src={data?.author?.avatar?.url ?? ''}
                     alt={'name'}
                     fill
                     className='object-cover'
                   />
                 </div>
                 <span className='display-xxs text-primary '>
-                  Slavi Slavchev
+                  {data?.author.name}
                 </span>
               </div>
             </div>
@@ -63,32 +82,39 @@ export default function ResourceView() {
                   Published:
                 </span>
 
-                <span className=' display-xxs text-primary'>Nov 8, 2024</span>
+                <span className=' display-xxs text-primary'>
+                  {data?.publishDate ?? 'Not specified'}
+                </span>
               </div>
               <div className='flex flex-col gap-3'>
                 <span className='body-large text-muted-foreground-gray'>
                   Categories:
                 </span>
-
-                <span className=' display-xxs text-primary'>Cybersecurity</span>
+                {data?.categories.map((category) => (
+                  <span key={category.id} className=' display-xxs text-primary'>
+                    {category.name}
+                  </span>
+                ))}
               </div>
               <div className='flex flex-col gap-3'>
                 <span className='body-large text-muted-foreground-gray'>
                   Read time:
                 </span>
 
-                <span className=' display-xxs text-primary'>10 min</span>
+                <span className=' display-xxs text-primary'>
+                  {data?.readTime} min
+                </span>
               </div>
             </div>
           </div>
           <div className='flex flex-col lg:flex-row gap-8 justify-between my-8 md:my-16'>
-            <p className='display-xxs text-primary max-w-[740px]'>
-              As your dedicated cybersecurity services provider, CyberSec equips
-              you with timely and in-depth information about current cyber
-              attacks. Discover a weekly cybersecurity report of the latest
-              exploits and breaches shaping the ever-evolving cybersecurity
-              landscape.
-            </p>
+            <div
+              className='display-xxs text-primary max-w-[740px] '
+              dangerouslySetInnerHTML={{
+                __html: data?.summary ?? '',
+              }}
+            />
+
             <div>
               <span className='display-xxs text-primary '>Social Share:</span>
               <div className='mt-4 flex gap-[20px]'>
@@ -111,25 +137,10 @@ export default function ResourceView() {
           <div className=' mt-10 md:mt-16 flex flex-col xl:flex-row  gap-12'>
             {/* Progress */}
             <div className='max-w-[310px] w-full hidden xl:block '>
-
-            <Progress
-              sections={[
-                {
-                  id: 'p-1',
-                  title: 'Weekly Cybersecurity Report | Week 34, 2024',
-                },
-                { id: 'p-2', title: 'What is 360 feedback?' },
-                {
-                  id: 'p-3',
-                  title:
-                    'Toyota confirmed that its network was breached after a threat actor leaked a 240GB',
-                },
-              ]}
-              readTime={10}
-            />
-                  </div>
+              <Progress sections={sections} readTime={data?.readTime ?? 0} />
+            </div>
             {/* Article */}
-            <div className='flex flex-col gap-10 md:gap-28 dark:text-foreground'>
+            {/* <div className='flex flex-col gap-10 md:gap-28 dark:text-foreground'>
               <div className='flex flex-col gap-6'>
                 <h5
                   className='display-xxs md:display-small text-primary '
@@ -316,22 +327,26 @@ public class ApiFetcher {
                   data was exposed to in the incident. 
                 </p>
               </div>
-            </div>
+            </div> */}
+            <div
+              className='[&_:is(h1,h2,h3,h4,h5,h6)]:text-primary [&_:is(h1,h2,h3,h4,h5,h6)]:display-xxs [&_:is(h1,h2,h3,h4,h5,h6)]:md:display-small [&_img]:rounded-[32px] '
+              dangerouslySetInnerHTML={{ __html: data?.content ?? '' }}
+            />
             {/* More resources */}
             <div className='xl:max-w-[280px] w-full'>
               <div className=' rounded-[40px] flex flex-col gap-8  '>
                 <span className='display-xxs  '>Additional Resources</span>
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  xl:grid-cols-1 gap-4 w-full'>
-                  {aditionalResources.map((resource, i) => (
+                  {additionalResources?.map((resource, i) => (
                     <Link
-                      href={resource.href}
+                      href={resource.slug}
                       key={`res-${i + 1}`}
                       className='flex bg-background dark:bg-background dark:border-t dark:text-primary justify-between w-full rounded-3xl px-4 py-3 shadow-[20px_24px_64px_0px_hsla(225,100%,95%,0.5)] dark:shadow-none'
                     >
                       <div className='flex flex-col justify-between items-start max-w-[112px]'>
                         <div className='shadow-[0px_8px_18px_0px_hsla(225,100%,95%,0.5)] dark:shadow-none bg-background dark:bg-muted dark:text-primary title-small py-2 px-3 rounded-xl border'>
-                          {resource.tag}
+                          {resource?.categories?.at(0)?.name}
                         </div>
 
                         <h6 className='title-medium text-primary'>
@@ -340,7 +355,7 @@ public class ApiFetcher {
                       </div>
                       <div className='relative h-[109px] w-[112px] rounded-[20px] overflow-hidden'>
                         <Image
-                          src={resource.image}
+                          src={resource.thumbnail.url}
                           alt='image'
                           fill
                           className='object-cover'

@@ -1,93 +1,142 @@
-'use client';
-import Container from '@/components/container';
+'use client'
+import Container from '@/components/container'
 
-
-import Filters from '@/components/filters';
-import Searchbar from '@/components/navigation/searchbar';
+import Filters from '@/components/filters'
+import Searchbar from '@/components/navigation/searchbar'
 // import { useSearchParams } from 'next/navigation';
 // import { useState } from 'react';
-import ResourceCard from './resource-card';
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import ResourceCard from './resource-card'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { IBaseCMSObject } from '@/lib/types'
+import slugify from 'slugify'
 
-const resources = [
-  {
-    id: 1,
-    tags: ['Security', 'Analytics'],
-    image: '/resources/resource-3.png',
-    title: 'Weekly Cybersecurity Report',
-    short:
-      'As your dedicated cybersecurity services provider, Cyberone equips you with timely and in-depth information about current cyber attacks.',
-    href: '/',
-  },
-  {
-    id: 2,
-    tags: ['SaaS', 'Analytics'],
-    image: '/resources/resource-4.png',
-    title: 'Weekly Cybersecurity Report',
-    short:
-      'As your dedicated cybersecurity services provider, CyberSec equips you with timely ',
-    href: '/',
-  },
-  {
-    id: 3,
-    tags: ['SaaS', 'Analytics'],
-    image: '/resources/resource-5.png',
-    title: 'Weekly Cybersecurity Report',
-    short:
-      'As your dedicated cybersecurity services provider, CyberSec equips you with timely ',
-    href: '/',
-  },
-  {
-    id: 4,
-    tags: ['SaaS', 'Analytics'],
-    image: '/resources/resource-6.png',
-    title: 'We has joined CyberHive initiative',
-    short:
-      'The initiative aims to analyze the maturity of the European cyber security market by...',
-    href: '/',
-  },
-  {
-    id: 5,
-    tags: ['SaaS', 'Analytics'],
-    image: '/resources/resource-7.png',
-    title: 'Weekly Cybersecurity Report',
-    short:
-      'As your dedicated cybersecurity services provider, Cyberone equips you with timely and...',
-    href: '/',
-  },
-  {
-    id: 6,
-    tags: ['SaaS', 'Analytics'],
-    image: '/resources/resource-8.png',
-    title: 'Weekly Cybersecurity Report',
-    short:
-      'As your dedicated cybersecurity services provider, Cyberone equips you with timely ',
-    href: '/',
-  },
-  {
-    id: 7,
-    tags: ['SaaS', 'Analytics'],
-    image: '/resources/resource-4.png',
-    title: 'Weekly Cybersecurity Report',
-    short:
-      'As your dedicated cybersecurity services provider, Cyberone equips you with timely ',
-    href: '/',
-  },
-]
+// const resources = [
+//   {
+//     id: 1,
+//     tags: ['Security', 'Analytics'],
+//     image: '/resources/resource-3.png',
+//     title: 'Weekly Cybersecurity Report',
+//     short:
+//       'As your dedicated cybersecurity services provider, Cyberone equips you with timely and in-depth information about current cyber attacks.',
+//     href: '/',
+//   },
+//   {
+//     id: 2,
+//     tags: ['SaaS', 'Analytics'],
+//     image: '/resources/resource-4.png',
+//     title: 'Weekly Cybersecurity Report',
+//     short:
+//       'As your dedicated cybersecurity services provider, CyberSec equips you with timely ',
+//     href: '/',
+//   },
+//   {
+//     id: 3,
+//     tags: ['SaaS', 'Analytics'],
+//     image: '/resources/resource-5.png',
+//     title: 'Weekly Cybersecurity Report',
+//     short:
+//       'As your dedicated cybersecurity services provider, CyberSec equips you with timely ',
+//     href: '/',
+//   },
+//   {
+//     id: 4,
+//     tags: ['SaaS', 'Analytics'],
+//     image: '/resources/resource-6.png',
+//     title: 'We has joined CyberHive initiative',
+//     short:
+//       'The initiative aims to analyze the maturity of the European cyber security market by...',
+//     href: '/',
+//   },
+//   {
+//     id: 5,
+//     tags: ['SaaS', 'Analytics'],
+//     image: '/resources/resource-7.png',
+//     title: 'Weekly Cybersecurity Report',
+//     short:
+//       'As your dedicated cybersecurity services provider, Cyberone equips you with timely and...',
+//     href: '/',
+//   },
+//   {
+//     id: 6,
+//     tags: ['SaaS', 'Analytics'],
+//     image: '/resources/resource-8.png',
+//     title: 'Weekly Cybersecurity Report',
+//     short:
+//       'As your dedicated cybersecurity services provider, Cyberone equips you with timely ',
+//     href: '/',
+//   },
+//   {
+//     id: 7,
+//     tags: ['SaaS', 'Analytics'],
+//     image: '/resources/resource-4.png',
+//     title: 'Weekly Cybersecurity Report',
+//     short:
+//       'As your dedicated cybersecurity services provider, Cyberone equips you with timely ',
+//     href: '/',
+//   },
+// ]
 
-const resourceFilters = [
-  { label: 'All Categories', value: 'all' },
-  { label: 'SaaS', value: 'saas' },
-  { label: 'Analytics', value: 'analytics' },
-  { label: 'Security', value: 'security' },
-]
+// const resourceFilters = [
+//   { label: 'All Categories', value: 'all' },
+//   // { label: 'SaaS', value: 'saas' },
+//   // { label: 'Analytics', value: 'analytics' },
+//   // { label: 'Security', value: 'security' },
+// ]
+export interface Category extends IBaseCMSObject {
+  name: string
+}
+export interface Author extends IBaseCMSObject {
+  name: string
+  avatar: Image
+}
+export interface Image extends IBaseCMSObject {
+  url: string
+  mime: string
+  name: string
+  size: number
+  folderId?:string
+  formats: Format
+}
+export interface Format {
+  url: string
+  mime: string
+  name: string
+  size: number
+  format: string
+}
+export interface CMSResource extends IBaseCMSObject {
+  title: string
+  categories: Category[]
+  author: Author
+  readTime: number
+  summary: string
+  content: string
+  thumbnail: Image
+  publishDate?: string
+  slug: string
+}
 
-export default function ResourceContainer() {
+export default function ResourceContainer({
+  resources,
+  categories,
+}: {
+  resources: CMSResource[]
+  categories: Category[]
+}) {
   const searchParams = useSearchParams()
   const [selectedFilter, setSelectedFilter] = useState(
     searchParams.get('filter') || 'all'
   )
+  const cmsCategories = categories.map((category) => ({
+    label: category.name,
+    value: slugify(category.name),
+  }))
+
+  const resourceFilters = [
+    { label: 'All Categories', value: 'all' },
+    ...cmsCategories,
+  ]
 
   useEffect(() => {
     setSelectedFilter(searchParams.get('filter') || 'all')
@@ -98,9 +147,10 @@ export default function ResourceContainer() {
     selectedFilter === 'all'
       ? resources
       : resources.filter((resource) =>
-          resource.tags.map((tag) => tag.toLowerCase()).includes(selectedFilter)
+          resource.categories
+            .map((category) => slugify(category.name))
+            .includes(selectedFilter)
         )
-
 
   return (
     <Container className='py-10 md:py-16'>

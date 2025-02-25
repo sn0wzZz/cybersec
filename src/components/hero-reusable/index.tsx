@@ -14,9 +14,9 @@ export default function HeroReusable({
   button,
 }: {
   title: string
-  image: StaticImageData | string
+  image: string | StaticImageData
   button: {
-    label?: string 
+    label?: string
     href?: string
   }
 }) {

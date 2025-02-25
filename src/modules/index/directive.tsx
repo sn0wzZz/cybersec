@@ -1,33 +1,47 @@
 'use client'
+
 import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
+import { Block, Perk } from '@/lib/types'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
-import PerkItem from './perk-item'
-import { useScroll, motion, useTransform } from 'framer-motion'
+import Link from 'next/link'
 import { useRef } from 'react'
+import PerkItem from './perk-item'
 
-const perks = [
-  {
-    tag: 'Get expert advice on how to protect your business',
-    title: 'We are your trusted partner',
-    href: '/',
-  },
-  {
-    tag: 'Get expert advice on how to protect your business',
-    title: 'We are your trusted partner',
-    href: '/',
-  },
-  {
-    tag: 'Get expert advice on how to protect your business',
-    title: 'We are your trusted partner',
-    href: '/',
-  },
-]
+// const perks = [
+//   {
+//     tag: 'Get expert advice on how to protect your business',
+//     title: 'We are your trusted partner',
+//     href: '/',
+//   },
+//   {
+//     tag: 'Get expert advice on how to protect your business',
+//     title: 'We are your trusted partner',
+//     href: '/',
+//   },
+//   {
+//     tag: 'Get expert advice on how to protect your business',
+//     title: 'We are your trusted partner',
+//     href: '/',
+//   },
+// ]
 
-export default function Directive() {
+export default function Directive({
+  block,
+  perks,
+}: {
+  block: Block | undefined
+  perks: Perk[] | undefined
+}) {
   const textRef = useRef(null)
   const playerRef = useRef(null)
   const perksRef = useRef(null)
+
+  const title = block?.title
+  const description = block?.description
+  const linkHref = block?.linkHref
+  const linkLabel = block?.linkLabel
 
   const { scrollYProgress: textProgress } = useScroll({
     target: textRef,
@@ -39,14 +53,14 @@ export default function Directive() {
     offset: ['start end', 'end end'],
   })
 
-   const { scrollYProgress: perksProgress } = useScroll({
-     target: perksRef,
-     offset: ['start end', 'end end'],
-   })
+  const { scrollYProgress: perksProgress } = useScroll({
+    target: perksRef,
+    offset: ['start end', 'end end'],
+  })
 
   const textX = useTransform(textProgress, [0, 1], [-500, 0])
   const playerX = useTransform(playerProgress, [0, 1], [1000, 0])
-  const  perksY = useTransform(perksProgress, [0, 1], [500, 0])
+  const perksY = useTransform(perksProgress, [0, 1], [500, 0])
 
   return (
     <Container as='section' className='flex flex-col gap-4 overflow-x-hidden'>
@@ -57,18 +71,18 @@ export default function Directive() {
           className='flex flex-col gap-6 items-start'
         >
           <h2 className='display-large md:display-xl text-accent max-w-[707px]'>
-            Everything about the NIS2 Directive
+            {title}
           </h2>
-          <p className='body-large text-foreground max-w-[550px]'>
-            The new EU directive NIS 2 raises the bar for cyber security and
-            affects many sectors of public life. It is not just about legal
-            compliance, but also has a major focus in technology. It highlights
-            the strong involvement of management in building a cyber resilient
-            organisation.
-          </p>
-          <Button className='title-medium ' variant={'outline'} size={'lg'}>
-            Learn more <ChevronRight className='w-6 h-6' />
-          </Button>
+          <div
+            className='body-large text-foreground max-w-[550px]'
+            dangerouslySetInnerHTML={{ __html: description ?? '' }}
+          />
+
+          <Link href={linkHref ?? ''} target='_blank'>
+            <Button className='title-medium ' variant={'outline'} size={'lg'}>
+              {linkLabel ?? 'Learn more'} <ChevronRight className='w-6 h-6' />
+            </Button>
+          </Link>
         </motion.div>
         <motion.div
           ref={playerRef}
@@ -78,7 +92,7 @@ export default function Directive() {
           <iframe
             width='100%'
             height='100%'
-            src='https://www.youtube.com/embed/dQw4w9WgXcQ'
+            src={linkHref}
             title='YouTube video'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
@@ -91,7 +105,7 @@ export default function Directive() {
         className='overflow-x-scroll no-scrollbar'
       >
         <div className='flex gap-[20px] mt-[75px] w-max'>
-          {perks.map((perk, i) => (
+          {perks?.sort(((a,b) => a.order-b.order)).map((perk, i) => (
             <PerkItem key={i} perk={perk} index={i} />
           ))}
         </div>
